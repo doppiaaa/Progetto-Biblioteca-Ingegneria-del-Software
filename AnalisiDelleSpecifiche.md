@@ -53,7 +53,8 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
  Precondizioni: Bibliotecario loggato
  Post condizioni: il bibliotecario ha registrato un utente  
  Flusso eventi:  
-   1 Bibliotecario seleziona "registra utente"  
+   1 Bibliotecario va nell'area "gestione utente"  
+   2 Bibliotecario sceglie l'opzione di creare un nuovo utente
    2 Bibliotecario inserisce nome, cognome, matricola, mail, lista dei prestiti attivi    
    3 account creato e salvato nel DB della biblioteca  
 
@@ -62,17 +63,18 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
   precondizioni:bibliotecario loggato e utente registrato    
   postcondizioni:utente modificato 
   flusso eventi:  
-   1 il bibliotecario deve modificare i dati di un utente
+   1 il bibliotecario va nell'area "gestione utente"
    2 il bibliotecario cerca l'utente da modificare  
    3 il bibliotecario seleziona l'utente  
-   4 il bibliotecario modifica i dati dell'utente    
+   4 il bibliotecario modifica i dati dell'utente  
+   5 account modificato e DB aggiornato
 
 3)nome: eliminazione utente  
  attori partecipanti:bibliotecario  
  precondizioni: bibliotecario loggato e utente registrato  
  postcondizioni: utente eliminato    
  flusso eventi:  
-  1 il bibliotecario deve eliminare un utente dall'archivio  
+  1 il bibliotecario va nell'area "gestione utente"  
   2 il bibliotecario cerca l'utente da eliminare  
   3 il bibliotecario seleziona l'utente da eliminare   
   4 il bibliotecario elimina l'utente dall'archivio  
@@ -98,25 +100,29 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
   flusso eventi:  
    1 bibliotecrio controlla se il prestito è nell'elenco  
    2 viene confermata la restituzione e aggiornato il database  
-   flusso alternativo:
+   flusso alternativo:  
+   1a prestito non esistente
 
-6)nome: registrazione libro
+6)nome: aggiunta libro
  attori partecipanti:bibliotecario  
  precondizioni: bibliotecario loggato  
  postcondizioni: libro registrato    
  flusso eventi:  
-  1 il bibliotecario riceve un libro nuovo  non presente in biblioteca
-  2 il bibliotecario registra il titolo autore e isbn del libro  
+  1 il bibliotecario riceve un libro non presente nel catalogo  
+  2 il bibliotecario registra il libro con: il titolo, l'autore, l'anno di pubblicazione e il codice isbn del libro
+  3 il catalogo viene aggiornato
+  
 
 7)nome: modifica libro  
   attori partecipanti: bibliotecario  
-  precondizioni:bibliotecario loggato e libro già registrato  
+  precondizioni:bibliotecario loggato e libro già presente in catalogo  
   postcondizioni:libro modificato 
   flusso eventi:  
    1 il bibliotecario deve modificare i dati di un libro
    2 il bibliotecario cerca il libro da modificare  
    3 il bibliotecario seleziona il libro  
    4 il bibliotecario modifica i dati del libro  
+   5 le modifiche vengono salvate
 
 8)nome: eliminazione libro  
  attori partecipanti:bibliotecario  
@@ -126,11 +132,11 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
   1 il bibliotecario deve eliminare un libro dall'archivio  
   2 il bibliotecario cerca il libro da eliminare  
   3 il bibliotecario seleziona il libro da eliminare  
-  4 il bibliotecario controlla se il libro è in prestito  
+  4 il bibliotecario controlla se ci sono copie del libro in prestito  
   5 il bibliotecario elimina il libro dall'archivio  
 flussi alternativi:  
   4a il libro è attualmente in prestito  
-  4a il bibliotecario non può eliminare il libro fin quando non è di nuovo disponibile  
+  4a il bibliotecario non può eliminare il libro fin quando tutti le copie in prestito non sono ritornate  
 
   
  
