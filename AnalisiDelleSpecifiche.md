@@ -45,4 +45,98 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
  -  FC-1.4 : Compatibilità, deve garantire utilizzo su vari sistemi operativi
 
  -  FC-1.5 : Scalabilità, il sistema deve essere in grado di essere modificato per gestire un ipotetico volume maggiore di libri, utenti e prestiti
-      
+
+4. Casi D'uso
+
+1)Nome: Registrazione utente    
+ Attori partecipanti: Bibliotecario   
+ Precondizioni: Bibliotecario loggato
+ Post condizioni: il bibliotecario ha registrato un utente  
+ Flusso eventi:  
+   1 Bibliotecario seleziona "registra utente"  
+   2 Bibliotecario inserisce nome, cognome, matricola, mail, lista dei prestiti attivi    
+   3 account creato e salvato nel DB della biblioteca  
+
+2)nome: modifica utente  
+  attori partecipanti: bibliotecario  
+  precondizioni:bibliotecario loggato e utente registrato    
+  postcondizioni:utente modificato 
+  flusso eventi:  
+   1 il bibliotecario deve modificare i dati di un utente
+   2 il bibliotecario cerca l'utente da modificare  
+   3 il bibliotecario seleziona l'utente  
+   4 il bibliotecario modifica i dati dell'utente    
+
+3)nome: eliminazione utente  
+ attori partecipanti:bibliotecario  
+ precondizioni: bibliotecario loggato e utente registrato  
+ postcondizioni: utente eliminato    
+ flusso eventi:  
+  1 il bibliotecario deve eliminare un utente dall'archivio  
+  2 il bibliotecario cerca l'utente da eliminare  
+  3 il bibliotecario seleziona l'utente da eliminare   
+  4 il bibliotecario elimina l'utente dall'archivio  
+  
+4)nome: Prestito  
+ attori partecipanti:Bibliotecario    
+ precondizioni:bibliotecario loggato e utente registrato
+ postcondizioni: l'utente ha ricevuto il libro in prestito
+ flusso eventi:    
+   1 il bibliotecario controlla se il libro che è stato richiesto dall'utente è presente in biblioteca  
+   2 il bibliotecario controlla se l'utente ha più di tre libri già in prestito  
+   3 il bibliotecario specifica la data entro il quale deve essere restituito  
+   4 il libro viene marcato come in prestito e il catalogo viene aggiornato    
+ flusso alternativo:  
+   1a il libro non è presente  
+   2a l'utente ha più di 3 libri in prestito   
+   
+ 
+5)nome: Restituzione  
+  attori partecipanti:Bibliotecario   
+  precondizioni: bibliotecario loggato utente registrato
+  postcondizioni: l'utente ha restituito il libro in prestito  
+  flusso eventi:  
+   1 bibliotecrio controlla se il prestito è nell'elenco  
+   2 viene confermata la restituzione e aggiornato il database  
+   flusso alternativo:
+
+6)nome: registrazione libro
+ attori partecipanti:bibliotecario  
+ precondizioni: bibliotecario loggato  
+ postcondizioni: libro registrato    
+ flusso eventi:  
+  1 il bibliotecario riceve un libro nuovo  non presente in biblioteca
+  2 il bibliotecario registra il titolo autore e isbn del libro  
+
+7)nome: modifica libro  
+  attori partecipanti: bibliotecario  
+  precondizioni:bibliotecario loggato e libro già registrato  
+  postcondizioni:libro modificato 
+  flusso eventi:  
+   1 il bibliotecario deve modificare i dati di un libro
+   2 il bibliotecario cerca il libro da modificare  
+   3 il bibliotecario seleziona il libro  
+   4 il bibliotecario modifica i dati del libro  
+
+8)nome: eliminazione libro  
+ attori partecipanti:bibliotecario  
+ precondizioni: bibliotecario loggato  
+ postcondizioni: libro eliminato    
+ flusso eventi:  
+  1 il bibliotecario deve eliminare un libro dall'archivio  
+  2 il bibliotecario cerca il libro da eliminare  
+  3 il bibliotecario seleziona il libro da eliminare  
+  4 il bibliotecario controlla se il libro è in prestito  
+  5 il bibliotecario elimina il libro dall'archivio  
+flussi alternativi:  
+  4a il libro è attualmente in prestito  
+  4a il bibliotecario non può eliminare il libro fin quando non è di nuovo disponibile  
+
+  
+ 
+   
+ 
+
+    
+    
+
