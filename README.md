@@ -38,8 +38,7 @@ Progetto di Ingegneria del Software: applicazione di gestione di una biblioteca
 * **Revisione Documenti**: revisionare tutta la documentazione ⏳.
 
 ## 5. Discussione e presentazione del Progetto (16 - 19 Dicembre)
-**Durata 8 minuti**
-**bisogna illustrare:**
+**Durata 8 minuti, bisogna illustrare:**
 * **Casi d'uso e commenti.**
 * **Diagrammi delle classi e commenti.**
 * **Cambiamenti in corso d'opera e aggiornamenti.**
