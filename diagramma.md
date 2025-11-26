@@ -1,5 +1,5 @@
-@startuml
-Biblioteca
+```plantuml
+@startuml Biblioteca
 
 actor Utente
 
@@ -55,3 +55,4 @@ UteNonAbl -- SelezionaUtente : Text
 
 ' Simbolo di inizio processo
 (*) --> RegistraPrestito
+```
