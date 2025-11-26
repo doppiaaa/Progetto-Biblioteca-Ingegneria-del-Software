@@ -17,7 +17,7 @@ Progetto di Ingegneria del Software: applicazione di gestione di una biblioteca
 
 ## 3. Design & Design di dettaglio (Scadenza 8 Dicembre)
 ### 3.1 Design
-* **Progettazione:** Progettare il sistema⏳.
+* **Progettazione:** Progettare il sistema ✅.
 * **Documentazione:** Scrivere il documento che include:
     * **Diagrammi delle classi ⏳**
     * **Diagrammi di sequenza per le interazioni ⏳**
