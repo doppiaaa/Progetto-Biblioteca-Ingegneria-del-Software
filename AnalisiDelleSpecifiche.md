@@ -146,7 +146,26 @@ flussi alternativi:
 
   ![Diagramma dei casi d'uso](UCDiagram.png)
 
-  
+   QA(esterni)
+
+ Disponibilità: il sistema deve essere disponibile e operativo in qualsiasi momento in cui la biblioteca è aperta  
+ 
+ Efficienza: il sistema deve essere sufficientemente efficiente da poter garantire tempi di attesa bassi per le operazioni relative ai libri e agli utenti  
+
+ Sicurezza: il sistema necessità di un sistema di sicurezza basico caratterizzato da credenziali (password) utili per permettere unicamente agli addetti di potervi accedere  
+
+ Scalabilità: il sistema deve permettere migliorie in caso il numero di utenti o di libri vada ad aumentare  
+
+ Usabilità: il sistema deve essere intuitivo così da permettere a chi lo utilizza di lavorare alla massima efficienza
+
+ QA(interni)  
+
+ Manutentibilità: il sistema deve essere correttamente commentato e descritto così da essere modificato con facilità  
+
+ Modularità: ...  
+
+ Testabilità: ...  
+
  
    
  
