@@ -55,4 +55,6 @@ UteNonAbl -- SelezionaUtente : Text
 
 ' Simbolo di inizio processo
 (*) --> RegistraPrestito
+
+@enduml
 ```
