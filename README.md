@@ -12,8 +12,8 @@ Progetto di Ingegneria del Software: applicazione di gestione di una biblioteca
 ## 2. Ingegneria dei requisiti (Scadenza 1 Dicembre)
 * **Analisi dei requisiti:✅**
 * **Tabella dei requisiti:✅**
-* **Casi d'uso: ⏳**
-* **Revisione Specifiche:⏳**
+* **Casi d'uso: ✅**
+* **Revisione Specifiche:✅**
 
 ## 3. Design & Design di dettaglio (Scadenza 8 Dicembre)
 ### 3.1 Design
