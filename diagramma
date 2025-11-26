@@ -1,3 +1,4 @@
+```mermaid
 graph TD
     %% Attori
     actor[Bibliotecario]
@@ -47,3 +48,4 @@ graph TD
     UC2 .> UC4 : <<include>>
     UC3 .> UC4 : <<include>>
     UC7 .> UC8 : <<include>>
+'''
