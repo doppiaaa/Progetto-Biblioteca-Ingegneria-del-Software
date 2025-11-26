@@ -57,6 +57,7 @@ UteNonAbl -- SelezionaUtente : Text
 (*) --> RegistraPrestito
 
 @enduml
+```
 
 @enduml
 ```
