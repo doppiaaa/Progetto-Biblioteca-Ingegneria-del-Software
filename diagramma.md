@@ -58,6 +58,3 @@ UteNonAbl -- SelezionaUtente : Text
 
 @enduml
 ```
-
-@enduml
-```
