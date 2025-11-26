@@ -1,4 +1,3 @@
-```mermaid
 graph TD
     %% Attori
     actor[Bibliotecario]
@@ -43,7 +42,7 @@ graph TD
     actor --> UC10
     actor --> UC11
 
+    %% Relazioni Include (Ogni relazione su una riga separata)
     UC2 .> UC4 : <<include>>
     UC3 .> UC4 : <<include>>
     UC7 .> UC8 : <<include>>
-```
