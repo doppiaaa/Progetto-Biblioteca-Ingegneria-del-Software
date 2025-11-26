@@ -43,9 +43,7 @@ graph TD
     actor --> UC10
     actor --> UC11
 
-    %% Relazioni Include/Extend (Optional - per completezza, basato sui flussi)
-    %% Per esempio, la Ricerca è una funzionalità che può essere inclusa nella Modifica/Eliminazione
     UC2 .> UC4 : <<include>>
     UC3 .> UC4 : <<include>>
     UC7 .> UC8 : <<include>>
-'''
+```
