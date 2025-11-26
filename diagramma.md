@@ -1,5 +1,4 @@
 ```plantuml
-@startuml ...
 @startuml Biblioteca
 
 ' Definisci gli Attori (l'attore principale è implicito dalla freccia iniziale)
@@ -72,6 +71,5 @@ UteNonAbl -- SelezionaUtente : Text
 ' Simbolo di inizio processo (punto nero pieno) - lo collego al caso d'uso iniziale
 (*) --> RegistraPrestito
 
-@enduml
 @enduml
 ```
