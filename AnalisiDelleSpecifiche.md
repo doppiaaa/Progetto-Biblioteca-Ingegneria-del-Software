@@ -144,6 +144,8 @@ flussi alternativi:
   5a il libro è attualmente in prestito  
   5a il bibliotecario non può eliminare il libro fin quando tutti le copie in prestito non sono ritornate  
 
+  ![Diagramma dei casi d'uso](UCDiagram.png)
+
   
  
    
