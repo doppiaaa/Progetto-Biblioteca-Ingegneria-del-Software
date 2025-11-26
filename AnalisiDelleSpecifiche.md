@@ -52,7 +52,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
 
 1)Nome: *Registrazione utente*    
  Attori partecipanti: Bibliotecario   
- Precondizioni: Bibliotecario loggato
+ Precondizioni: Bibliotecario loggato  
  Post condizioni: il bibliotecario ha registrato un utente    
  Flusso eventi:  
    1 Bibliotecario va nell'area "gestione utente"    
@@ -83,7 +83,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
   
 4)nome: *Registrazione Prestito*  
  attori partecipanti:Bibliotecario    
- precondizioni:bibliotecario loggato e utente registrato
+ precondizioni:bibliotecario loggato e utente registrato  
  postcondizioni: l'utente ha ricevuto il libro in prestito  
  flusso eventi:    
    1 il bibliotecario controlla se il libro che è stato richiesto dall'utente è presente in biblioteca  
@@ -105,9 +105,9 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
    flusso alternativo:  
    1a prestito non esistente
 
-6)nome: *Aggiunta libro*
+6)nome: *Aggiunta libro*  
  attori partecipanti:bibliotecario  
- precondizioni: bibliotecario loggato  
+ precondizioni: bibliotecario loggato    
  postcondizioni: libro registrato      
  flusso eventi:  
   1 il bibliotecario riceve un libro non presente nel catalogo  
