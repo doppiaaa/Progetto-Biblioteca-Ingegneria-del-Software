@@ -9,7 +9,7 @@ Il cliente richiede un'applicazione per gestire il catalogo, gli utenti e i pres
 |----------|----------|
 | Funzionalità individuali (**IF**)   | [IF-1.1](#accesso) , [IF-1.2](#utenti) , [IF-1.3](#utenti) , [IF-1.4](#libri) , [IF-1.5](#libri) |
 | Business Flow (**BF**)   | [BF-1.1](#prestiti) , [BF-1.2](#prestiti) , [BF-1.3](#prestiti) , [BF-1.4](#prestiti)   |
-| Data Format (**DF**)|[DF-1.1](#accesso) , [DF-1.2](#utenti) , [DF-1.3](#libri) |
+| Data Format (**DF**)|[DF-1.1](#accesso) , [DF-1.2](#utenti) , [DF-1.3](#libri) , [DF-1.4](#archivio) |
 | Interfaccia Utente (**UI**)|[UI-1.1](#utenti) , [UI-1.2](#libri) , [UI-1.3](#prestiti)|
 | Ulteriori Vincoli (**FC**)|[FC-1.1](#altri) , [FC-1.2](#altri) , [FC-1.3](#altri) , [FC-1.4](#altri) , [FC-1.5](#altri) |
 
@@ -33,7 +33,9 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
       BF-1.2 : Un libro può essere prestato solo se ci sono copie disponibili	    
       BF-1.3 : Un utente non può avere più di tre libri in prestito contemporaneamente	    
       UI-1.3 : Il bilbiotecario può visualizzare l'elenco dei prestiti attivi, ordinato per prevista data di restituzione (evidenziando i ritardi)	    
-      BF-1.4 : Il bibliotecario può registrare la restituzione di un libro	
+      BF-1.4 : Il bibliotecario può registrare la restituzione di un libro
+- <a name="archivio">***Archivio***</a>        
+      DF-1.4 : Tutto il Database deve poter essere salvato su file 
 ***
 
 **3. <a name="altri">Requisiti non funzionali</a>**	
@@ -50,99 +52,111 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
 
 **4. Casi D'uso**
 
-1)Nome: *Registrazione utente*    
- Attori partecipanti: Bibliotecario   
- Precondizioni: Bibliotecario loggato  
- Post condizioni: il bibliotecario ha registrato un utente    
- Flusso eventi:  
-   1 Bibliotecario va nell'area "gestione utente"    
-   2 Bibliotecario sceglie l'opzione di creare un nuovo utente  
-   3 Bibliotecario inserisce nome, cognome, matricola, mail, lista dei prestiti attivi      
-   4 account creato e salvato nel DB della biblioteca  
+**1)**  
+-Nome: ***Registrazione Utente***    
+ -Attori partecipanti: Bibliotecario   
+ -Precondizioni: Bibliotecario loggato  
+ -Post condizioni: il bibliotecario ha registrato un utente    
+ **Flusso eventi:**  
+   1. Bibliotecario va nell'area "gestione utente"    
+   2. Bibliotecario sceglie l'opzione di creare un nuovo utente  
+   3. Bibliotecario inserisce nome, cognome, matricola, mail, lista dei prestiti attivi      
+   4. Account creato e salvato nel DB della biblioteca  
 
-2)nome: *Modifica utente*  
-  attori partecipanti: bibliotecario  
-  precondizioni:bibliotecario loggato e utente registrato    
-  postcondizioni:utente modificato   
-  flusso eventi:  
-   1 il bibliotecario va nell'area "gestione utente"  
-   2 il bibliotecario cerca l'utente da modificare    
-   3 il bibliotecario seleziona l'utente   
-   4 il bibliotecario modifica i dati dell'utente  
-   5 account modificato e DB aggiornato
+**2)**  
+-Nome: ***Modifica Utente***  
+  -Attori partecipanti: bibliotecario  
+  -Precondizioni:bibliotecario loggato e utente registrato    
+  -Postcondizioni:utente modificato   
+  **Flusso eventi:**  
+   1. Il bibliotecario va nell'area "gestione utente"  
+   2. Il bibliotecario cerca l'utente da modificare    
+   3. Il bibliotecario seleziona l'utente
+   4. Il bibliotecario modifica i dati dell'utente  
+   5.  Account modificato e DB aggiornato
 
-3)nome: *Eliminazione utente*  
- attori partecipanti:bibliotecario  
- precondizioni: bibliotecario loggato e utente registrato  
- postcondizioni: utente eliminato      
- flusso eventi:  
-  1 il bibliotecario va nell'area "gestione utente"  
-  2 il bibliotecario cerca l'utente da eliminare  
-  3 il bibliotecario seleziona l'utente da eliminare   
-  4 il bibliotecario elimina l'utente dall'archivio  
+**3)**  
+-Nome: ***Eliminazione Utente***  
+ -Attori partecipanti:bibliotecario  
+ -Precondizioni: bibliotecario loggato e utente registrato  
+ -Postcondizioni: utente eliminato      
+ **Flusso eventi:**  
+  1. Il bibliotecario va nell'area "gestione utente"  
+  2. Il bibliotecario cerca l'utente da eliminare  
+  3. Il bibliotecario seleziona l'utente da eliminare  
+  4. Viene controllato se l'utente abbia prestiti in sospeso  
+  5. Il bibliotecario elimina l'utente dall'archivio   
+  **Flusso alternativo:**  
+  4a. L'utente ha ancora prestiti attivi  
+  4a. Non può essere cancellato un utente se non ha risolto tutti i suoi prestiti
   
-4)nome: *Registrazione Prestito*  
- attori partecipanti:Bibliotecario    
- precondizioni:bibliotecario loggato e utente registrato  
- postcondizioni: l'utente ha ricevuto il libro in prestito  
- flusso eventi:    
-   1 il bibliotecario controlla se il libro che è stato richiesto dall'utente è presente in biblioteca  
-   2 il bibliotecario controlla se l'utente ha più di tre libri già in prestito  
-   3 il bibliotecario specifica la data entro il quale deve essere restituito  
-   4 il libro viene marcato come in prestito e il catalogo viene aggiornato    
- flusso alternativo:  
-   1a il libro non è presente  
-   2a l'utente ha più di 3 libri in prestito   
+**4)**
+-Nome: ***Registrazione Prestito***  
+ -Attori partecipanti:Bibliotecario    
+ -Precondizioni:bibliotecario loggato e utente registrato  
+ -Postcondizioni: l'utente ha ricevuto il libro in prestito  
+ **Flusso eventi:**    
+   1. Il bibliotecario controlla se il libro che è stato richiesto dall'utente è presente in biblioteca  
+   2. Il bibliotecario controlla se l'utente ha più di tre libri già in prestito  
+   3. Il bibliotecario specifica la data entro il quale deve essere restituito  
+   4. Il libro viene marcato come in prestito e il catalogo viene aggiornato    
+ **Flusso alternativo:**  
+   1a. Il libro non è presente  
+   2a. L'utente ha più di 3 libri in prestito   
    
  
-5)nome: *Registrazione Restituzione*  
-  attori partecipanti:Bibliotecario   
-  precondizioni: bibliotecario loggato utente registrato
-  postcondizioni: l'utente ha restituito il libro in prestito    
-  flusso eventi:  
-   1 bibliotecrio controlla se il prestito è nell'elenco  
-   2 viene confermata la restituzione e aggiornato il database    
-   flusso alternativo:  
-   1a prestito non esistente
+**5)**  
+-Nome: ***Registrazione Restituzione***  
+  -Attori partecipanti:Bibliotecario   
+  -Precondizioni: bibliotecario loggato utente registrato  
+  -Postcondizioni: l'utente ha restituito il libro in prestito    
+  **Flusso eventi:**  
+   1. Bibliotecrio controlla se il prestito è nell'elenco  
+   2. Viene confermata la restituzione e aggiornato il database    
+   **Flusso alternativo:**  
+   1a. Prestito non esistente
 
-6)nome: *Aggiunta libro*  
- attori partecipanti:bibliotecario  
- precondizioni: bibliotecario loggato    
- postcondizioni: libro registrato      
- flusso eventi:  
-  1 il bibliotecario riceve un libro non presente nel catalogo  
-  2 Il bibliotecario va nell'area "Gestione Libri"  
-  3 Il Bibliotecario sceglie "Aggiungi Libro"  
-  2 il bibliotecario registra il libro con: il titolo, l'autore, l'anno di pubblicazione e il codice isbn del libro  
-  3 il catalogo viene aggiornato  
+**6)**
+-Nome: ***Aggiunta Libro***  
+-Attori partecipanti:bibliotecario  
+ -Precondizioni: bibliotecario loggato    
+ -Postcondizioni: libro registrato      
+ **Flusso eventi:**  
+  1. Il bibliotecario riceve un libro non presente nel catalogo  
+  2. Il bibliotecario va nell'area "Gestione Libri"  
+  3. Il Bibliotecario sceglie "Aggiungi Libro"  
+  4. Il bibliotecario registra il libro con: il titolo, l'autore, l'anno di pubblicazione e il codice isbn del libro  
+  5. Il catalogo viene aggiornato  
   
 
-7)nome: *Modifica libro*  
-  attori partecipanti: bibliotecario  
-  precondizioni:bibliotecario loggato e libro già presente in catalogo  
-  postcondizioni:libro modificato   
-  flusso eventi:  
-   1 il bibliotecario deve modificare i dati di un libro
-   2 Il bibliotecario va nell'area "Gestione Libri"   
-   3 il bibliotecario cerca il libro da modificare  
-   4 il bibliotecario seleziona il libro  
-   5 il bibliotecario modifica i dati del libro  
-   6 le modifiche vengono salvate
+**7)**  
+-Nome: ***Modifica Libro***  
+  -Attori partecipanti: bibliotecario  
+  -Precondizioni:bibliotecario loggato e libro già presente in catalogo  
+  -Postcondizioni:libro modificato   
+  **Flusso eventi:**  
+   1. Il bibliotecario deve modificare i dati di un libro
+   2. Il bibliotecario va nell'area "Gestione Libri"   
+   3. Il bibliotecario cerca il libro da modificare  
+   4. Il bibliotecario seleziona il libro  
+   5. Il bibliotecario modifica i dati del libro  
+   6. Le modifiche vengono salvate
 
-8)nome: *Eliminazione libro*  
- attori partecipanti:bibliotecario  
- precondizioni: bibliotecario loggato  
- postcondizioni: libro eliminato      
- flusso eventi:  
-  1 il bibliotecario deve eliminare un libro dall'archivio  
-  2 Il bibliotecario va nell'area "Gestione Libri"  
-  3 il bibliotecario cerca il libro da eliminare  
-  4 il bibliotecario seleziona il libro da eliminare  
-  5 il bibliotecario controlla se ci sono copie del libro in prestito  
-  6 il bibliotecario elimina il libro dall'archivio    
-flussi alternativi:  
-  5a il libro è attualmente in prestito  
-  5a il bibliotecario non può eliminare il libro fin quando tutti le copie in prestito non sono ritornate  
+**8)**  
+-Nome: ***Eliminazione Libro***  
+ -Attori partecipanti:bibliotecario  
+ -Precondizioni: bibliotecario loggato  
+ -Postcondizioni: libro eliminato      
+ **Flusso eventi:**  
+  1. Il bibliotecario deve eliminare un libro dall'archivio  
+  2. Il bibliotecario va nell'area "Gestione Libri"  
+  3. Il bibliotecario cerca il libro da eliminare  
+  4. Il bibliotecario seleziona il libro da eliminare  
+  5. Il bibliotecario controlla se ci sono copie del libro in prestito  
+  6. Il bibliotecario elimina il libro dall'archivio    
+**Flussi alternativi:**  
+  5a. Il libro è attualmente in prestito  
+  5a. Il bibliotecario non può eliminare il libro fin quando tutti le copie in prestito non sono ritornate  
 
   ![Diagramma dei casi d'uso](UCDiagram.png)
 
