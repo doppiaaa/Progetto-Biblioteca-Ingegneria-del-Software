@@ -1,7 +1,7 @@
 # ANALISI DELLE SPECIFICHE
 
 - Obiettivo  
-Il cliente richiede un'applicazione per gestire il catalogo, gli utenti e i prestiti di una biblioteca, in modo da rendere facili accessibili e veloci le operazioni di ricerca, pretito e restituzione dei libri. 
+Il cliente richiede un'applicazione per gestire il catalogo, gli utenti e i prestiti di una biblioteca, in modo da rendere facili accessibili e veloci le operazioni di ricerca, prestito e restituzione dei libri. 
 
 **1. Tabella dei Requisiti**
     
@@ -16,16 +16,16 @@ Il cliente richiede un'applicazione per gestire il catalogo, gli utenti e i pres
 ***
 **2. Requisiti Funzionali**  
   - <a name="accesso">***Accesso***</a>        
-DF-1.1 : I bibliotecari possono accedere al sistema attraverso usernsame e password    
+DF-1.1 : Il bibliotecario può accedere al sistema attraverso usernsame e password    
 IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le credenziali di accesso
   - <a name="utenti">***Utenti***</a>	             
       IF-1.2 : Un utente può essere registrato, modificato o cancellato dal bibliotecario  
-      DF-1.2 : ogni utente avrà Nome, Cognome, Matricola, mail istituzionale, lista dei prstiti attivi	    
+      DF-1.2 : Ogni utente dovrà avere Nome, Cognome, Matricola, Mail istituzionale, Lista dei prstiti attivi	    
       UI-1.1 : Il bibliotecario può visualizzare la lista di tutti gli utenti ordinata per cognome e nome	    
       IF-1.3 : Gli utenti possono essere ricercati per cognome o matricola	
   - <a name="libri">***Libri***</a>        
   IF-1.4 : Un libro può essere aggiunto o rimosso        
-      DF-1.3 : ogni Libro dovrà essere registrato attravero Titolo, Autori, Anno di pubblicazione, Codice ISBN, numero di copie	    
+      DF-1.3 : Ogni Libro dovrà essere registrato attravero Titolo, Autori, Anno di pubblicazione, Codice ISBN, Numero di copie	    
       UI-1.2 : Il bibliotecario può visualizzare la lista di tutti i libri ordinati per titolo	    
       IF-1.5 : I libri possono essere cercati per titolo, autore o codice ISBN	
   - <a name="prestiti">***Gestione prestiti***</a>        
@@ -48,6 +48,30 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
  -  FC-1.4 : Compatibilità, deve garantire utilizzo su vari sistemi operativi
 
  -  FC-1.5 : Scalabilità, il sistema deve essere in grado di essere modificato per gestire un ipotetico volume maggiore di libri, utenti e prestiti
+***
+
+***5. Analisi dei Requisiti***
+
+|Requisito|Rischio Tecnico|Business Value|
+|---|---|---|
+|[IF-1.1](#accesso) |Alto|Basso|
+|[IF-1.2](#utenti)|Basso|Alto|
+|[IF-1.3](#utenti)|Basso|Medio|
+|[IF-1.4](#libri)|Basso|Alto|
+|[IF-1.5](#libri)|Basso|Medio|
+|[BF-1.1](#prestiti)|Medio|Alto|
+|[BF-1.2](#prestiti)|Basso|Alto|
+|[BF-1.3](#prestiti)|Medio|Medio|
+|[BF-1.4](#prestiti)|Medio|Alto|
+|[DF-1.1](#accesso)|Medio|Basso|
+|[DF-1.2](#utenti)|Basso|Alto|
+|[DF-1.3](#libri)|Basso|Alto|
+|[DF-1.4](#archivio)|Alto|Alto|
+|[UI-1.1](#utenti)|Basso|Alto|
+|[UI-1.2](#libri)|Basso|Alto|
+|[UI-1.3](#prestiti)|Basso|Alto|
+
+
 ***
 
 **4. Casi D'uso**
@@ -90,7 +114,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
   4a. L'utente ha ancora prestiti attivi  
   4a. Non può essere cancellato un utente se non ha risolto tutti i suoi prestiti
   
-**4)**
+**4)**  
 -Nome: ***Registrazione Prestito***  
  -Attori partecipanti:Bibliotecario    
  -Precondizioni:bibliotecario loggato e utente registrato  
@@ -116,7 +140,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
    **Flusso alternativo:**  
    1a. Prestito non esistente
 
-**6)**
+**6)**  
 -Nome: ***Aggiunta Libro***  
 -Attori partecipanti:bibliotecario  
  -Precondizioni: bibliotecario loggato    
@@ -160,27 +184,9 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
 
   ![Diagramma dei casi d'uso](UCDiagram.png)
 
-   QA(esterni)
 
- Disponibilità: il sistema deve essere disponibile e operativo in qualsiasi momento in cui la biblioteca è aperta  
- 
- Efficienza: il sistema deve essere sufficientemente efficiente da poter garantire tempi di attesa bassi per le operazioni relative ai libri e agli utenti  
 
- Sicurezza: il sistema necessità di un sistema di sicurezza basico caratterizzato da credenziali (password) utili per permettere unicamente agli addetti di potervi accedere  
-
- Scalabilità: il sistema deve permettere migliorie in caso il numero di utenti o di libri vada ad aumentare  
-
- Usabilità: il sistema deve essere intuitivo così da permettere a chi lo utilizza di lavorare alla massima efficienza
-
- QA(interni)  
-
- Manutentibilità: il sistema deve essere correttamente commentato e descritto così da essere modificato con facilità  
-
- Modularità: ...  
-
- Testabilità: ...  
-
- 
+   
    
  
 
