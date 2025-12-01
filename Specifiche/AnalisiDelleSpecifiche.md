@@ -182,7 +182,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
   5a. Il libro è attualmente in prestito  
   5a. Il bibliotecario non può eliminare il libro fin quando tutti le copie in prestito non sono ritornate  
 
-  ![Diagramma dei casi d'uso](UCDiagram.png)
+  ![Diagramma dei casi d'uso](UCDiagram.svg)
 
 
 
