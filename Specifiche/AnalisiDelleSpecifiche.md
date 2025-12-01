@@ -140,7 +140,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
    **Flusso alternativo:**  
    1a. Prestito non esistente
 
-**6)**  
+**<a name="8">6)</a>**  
 -Nome: ***Aggiunta Libro***  
 -Attori partecipanti:bibliotecario  
  -Precondizioni: bibliotecario loggato    
