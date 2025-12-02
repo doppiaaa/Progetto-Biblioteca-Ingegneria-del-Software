@@ -76,7 +76,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
 
 **4. Casi D'uso**
 
-**1)**  
+**<a name="1">UC-1)</a>**      
 -Nome: ***Registrazione Utente***    
  -Attori partecipanti: Bibliotecario   
  -Precondizioni: Bibliotecario loggato  
@@ -87,7 +87,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
    3. Bibliotecario inserisce nome, cognome, matricola, mail, lista dei prestiti attivi      
    4. Account creato e salvato nel DB della biblioteca  
 
-**2)**  
+**<a name="2">UC-2)</a>**      
 -Nome: ***Modifica Utente***  
   -Attori partecipanti: bibliotecario  
   -Precondizioni:bibliotecario loggato e utente registrato    
@@ -99,7 +99,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
    4. Il bibliotecario modifica i dati dell'utente  
    5.  Account modificato e DB aggiornato
 
-**3)**  
+**<a name="3">UC-3)</a>**      
 -Nome: ***Eliminazione Utente***  
  -Attori partecipanti:bibliotecario  
  -Precondizioni: bibliotecario loggato e utente registrato  
@@ -114,7 +114,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
   4a. L'utente ha ancora prestiti attivi  
   4a. Non può essere cancellato un utente se non ha risolto tutti i suoi prestiti
   
-**4)**  
+**<a name="4">UC-4)</a>**      
 -Nome: ***Registrazione Prestito***  
  -Attori partecipanti:Bibliotecario    
  -Precondizioni:bibliotecario loggato e utente registrato  
@@ -129,8 +129,8 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
    2a. L'utente ha più di 3 libri in prestito   
    
  
-**5)**  
--Nome: ***Registrazione Restituzione***  
+**<a name="5">UC-5)</a>**    
+-Nome: ***Restituzione***  
   -Attori partecipanti:Bibliotecario   
   -Precondizioni: bibliotecario loggato utente registrato  
   -Postcondizioni: l'utente ha restituito il libro in prestito    
@@ -140,7 +140,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
    **Flusso alternativo:**  
    1a. Prestito non esistente
 
-**<a name="8">6)</a>**  
+**<a name="6">UC-6)</a>**  
 -Nome: ***Aggiunta Libro***  
 -Attori partecipanti:bibliotecario  
  -Precondizioni: bibliotecario loggato    
@@ -153,7 +153,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
   5. Il catalogo viene aggiornato  
   
 
-**7)**  
+**<a name="7">UC-7)</a>**      
 -Nome: ***Modifica Libro***  
   -Attori partecipanti: bibliotecario  
   -Precondizioni:bibliotecario loggato e libro già presente in catalogo  
@@ -166,7 +166,7 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
    5. Il bibliotecario modifica i dati del libro  
    6. Le modifiche vengono salvate
 
-**8)**  
+**<a name="8">UC-8)</a>**      
 -Nome: ***Eliminazione Libro***  
  -Attori partecipanti:bibliotecario  
  -Precondizioni: bibliotecario loggato  
