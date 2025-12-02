@@ -180,7 +180,11 @@ IF-1.1 : Il sistema deve assicurare un metodo per recuperare o reimpostare le cr
   6. Il bibliotecario elimina il libro dall'archivio    
 **Flussi alternativi:**  
   5a. Il libro è attualmente in prestito  
-  5a. Il bibliotecario non può eliminare il libro fin quando tutti le copie in prestito non sono ritornate  
+  5a. Il bibliotecario non può eliminare il libro fin quando tutti le copie in prestito non sono ritornate
+
+***
+
+**5. Diagramma dei casi d'uso**
 
   ![Diagramma dei casi d'uso](UCDiagram.svg)
 
