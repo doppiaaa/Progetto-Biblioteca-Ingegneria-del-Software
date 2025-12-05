@@ -111,3 +111,27 @@ La progettazione mira a massimizzare la qualità interna del software, con focus
 ### 6.1 Decomposizione e Modularità
 Il sistema usa una decomposizione **Object-Oriented** mappando le entità del dominio in classi. L'architettura a layer rispetta la **Separazione delle Preoccupazioni (SoC)**:
 1.  **View/Controller:** Gestione interazione.
+2.  **Domain Logic:** Regole di business (`Gestione<T>`).
+3.  **Data:** Stato (`Libro`, `Utente`).
+4.  **Persistenza:** Storage fisico (`GestoreFile`).
+
+### 6.2 Analisi della Coesione (Cohesion)
+Il progetto punta alla **Coesione Funzionale** (il livello più alto).
+* **Gestione<T>:** Contiene solo metodi per la gestione della collezione (CRUD), senza logica UI o I/O di basso livello.
+* **Entità:** Metodi strettamente legati agli attributi.
+* **GestoreFile:** Coesione focalizzata solo sulla serializzazione/deserializzazione.
+
+### 6.3 Analisi dell'Accoppiamento (Coupling)
+Obiettivo: **Basso Accoppiamento**.
+* **Accoppiamento per Dati:** I controller passano solo i dati necessari (`Map` o oggetto `T`) ai gestori.
+* **Disaccoppiamento tramite Interfacce:** L'uso di `SalvataggioDati` applica l'**Inversione della Dipendenza**. Le classi di gestione dipendono dall'astrazione, non dal `GestoreFile` concreto (principio Open-Closed).
+* **Associazione vs Ereditarietà:** Privilegiata l'associazione (es. `Prestito` -> `Libro`) per ridurre l'accoppiamento forte tipico dell'ereditarietà.
+
+### 6.4 Robustezza e "Design by Contract"
+La progettazione incorpora elementi di Design by Contract.
+* **Precondizioni:** Verifica di disponibilità (`checkDisponibilità`) prima di creare prestiti.
+* **Eccezioni:** `PrestitoNonValidoException` impedisce violazioni delle invarianti (es. prestare un libro con 0 copie).
+* **Integrità:** `checkPrestiti()` agisce da guardia contro stati inconsistenti.
+
+### 6.5 Principio DRY
+L'uso di `Gestione<T>` applica il principio **DRY (Don't Repeat Yourself)**, centralizzando la logica CRUD ed evitando duplicazioni tra gestori di entità diverse.
