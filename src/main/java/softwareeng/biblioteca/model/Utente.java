@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package softwareeng.biblioteca.module;
+package softwareeng.biblioteca.model;
 
 /**
  *
  * @author cashrules
  */
 public class Utente {
-    
+    private String nome;
+    private String cognome;
+    private String matricola;
+    private String mail;
+    private ArrayList<Prestito>;
+
 }
