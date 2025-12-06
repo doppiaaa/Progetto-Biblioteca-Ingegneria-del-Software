@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package softwareeng.biblioteca.controller;
+import softwareeng.biblioteca.model.*;
 
 /**
  *
  * @author cashrules
  */
-public class LibriController extends TController {
+public class LibriController extends TController<Libro> {
     
 }

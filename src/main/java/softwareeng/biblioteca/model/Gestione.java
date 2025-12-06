@@ -4,25 +4,23 @@
  * and open the template in the editor.
  */
 package softwareeng.biblioteca.model;
-
+  
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 /**
  *
  * @author cashrules
  */
-public interface GestioneLibri extends Gestione<Libro> {
+public abstract interface Gestione<T> {
+ 
+
+    public abstract ObservableList<T> getElenco();
     
-    @Override
-    public abstract ObservableList<Libro> getElenco();
+    public abstract void aggiungi(T elemento);
     
-    @Override
-    public abstract void aggiungi(Libro libro);
+    public abstract void rimuovi(T elemento);
     
-    @Override
-    public abstract void rimuovi(Libro libro);
-    
-    @Override
     public abstract boolean checkID(String id);
+    
 
 }

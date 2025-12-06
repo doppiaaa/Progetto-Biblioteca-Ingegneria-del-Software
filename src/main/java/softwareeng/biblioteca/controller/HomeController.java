@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package softwareeng.biblioteca.model;
+package softwareeng.biblioteca.controller;
 
 /**
  *
  * @author cashrules
  */
-public abstract interface GestioneT {
+public class HomeController {
     
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package softwareeng.biblioteca.controller;
+import softwareeng.biblioteca.model.*;
 
 /**
  *
