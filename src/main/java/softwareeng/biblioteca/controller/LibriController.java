@@ -20,77 +20,48 @@ public class LibriController extends TController<Libro> {
     private Libro libroSelezionato;
 
     @Override
-    public void setMainApp(MainApp app) {
-       
-    }
+    public void setMainApp(MainApp app);
 
     @Override
-    public void setDati(Gestione<Libro> interfaccia) {
-       
-    }
+    public void setDati(Gestione<Libro> interfaccia);
 
     // Metodo specifico mostrato nel diagramma UML per settare i dati specifici
-    public void setDati(GestioneLibri catalogo) {
-       
-    }
+    public void setDati(GestioneLibri catalogo);
 
     @Override
-    public void goHome() {
+    public void goHome();
         // Logica per tornare alla Home
-    }
     
     // Metodo di navigazione specifico verso Utenti (dal diagramma)
-    public void goToUtenti() {
-        
-    }
+    public void goToUtenti();
 
     @Override
-    public void goToPrestiti() {
-        
-    }
+    public void goToPrestiti();
     
     // Metodo di navigazione specifico (dal diagramma)
-    public void goToLibri() {
-        
-    }
+    public void goToLibri();
 
     @Override
-    public void clickNuovo() {
-        
-    }
+    public void clickNuovo();
 
     @Override
-    public void seleziona(Libro elemento) {
-        
-    }
+    public void seleziona(Libro elemento);
 
     @Override
-    public void rimuovi() {
-        
-    }
+    public void rimuovi();
 
     @Override
-    public void modifica() {
-        
-    }
+    public void modifica();
 
     @Override
-    public boolean showEditDialog(Libro elemento) {
-        
-    }
+    public boolean showEditDialog(Libro elemento);
 
     @Override
-    public boolean showEditDialog() {
-       
-    }
+    public boolean showEditDialog();
 
     @Override
-    public void popolaForm(Libro elemento) {
-        
-    }
+    public void popolaForm(Libro elemento);
 
     @Override
-    public void sendAttrbitui(Map<String, Object> attributi) {
-        
-    }
+    public void sendAttrbitui(Map<String, Object> attributi);
 }
