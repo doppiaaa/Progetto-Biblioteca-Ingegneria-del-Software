@@ -10,5 +10,15 @@ package softwareeng.biblioteca.controller;
  * @author cashrules
  */
 public class HomeController {
+    private MainApp mainApp;
+
+    public void setMainApp(MainApp app);
+
+    public void goToLibri();
+
+    public void goToUtenti();
+
+    public void goToPrestiti();
     
+    public void esci();
 }
