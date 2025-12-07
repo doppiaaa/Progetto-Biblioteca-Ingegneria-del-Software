@@ -16,7 +16,7 @@ import softwareeng.biblioteca.model.*;
 public class LibriController extends TController<Libro> {
 
     private MainApp mainApp;
-    private GestioneLibri catalogo; // Nel diagramma è chiamato 'catalogo'
+    private GestioneLibri catalogo; 
     private Libro libroSelezionato;
 
     @Override
@@ -25,20 +25,20 @@ public class LibriController extends TController<Libro> {
     @Override
     public void setDati(Gestione<Libro> interfaccia);
 
-    // Metodo specifico mostrato nel diagramma UML per settare i dati specifici
+    
     public void setDati(GestioneLibri catalogo);
 
     @Override
     public void goHome();
-        // Logica per tornare alla Home
+        
     
-    // Metodo di navigazione specifico verso Utenti (dal diagramma)
+   
     public void goToUtenti();
 
     @Override
     public void goToPrestiti();
     
-    // Metodo di navigazione specifico (dal diagramma)
+    
     public void goToLibri();
 
     @Override
