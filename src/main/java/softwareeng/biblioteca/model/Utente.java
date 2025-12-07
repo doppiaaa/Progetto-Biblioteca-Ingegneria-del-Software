@@ -32,7 +32,7 @@ public class Utente implements Comparable<Utente>, Serializable {
     private String matricola;
     /** Indirizzo email dell'utente. */
     private String mail;
-    /** Lista dei prestiti attualmente attivi o storici associati a questo utente. */
+    /** Lista dei prestiti attualmente attivi associati a questo utente. */
     private ArrayList<Prestito> prestiti;
 
     /**
@@ -62,7 +62,7 @@ public class Utente implements Comparable<Utente>, Serializable {
      * Permette di aggiornare le proprietà dell'utente (es. nome, cognome, mail)
      * utilizzando una mappa di attributi.
      *
-     * @param[in] attributi Mappa contenente i campi da modificare.
+     * @param[in] attributi Mappa contenente le coppie identificatore-valore dei campi da modificare.
      * @pre attributi != null
      */
     public void modifica(Map<String, Object> attributi){
@@ -72,22 +72,20 @@ public class Utente implements Comparable<Utente>, Serializable {
     /**
      * @brief Verifica se l'utente è idoneo a prendere un nuovo prestito.
      *
-     * L'idoneità è basata sul numero massimo di prestiti attivi (solitamente un limite, es. 3).
+     * L'idoneità è basata sul numero massimo di prestiti attivi (3).
      *
      * @return true se il numero di prestiti attivi è inferiore al limite massimo, false altrimenti.
      */
     public boolean checkDisponibilita() {
-        return true;
+        
     }
     
     /**
      * @brief Si accerta che l'utente non abbia prestiti attivi in sospeso.
      *
-     * Questo metodo è cruciale per la logica di eliminazione dell'utente (integrità referenziale).
+     * Questo metodo è cruciale per la logica di eliminazione dell'utente.
      *
      * @return true se l'utente non ha alcun prestito attivo, false altrimenti.
-     * @post Il valore di ritorno è (prestiti.count(attivo=true) == 0).
-     * @see softwareeng.biblioteca.model.exceptions.EliminazioneNonValidaException
      */
     public boolean checkPrestiti() {
         
@@ -99,7 +97,7 @@ public class Utente implements Comparable<Utente>, Serializable {
      * @param[in] p Il Prestito da associare.
      * @pre p != null
      * @post prestiti.contains(p) == true
-     * @post prestiti.size() == old(prestiti.size()) + 1
+     * @post prestiti.size() == prestiti.size()++
      */
     public void aggiungi(Prestito p){
         
@@ -107,8 +105,6 @@ public class Utente implements Comparable<Utente>, Serializable {
 
     /**
      * @brief Disattiva un prestito specifico.
-     *
-     * Delega al Prestito l'aggiornamento del suo stato e della data di fine.
      *
      * @param[in] p Il Prestito da disattivare (restituire).
      * @pre p != null

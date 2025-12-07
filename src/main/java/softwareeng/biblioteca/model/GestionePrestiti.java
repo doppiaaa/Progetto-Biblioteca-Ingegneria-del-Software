@@ -58,12 +58,11 @@ public interface GestionePrestiti extends Gestione<Prestito> {
     @Override
     public void rimuovi(Prestito prestito);
 
-    /**
-     * @brief Rimuove un prestito dal sistema.
+   /**
+     * @brief Verifica l'esistenza di un Prestito tramite id.
      *
-     * @param[in] prestito L'oggetto Prestito da rimuovere.
-     * @pre prestito != null
-     * @post getElenco().contains(prestito) == false
+     * @param[in] id L'id da verificare.
+     * @return true se il prestito è già presente nel sistema, false altrimenti.
      */
     @Override
     public boolean checkID(String id);   
@@ -78,12 +77,11 @@ public interface GestionePrestiti extends Gestione<Prestito> {
      * @param[in] libro Il libro selezionato per il prestito.
      *
      * @pre utente != null && libro != null
-     * @pre libro.checkDisponibilità() == true (Il libro deve avere copie disponibili)
-     * @pre utente.checkDisponibilità() == true (L'utente non deve avere superato il limite prestiti)
      *
      * @post Viene creato un nuovo oggetto Prestito.
      * @post Il prestito viene aggiunto alla lista.
      * @post Le copie disponibili del libro vengono decrementate (libro.downCopie()).
+     * @post Il prestito viene aggiunto ai prestiti attivi dell'utente.
      *
      * @throws PrestitoNonValidoException Se l'utente ha raggiunto il limite o il libro non ha copie disponibili.
      */
@@ -118,8 +116,8 @@ public interface GestionePrestiti extends Gestione<Prestito> {
      *
      * @pre p.isAttivo() == true
      * @post p.isAttivo() == false
-     * @post p.getDataFine() == LocalDate.now()
      * @post Il libro associato incrementa le copie disponibili (libro.upCopie()).
+     * @post Il prestito viene scollegato dalla lista attiva dell'utente.
      */
     public void disattiva(Prestito p);
 }

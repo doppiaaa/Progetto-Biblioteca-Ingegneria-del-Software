@@ -109,12 +109,11 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
      * @param[in] libro Il libro da prestare.
      *
      * @pre utente != null && libro != null
-     * @pre libro.checkDisponibilità() == true
-     * @pre utente.checkDisponibilità() == true
      *
      * @post Un nuovo oggetto Prestito è creato e aggiunto alla lista prestiti.
-     * @post libro.getCopieDisponibili() == old(libro.getCopieDisponibili()) - 1
-     *
+     * @post libro.getCopieDisponibili() == libro.getCopieDisponibili()--
+     * @post il prestito viene aggiunto alla lista dei prestti attivi dell'utente.
+     * 
      * @throws PrestitoNonValidoException Se non ci sono copie disponibili o l'utente non può contrarre nuovi prestiti.
      */
     @Override

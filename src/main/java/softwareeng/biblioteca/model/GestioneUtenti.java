@@ -41,7 +41,7 @@ public interface GestioneUtenti extends Gestione<Utente> {
      * @pre utente != null
      * @pre checkID(utente.getMatricola()) == false (Unicità della matricola)
      * @post getElenco().contains(utente) == true
-     * @post getElenco().size() == old(getElenco().size()) + 1
+     * @post getElenco().size() == getElenco().size()++
      */
     @Override
     public void aggiungi(Utente utente);
@@ -56,10 +56,9 @@ public interface GestioneUtenti extends Gestione<Utente> {
      *
      * @pre utente != null
      * @pre getElenco().contains(utente) == true
-     * @pre utente.checkPrestiti() == false (Nessun prestito attivo)
      *
      * @post getElenco().contains(utente) == false
-     * @post getElenco().size() == old(getElenco().size()) - 1
+     * @post getElenco().size() == getElenco().size()--
      *
      * @throws EliminazioneNonValidaException Se l'utente ha prestiti ancora attivi.
      */

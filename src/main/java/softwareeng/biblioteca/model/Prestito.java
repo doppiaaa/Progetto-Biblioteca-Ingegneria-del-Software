@@ -48,9 +48,8 @@ public class Prestito {
      * * @param[in] u L'utente che richiede il prestito.
      * @param[in] l Il libro da prestare.
      * @param[in] dataFine La data prevista per la fine del prestito.
-     * * @pre u != null && l != null
-     * @pre l.checkDisponibilita() == true (Verificato esternamente dal Controller/Gestore)
-     * @post attivo == true
+     * @pre u != null && l != null
+     * 
      * @post L'istanza è creata con un ID univoco incrementale.
      */
     public Prestito(Utente u, Libro l, LocalDate dataFine){
@@ -60,10 +59,8 @@ public class Prestito {
     /**
      * @brief Disattiva il prestito corrente.
      * * Questo metodo viene chiamato quando il libro viene restituito.
-     * Imposta lo stato del prestito su non attivo e aggiorna la data di fine
-     * alla data corrente.
+     * Imposta lo stato del prestito su non attivo.
      * * @post attivo == false
-     * @post dataFine == LocalDate.now()
      */
     public void disattiva(){
     
@@ -71,7 +68,7 @@ public class Prestito {
 
     /**
      * @brief Imposta il valore del contatore statico.
-     * * Utile in fase di caricamento dati (deserializzazione) per ripristinare
+     * * Utile in fase di caricamento dati per ripristinare
      * il conteggio degli ID ed evitare duplicati.
      * * @param[in] c Il valore intero da assegnare al contatore statico.
      */

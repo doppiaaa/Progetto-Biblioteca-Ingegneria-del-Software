@@ -38,7 +38,9 @@ public class Catalogo implements GestioneLibri {
      *
      * @post libri != null && libri.isEmpty() == true
      */
-    public Catalogo();
+    public Catalogo(){
+        
+    }
 
     /**
      * @brief Restituisce l'elenco completo dei libri.
@@ -74,7 +76,6 @@ public class Catalogo implements GestioneLibri {
      * @param[in] libro L'oggetto Libro da rimuovere.
      *
      * @pre libro != null
-     * @pre libro.checkPrestiti() == false
      * @post libri.contains(libro) == false
      *
      * @throws EliminazioneNonValidaException Se il libro ha copie in prestito (violazione integrità).

@@ -63,7 +63,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      * La logica interna deve gestire la riassegnazione di copieDisponibili in caso di
      * modifica di copieTotali per mantenere la consistenza.
      *
-     * @param[in] attributi Mappa contenente i campi da modificare.
+     * @param[in] attributi Mappa contenente le coppie identificatore, valore per i campi da modificare.
      * @pre attributi != null
      */
     public void modifica(Map<String, Object> attributi){
@@ -83,9 +83,9 @@ public class Libro implements Serializable, Comparable<Libro> {
     /**
      * @brief Verifica se il libro ha copie attualmente prestate.
      *
-     * Utile per la logica di eliminazione del libro dal catalogo (integrità referenziale).
+     * Utile per la logica di eliminazione del libro dal catalogo.
      *
-     * @return true se ci sono prestiti attivi (copieTotali > copieDisponibili), false altrimenti.
+     * @return true se non ci sono prestiti attivi (copieTotali = copieDisponibili), false altrimenti.
      */
     public boolean checkPrestiti(){
         
@@ -97,7 +97,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      * Questo metodo viene chiamato tipicamente alla restituzione di un libro.
      *
      * @pre copieDisponibili < copieTotali
-     * @post copieDisponibili == old(copieDisponibili) + 1
+     * @post copieDisponibili == copieDisponibili++
      */
     public void upCopie(){
         
@@ -109,7 +109,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      * Questo metodo viene chiamato tipicamente all'erogazione di un prestito.
      *
      * @pre checkDisponibilità() == true
-     * @post copieDisponibili == old(copieDisponibili) - 1
+     * @post copieDisponibili == copieDisponibili)--
      */
     public void downCopie(){
         

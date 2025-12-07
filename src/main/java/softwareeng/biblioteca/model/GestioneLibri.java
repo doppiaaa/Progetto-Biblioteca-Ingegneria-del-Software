@@ -40,7 +40,7 @@ public interface GestioneLibri extends Gestione<Libro> {
      * @pre libro != null
      * @pre checkID(libro.getISBN()) == false (Il libro con questo ISBN non deve esistere)
      * @post getElenco().contains(libro) == true
-     * @post getElenco().size() == old(getElenco().size()) + 1
+     * @post getElenco().size() == getElenco().size()++
      */
     @Override
     public abstract void aggiungi(Libro libro);
@@ -54,10 +54,9 @@ public interface GestioneLibri extends Gestione<Libro> {
      *
      * @pre libro != null
      * @pre getElenco().contains(libro) == true
-     * @pre libro.checkPrestiti() == false (Nessuna copia deve essere attualmente in prestito)
      *
      * @post getElenco().contains(libro) == false
-     * @post getElenco().size() == old(getElenco().size()) - 1
+     * @post getElenco().size() == getElenco().size()--
      *
      * @throws EliminazioneNonValidaException Se il libro ha copie attualmente in prestito.
      */
