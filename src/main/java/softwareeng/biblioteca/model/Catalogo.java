@@ -8,36 +8,131 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- *
+ * @file Catalogo.java
+ * @brief File contenente l'implementazione della classe Catalogo.
  * @author cashrules
+ * @version 1.0
+ */
+
+/**
+ * @brief Classe concreta per la gestione del catalogo dei libri.
+ *
+ * Questa classe implementa l'interfaccia GestioneLibri e l'interfaccia Serializable.
+ * Funge da archivio centrale per tutti i libri della biblioteca, gestendo l'inserimento,
+ * la rimozione con controlli di integrità e le ricerche specifiche.
+ *
+ * @see GestioneLibri
+ * @see Libro
  */
 public class Catalogo implements GestioneLibri {
+    /**
+     * @brief Lista osservabile contenente i libri del catalogo.
+     * Utilizzata per il data binding con la UI.
+     */
     private ObservableList<Libro> libri;
 
-    public Catalogo() {
-        
-    }
-    
+    /**
+     * @brief Costruttore predefinito.
+     *
+     * Inizializza la lista dei libri come una collezione vuota osservabile.
+     *
+     * @post libri != null && libri.isEmpty() == true
+     */
+    public Catalogo();
+
+    /**
+     * @brief Restituisce l'elenco completo dei libri.
+     *
+     * @return ObservableList<Libro> La lista di tutti i libri nel catalogo.
+     */
     @Override
     public ObservableList<Libro> getElenco(){
         
     }
-    
+
+    /**
+     * @brief Aggiunge un nuovo libro al catalogo.
+     *
+     * @param[in] libro L'oggetto Libro da aggiungere.
+     *
+     * @pre libro != null
+     * @pre checkID(libro.getISBN()) == false (L'ISBN deve essere univoco)
+     * @post libri.contains(libro) == true
+     * @post libri.size() == old(libri.size()) + 1
+     */
     @Override
     public void aggiungi(Libro libro){
         
     }
-    
+
+    /**
+     * @brief Rimuove un libro dal catalogo.
+     *
+     * Esegue un controllo preventivo per assicurarsi che il libro non abbia copie
+     * attualmente in prestito (checkPrestiti).
+     *
+     * @param[in] libro L'oggetto Libro da rimuovere.
+     *
+     * @pre libro != null
+     * @pre libro.checkPrestiti() == false
+     * @post libri.contains(libro) == false
+     *
+     * @throws EliminazioneNonValidaException Se il libro ha copie in prestito (violazione integrità).
+     */
     @Override
     public void rimuovi(Libro libro){
         
     }
-    
+
+    /**
+     * @brief Modifica i dati di un libro esistente.
+     *
+     * @param[in] libro L'oggetto Libro con i dati aggiornati.
+     * @pre libro != null
+     * @pre libri.contains(libro) == true
+     */
+    @Override
+    public void modifica(Libro libro);
+
+    /**
+     * @brief Verifica l'esistenza di un libro tramite ISBN.
+     *
+     * @param[in] id Il codice ISBN da verificare.
+     * @return true se l'ISBN è presente, false altrimenti.
+     */
     @Override
     public boolean checkID(String id){
         
     }
+
+    /**
+     * @brief Ricerca i libri per titolo.
+     *
+     * @param[in] titolo Stringa da cercare nel titolo.
+     * @return ObservableList<Libro> Lista dei libri trovati.
+     */
+    @Override
+    public ObservableList<Libro> ricercaTitolo(String titolo) {
+    }
+
+    /**
+     * @brief Ricerca i libri per autore.
+     *
+     * @param[in] autore Nome dell'autore da cercare.
+     * @return ObservableList<Libro> Lista dei libri trovati.
+     */
+    @Override
+    public ObservableList<Libro> ricercaAutore(String autore) {
+    }
     
-    
+    /**
+     * @brief Ricerca un libro per ISBN.
+     *
+     * @param[in] isbn Codice ISBN esatto.
+     * @return ObservableList<Libro> Lista contenente il libro trovato (o vuota).
+     */
+    @Override
+    public ObservableList<Libro> ricercaISBN(String isbn) {
+    }
     
 }
