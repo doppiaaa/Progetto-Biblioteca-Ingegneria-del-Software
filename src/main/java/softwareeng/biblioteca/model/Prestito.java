@@ -14,7 +14,6 @@ import java.time.LocalDate;
 /**
  * @file Prestito.java
  * @brief File contenente la definizione della classe Prestito.
- * @author cashrules
  * @version 1.0
  */
 
