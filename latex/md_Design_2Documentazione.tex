@@ -1,0 +1,160 @@
+\chapter{Documentazione Tecnica\+: Sistema di Gestione Biblioteca}
+\hypertarget{md_Design_2Documentazione}{}\label{md_Design_2Documentazione}\index{Documentazione Tecnica: Sistema di Gestione Biblioteca@{Documentazione Tecnica: Sistema di Gestione Biblioteca}}
+\label{md_Design_2Documentazione_autotoc_md0}%
+\Hypertarget{md_Design_2Documentazione_autotoc_md0}%
+ \hypertarget{md_Design_2Documentazione_autotoc_md1}{}\doxysection{\texorpdfstring{1. Panoramica del Sistema}{1. Panoramica del Sistema}}\label{md_Design_2Documentazione_autotoc_md1}
+Il diagramma delle classi rappresenta l\textquotesingle{}architettura software di un\textquotesingle{}applicazione desktop sviluppata in {\bfseries{Java\+FX}} per la gestione di una biblioteca. Il sistema permette la gestione {\bfseries{CRUD}} (Create, Read, Update, Delete) di {\bfseries{Libri}}, {\bfseries{Utenti}} e {\bfseries{Prestiti}}, garantendo la persistenza dei dati e una separazione tra logica di business e interfaccia utente.\hypertarget{md_Design_2Documentazione_autotoc_md2}{}\doxysection{\texorpdfstring{2. Architettura Software}{2. Architettura Software}}\label{md_Design_2Documentazione_autotoc_md2}
+Il sistema segue un\textquotesingle{}architettura derivata dal pattern {\bfseries{MVC (Model-\/\+View-\/\+Controller)}}, mediata da una classe coordinatrice centrale.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Model (Modello)\+:}} Rappresentato dalle classi entità ({\ttfamily Libro}, {\ttfamily Utente}, {\ttfamily Prestito}) e dalle classi di gestione dati ({\ttfamily Catalogo}, {\ttfamily Lista}, {\ttfamily Lista\+Prestiti}).
+\item {\bfseries{View (Vista)\+:}} L\textquotesingle{}interfaccia grafica è definita tramite file FXML gestiti dai rispettivi controller.
+\item {\bfseries{Controller\+:}} I vari {\ttfamily \texorpdfstring{$\ast$}{*}\+Controller} gestiscono l\textquotesingle{}interazione utente, mentre {\ttfamily Main\+App} agisce come orchestratore principale.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_Design_2Documentazione_autotoc_md4}{}\doxysection{\texorpdfstring{3. Analisi dei Componenti}{3. Analisi dei Componenti}}\label{md_Design_2Documentazione_autotoc_md4}
+\hypertarget{md_Design_2Documentazione_autotoc_md5}{}\doxysubsection{\texorpdfstring{3.\+1 Inizializzazione e Orchestrazione}{3.1 Inizializzazione e Orchestrazione}}\label{md_Design_2Documentazione_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{Main\+:}} È il punto di ingresso dell\textquotesingle{}applicazione ({\ttfamily main(args)}), responsabile dell\textquotesingle{}avvio del ciclo di vita del software.
+\item {\bfseries{Main\+App\+:}} È la classe centrale del sistema.
+\begin{DoxyItemize}
+\item {\bfseries{Responsabilità\+:}} Inizializza lo {\ttfamily Stage} primario, istanzia i gestori dei dati ({\ttfamily Catalogo}, {\ttfamily Lista\+Utenti}, {\ttfamily Lista\+Prestiti}) e coordina la navigazione tra le diverse viste.
+\item {\bfseries{Relazioni\+:}} Ha una relazione di {\bfseries{composizione}} (rombo pieno) con i gestori dei dati, indicando che {\ttfamily Main\+App} possiede e controlla il ciclo di vita di questi oggetti.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md6}{}\doxysubsection{\texorpdfstring{3.\+2 Controller dell\textquotesingle{}\+Interfaccia (\+UI Logic)}{3.2 Controller dell'Interfaccia (UI Logic)}}\label{md_Design_2Documentazione_autotoc_md6}
+Le classi {\ttfamily Home\+Controller}, {\ttfamily Libri\+Controller}, {\ttfamily Utenti\+Controller} e {\ttfamily Prestiti\+Controller} gestiscono la logica di presentazione.
+\begin{DoxyItemize}
+\item {\bfseries{Dependency Injection\+:}} Tutti i controller presentano un metodo {\ttfamily set\+Main\+App(\+Main\+App)}, indicando che ricevono un riferimento all\textquotesingle{}applicazione principale per poter navigare tra le schermate e accedere ai dati condivisi.
+\item {\bfseries{Funzionalità\+:}} Espongono metodi per la gestione degli eventi UI (es. {\ttfamily click\+Nuovo}, {\ttfamily rimuovi}, {\ttfamily modifica}) e per il passaggio di dati ({\ttfamily set\+Data}, {\ttfamily send\+Attributi}).
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md7}{}\doxysubsection{\texorpdfstring{3.\+3 Gestione dei Dati (\+Business Logic Layer)}{3.3 Gestione dei Dati (Business Logic Layer)}}\label{md_Design_2Documentazione_autotoc_md7}
+Il livello di gestione dati è strutturato gerarchicamente tramite l\textquotesingle{}uso di {\bfseries{Interfacce}} e {\bfseries{Generics}} per favorire il riuso del codice e il polimorfismo.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Interfaccia {\ttfamily Gestione\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}\+:}} Un\textquotesingle{}interfaccia astratta/generica che definisce le operazioni standard\+:
+\begin{DoxyItemize}
+\item {\ttfamily get\+Elenco()}\+: Ritorna una {\ttfamily Observable\+List}.
+\item {\ttfamily aggiungi(\+T)}, {\ttfamily rimuovi(\+T)}, {\ttfamily modifica(\+T)}\+: Operazioni di mutazione.
+\end{DoxyItemize}
+\item {\bfseries{Interfacce Specifiche\+:}} {\ttfamily Gestione\+Libri}, {\ttfamily Gestione\+Utenti}, {\ttfamily Gestione\+Prestiti} estendono {\ttfamily Gestione\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} aggiungendo metodi di ricerca specifici (es. {\ttfamily ricerca\+Titolo}).
+\item {\bfseries{Implementazioni Concrete\+:}}
+\begin{DoxyItemize}
+\item {\ttfamily Catalogo}\+: Implementa {\ttfamily Gestione\+Libri}.
+\item {\ttfamily Lista} (o {\ttfamily Lista\+Utenti})\+: Implementa {\ttfamily Gestione\+Utenti}.
+\item {\ttfamily Lista\+Prestiti}\+: Implementa {\ttfamily Gestione\+Prestiti}.
+\item Tutte implementano l\textquotesingle{}interfaccia {\ttfamily Serializable}, permettendo il salvataggio dello stato dell\textquotesingle{}oggetto.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md8}{}\doxysubsection{\texorpdfstring{3.\+4 Modello di Dominio (\+Entities)}{3.4 Modello di Dominio (Entities)}}\label{md_Design_2Documentazione_autotoc_md8}
+Le entità rappresentano i dati fondamentali\+: {\bfseries{Libro}}, {\bfseries{Utente}}, {\bfseries{Prestito}}.
+\begin{DoxyItemize}
+\item Implementano {\ttfamily Comparable} (per l\textquotesingle{}ordinamento) e {\ttfamily Serializable} (per la persistenza).
+\item {\bfseries{Relazioni\+:}} Un {\ttfamily Prestito} associa un {\ttfamily Libro} e un {\ttfamily Utente}. Dal diagramma si evince una relazione tra {\ttfamily Prestito} e {\ttfamily Libro} (molteplicità 1 a 0..3) e tra {\ttfamily Prestito} e {\ttfamily Utente}.
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md9}{}\doxysubsection{\texorpdfstring{3.\+5 Persistenza}{3.5 Persistenza}}\label{md_Design_2Documentazione_autotoc_md9}
+
+\begin{DoxyItemize}
+\item {\bfseries{Interfaccia {\ttfamily Salvataggio\+Dati}\+:}} Definisce il contratto per il salvataggio e caricamento ({\ttfamily salva}, {\ttfamily carica}). Questo applica il principio di {\itshape Inversion of Control}, disaccoppiando la logica di business dal supporto di memorizzazione fisico.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily Gestore\+File}\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Implementa {\ttfamily Salvataggio\+Dati}. Si occupa della serializzazione delle liste di oggetti su file binari o di testo.
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md10}{}\doxysubsection{\texorpdfstring{3.\+6 Gestione delle Eccezioni}{3.6 Gestione delle Eccezioni}}\label{md_Design_2Documentazione_autotoc_md10}
+Sono definite eccezioni personalizzate per gestire errori di dominio specifici, lanciate dai metodi delle classi di gestione\+:
+\begin{DoxyItemize}
+\item {\ttfamily Prestito\+Non\+Valido\+Exception}
+\item {\ttfamily Eliminazione\+Non\+Valida\+Exception}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_Design_2Documentazione_autotoc_md12}{}\doxysection{\texorpdfstring{4. Design Pattern Rilevati}{4. Design Pattern Rilevati}}\label{md_Design_2Documentazione_autotoc_md12}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Facade / Mediator\+:}} {\ttfamily Main\+App} agisce come una facciata semplificata per i controller e media la comunicazione tra le parti del sistema.
+\item {\bfseries{Observer Pattern\+:}} Utilizzato implicitamente tramite {\ttfamily Observable\+List} di Java\+FX. Quando i dati nel Catalogo cambiano, la UI si aggiorna automaticamente.
+\item {\bfseries{Strategy Pattern (parziale)\+:}} L\textquotesingle{}uso dell\textquotesingle{}interfaccia {\ttfamily Salvataggio\+Dati} permette di cambiare la strategia di persistenza senza modificare l\textquotesingle{}applicazione.
+\item {\bfseries{Template Method / Generic Programming\+:}} L\textquotesingle{}uso di {\ttfamily Gestione\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} definisce uno scheletro comune per le operazioni CRUD.
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md_Design_2Documentazione_autotoc_md14}{}\doxysection{\texorpdfstring{5. Vista Dinamica e Flussi Operativi (\+Sequence Diagrams)}{5. Vista Dinamica e Flussi Operativi (Sequence Diagrams)}}\label{md_Design_2Documentazione_autotoc_md14}
+\hypertarget{md_Design_2Documentazione_autotoc_md15}{}\doxysubsection{\texorpdfstring{5.\+1 Inserimento Nuova Entità (\+Generico)}{5.1 Inserimento Nuova Entità (Generico)}}\label{md_Design_2Documentazione_autotoc_md15}
+
+\begin{DoxyItemize}
+\item {\bfseries{Diagramma\+:}} {\itshape Add Generic}
+\item {\bfseries{Flusso\+:}} L\textquotesingle{}attore inizia l\textquotesingle{}azione {\ttfamily click\+Nuovo()}. Il sistema mostra un dialog di inserimento.
+\item {\bfseries{Validazione\+:}} Alla conferma ({\ttfamily send\+Attributi}), il gestore controlla l\textquotesingle{}unicità tramite {\ttfamily check\+ID(\+String)} (es. ISBN o Matricola).
+\item {\bfseries{Esito\+:}}
+\begin{DoxyItemize}
+\item {\itshape False (ID non presente)\+:} L\textquotesingle{}oggetto viene creato ({\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}create\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}), aggiunto e salvato.
+\item {\itshape True (ID duplicato)\+:} Operazione abortita, messaggio di errore ("{}\+Elemento già nel Database"{}).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md16}{}\doxysubsection{\texorpdfstring{5.\+2 Modifica Entità (\+Generico)}{5.2 Modifica Entità (Generico)}}\label{md_Design_2Documentazione_autotoc_md16}
+
+\begin{DoxyItemize}
+\item {\bfseries{Diagramma\+:}} {\itshape Modify Generic}
+\item {\bfseries{Flusso\+:}} Selezione elemento e click su {\ttfamily modifica()}.
+\item {\bfseries{Binding\+:}} Il controller recupera i dati ({\ttfamily popola\+Form(\+T)}) per il dialog.
+\item {\bfseries{Persistenza\+:}} Le modifiche sono inviate tramite una {\ttfamily Map} (DTO implicito). Il gestore aggiorna il modello e notifica il successo.
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md17}{}\doxysubsection{\texorpdfstring{5.\+3 Rimozione Entità e Integrità Referenziale}{5.3 Rimozione Entità e Integrità Referenziale}}\label{md_Design_2Documentazione_autotoc_md17}
+
+\begin{DoxyItemize}
+\item {\bfseries{Diagramma\+:}} {\itshape Delete Generic}
+\item {\bfseries{Flusso\+:}} Richiesta {\ttfamily rimuovi()} e conferma esplicita ("{}\+Are you sure?"{}).
+\item {\bfseries{Guardia\+:}} {\ttfamily check\+Prestiti()} verifica se l\textquotesingle{}entità ha dipendenze attive.
+\begin{DoxyItemize}
+\item {\itshape True (Vincoli ok)\+:} Oggetto rimosso fisicamente.
+\item {\itshape False (Violazione)\+:} Viene lanciata {\ttfamily Eliminazione\+Non\+Valida\+Exception}. Il controller mostra errore ("{}\+Prestito Attivo"{}), prevenendo inconsistenze.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md18}{}\doxysubsection{\texorpdfstring{5.\+4 Registrazione Prestito (\+Workflow Transazionale)}{5.4 Registrazione Prestito (Workflow Transazionale)}}\label{md_Design_2Documentazione_autotoc_md18}
+
+\begin{DoxyItemize}
+\item {\bfseries{Diagramma\+:}} {\itshape Add Loan}
+\item {\bfseries{Interazione\+:}} Selezione sequenziale di Libro e Utente.
+\item {\bfseries{Doppia Validazione\+:}}
+\begin{DoxyEnumerate}
+\item {\ttfamily check\+Disponibilità()} su Libro (copie \texorpdfstring{$>$}{>} 0).
+\item {\ttfamily check\+Disponibilità()} su Utente (limite prestiti/sanzioni).
+\end{DoxyEnumerate}
+\item {\bfseries{Aggiornamento\+:}} Se entrambi i check hanno successo\+: creazione {\ttfamily Prestito}, decremento copie libro ({\ttfamily down\+Copie()}), registrazione prestito.
+\item {\bfseries{Errore\+:}} Se un check fallisce, viene sollevata {\ttfamily Prestito\+Non\+Valido\+Exception}.
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md19}{}\doxysubsection{\texorpdfstring{5.\+5 Restituzione Prestito}{5.5 Restituzione Prestito}}\label{md_Design_2Documentazione_autotoc_md19}
+
+\begin{DoxyItemize}
+\item {\bfseries{Diagramma\+:}} {\itshape Return Loan}
+\item {\bfseries{Flusso\+:}} Selezione prestito e comando {\ttfamily disattiva()}.
+\item {\bfseries{Side-\/effects\+:}}
+\begin{DoxyEnumerate}
+\item {\ttfamily up\+Copie()} sul Libro (incremento disponibilità).
+\item Aggiornamento stato prestito.
+\item Notifica "{}\+Libro restituito"{}.
+\end{DoxyEnumerate}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_Design_2Documentazione_autotoc_md21}{}\doxysection{\texorpdfstring{6. Giustificazione delle Scelte Progettuali e Analisi Qualitativa}{6. Giustificazione delle Scelte Progettuali e Analisi Qualitativa}}\label{md_Design_2Documentazione_autotoc_md21}
+La progettazione mira a massimizzare la qualità interna del software, con focus su {\bfseries{manutenibilità}} e {\bfseries{modularità}}.\hypertarget{md_Design_2Documentazione_autotoc_md22}{}\doxysubsection{\texorpdfstring{6.\+1 Decomposizione e Modularità}{6.1 Decomposizione e Modularità}}\label{md_Design_2Documentazione_autotoc_md22}
+Il sistema usa una decomposizione {\bfseries{Object-\/\+Oriented}} mappando le entità del dominio in classi. L\textquotesingle{}architettura a layer rispetta la {\bfseries{Separazione delle Preoccupazioni (SoC)}}\+:
+\begin{DoxyEnumerate}
+\item {\bfseries{View/\+Controller\+:}} Gestione interazione.
+\item {\bfseries{Domain Logic\+:}} Regole di business ({\ttfamily Gestione\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}).
+\item {\bfseries{Data\+:}} Stato ({\ttfamily Libro}, {\ttfamily Utente}).
+\item {\bfseries{Persistenza\+:}} Storage fisico ({\ttfamily Gestore\+File}).
+\end{DoxyEnumerate}\hypertarget{md_Design_2Documentazione_autotoc_md23}{}\doxysubsection{\texorpdfstring{6.\+2 Analisi della Coesione (\+Cohesion)}{6.2 Analisi della Coesione (Cohesion)}}\label{md_Design_2Documentazione_autotoc_md23}
+Il progetto punta alla {\bfseries{Coesione Funzionale}} (il livello più alto).
+\begin{DoxyItemize}
+\item {\bfseries{Gestione$<$\+T$>$\+:}} Contiene solo metodi per la gestione della collezione (CRUD), senza logica UI o I/O di basso livello.
+\item {\bfseries{Entità\+:}} Metodi strettamente legati agli attributi.
+\item {\bfseries{Gestore\+File\+:}} Coesione focalizzata solo sulla serializzazione/deserializzazione.
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md24}{}\doxysubsection{\texorpdfstring{6.\+3 Analisi dell\textquotesingle{}\+Accoppiamento (\+Coupling)}{6.3 Analisi dell'Accoppiamento (Coupling)}}\label{md_Design_2Documentazione_autotoc_md24}
+Obiettivo\+: {\bfseries{Basso Accoppiamento}}.
+\begin{DoxyItemize}
+\item {\bfseries{Accoppiamento per Dati\+:}} I controller passano solo i dati necessari ({\ttfamily Map} o oggetto {\ttfamily T}) ai gestori.
+\item {\bfseries{Disaccoppiamento tramite Interfacce\+:}} L\textquotesingle{}uso di {\ttfamily Salvataggio\+Dati} applica l\textquotesingle{}{\bfseries{Inversione della Dipendenza}}. Le classi di gestione dipendono dall\textquotesingle{}astrazione, non dal {\ttfamily Gestore\+File} concreto (principio Open-\/\+Closed).
+\item {\bfseries{Associazione vs Ereditarietà\+:}} Privilegiata l\textquotesingle{}associazione (es. {\ttfamily Prestito} -\/\texorpdfstring{$>$}{>} {\ttfamily Libro}) per ridurre l\textquotesingle{}accoppiamento forte tipico dell\textquotesingle{}ereditarietà.
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md25}{}\doxysubsection{\texorpdfstring{6.\+4 Robustezza e "{}\+Design by Contract"{}}{6.4 Robustezza e "Design by Contract"}}\label{md_Design_2Documentazione_autotoc_md25}
+La progettazione incorpora elementi di Design by Contract.
+\begin{DoxyItemize}
+\item {\bfseries{Precondizioni\+:}} Verifica di disponibilità ({\ttfamily check\+Disponibilità}) prima di creare prestiti.
+\item {\bfseries{Eccezioni\+:}} {\ttfamily Prestito\+Non\+Valido\+Exception} impedisce violazioni delle invarianti (es. prestare un libro con 0 copie).
+\item {\bfseries{Integrità\+:}} {\ttfamily check\+Prestiti()} agisce da guardia contro stati inconsistenti.
+\end{DoxyItemize}\hypertarget{md_Design_2Documentazione_autotoc_md26}{}\doxysubsection{\texorpdfstring{6.\+5 Principio DRY}{6.5 Principio DRY}}\label{md_Design_2Documentazione_autotoc_md26}
+L\textquotesingle{}uso di {\ttfamily Gestione\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} applica il principio {\bfseries{DRY (Don\textquotesingle{}t Repeat Yourself)}}, centralizzando la logica CRUD ed evitando duplicazioni tra gestori di entità diverse. 

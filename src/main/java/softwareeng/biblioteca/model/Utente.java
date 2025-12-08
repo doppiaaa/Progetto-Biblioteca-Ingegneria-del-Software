@@ -46,7 +46,7 @@ public class Utente implements Comparable<Utente>, Serializable {
      * @param[in] mail L'indirizzo email.
      *
      * @pre matricola è una stringa univoca non presente in ListaUtenti (verificato esternamente).
-     * @post prestiti è una lista vuota.
+     * @post creazione di un nuovo oggetto Utente
      */
     public Utente(String nome, String cognome, String matricola, String mail) {
         this.nome = nome;
@@ -109,7 +109,7 @@ public class Utente implements Comparable<Utente>, Serializable {
      * @param[in] p Il Prestito da disattivare (restituire).
      * @pre p != null
      * @pre prestiti.contains(p) == true
-     * @post p.isAttivo() == false (Stato aggiornato dal metodo Prestito::disattiva())
+     * @post p.isAttivo() == false
      */
     public void disattiva(Prestito p){
         

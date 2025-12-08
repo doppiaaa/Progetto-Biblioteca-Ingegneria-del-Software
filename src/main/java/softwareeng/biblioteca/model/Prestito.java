@@ -91,4 +91,12 @@ public class Prestito {
     public String toString(){
         
     }
+    
+    /**
+     * @brief Controlla se il prestito è attivo
+     * @return true se il prestito è attivo, false altrimenti
+     */
+    public boolean isActive(){
+        return this.attivo;
+    }
 }

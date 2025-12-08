@@ -1,0 +1,145 @@
+\doxysection{softwareeng.\+biblioteca.\+model.\+Gestione\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Interface Template Reference}
+\hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione}{}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione}\index{softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}}
+
+
+Interfaccia base che definisce le operazioni CRUD standard.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract Observable\+List$<$ T $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a57036cbb28b4671d83e374d8e69130a4}{get\+Elenco}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}elenco completo degli elementi gestiti. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_ade68bfc48e9704f4de6a0ec47788477b}{aggiungi}} (T elemento)
+\begin{DoxyCompactList}\small\item\em Aggiunge un nuovo elemento alla collezione. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_adb407862199197b322e896d27f934c7c}{rimuovi}} (T elemento)
+\begin{DoxyCompactList}\small\item\em Rimuove un elemento dalla collezione. \end{DoxyCompactList}\item 
+abstract boolean \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a0845156902f2156ba0a9c6416c5a85e0}{check\+ID}} (String id)
+\begin{DoxyCompactList}\small\item\em Verifica l\textquotesingle{}univocità di un identificativo all\textquotesingle{}interno della collezione. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a6c50e7f33a115ea1b7284c1a7f1c7b5b}{modifica}} (T elemento)
+\begin{DoxyCompactList}\small\item\em Modifica un elemento esistente nella collezione. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaccia base che definisce le operazioni CRUD standard. 
+
+Questa interfaccia utilizza i Generics per fornire un contratto comune a tutti i gestori (Libri, Utenti, Prestiti), garantendo uniformità nelle operazioni di accesso e modifica delle liste osservabili utilizzate dall\textquotesingle{}interfaccia Java\+FX.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Il tipo di entità gestita (es. Libro, Utente, Prestito). \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_ade68bfc48e9704f4de6a0ec47788477b}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_ade68bfc48e9704f4de6a0ec47788477b} 
+\index{softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}!aggiungi@{aggiungi}}
+\index{aggiungi@{aggiungi}!softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{aggiungi()}{aggiungi()}}
+{\footnotesize\ttfamily abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione}{softwareeng.\+biblioteca.\+model.\+Gestione}}$<$ T $>$.aggiungi (\begin{DoxyParamCaption}\item[{T}]{elemento }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Aggiunge un nuovo elemento alla collezione. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em elemento} & L\textquotesingle{}oggetto di tipo T da aggiungere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+elemento != null 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+get\+Elenco().contains(elemento) == true 
+\end{DoxyPostcond}
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a0845156902f2156ba0a9c6416c5a85e0}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a0845156902f2156ba0a9c6416c5a85e0} 
+\index{softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}!checkID@{checkID}}
+\index{checkID@{checkID}!softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{checkID()}{checkID()}}
+{\footnotesize\ttfamily abstract boolean \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione}{softwareeng.\+biblioteca.\+model.\+Gestione}}$<$ T $>$.check\+ID (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Verifica l\textquotesingle{}univocità di un identificativo all\textquotesingle{}interno della collezione. 
+
+Utilizzato per prevenire duplicati al momento dell\textquotesingle{}inserimento (es. ISBN duplicato, Matricola duplicata).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & La stringa identificativa da verificare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se l\textquotesingle{}ID è già presente, false altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a57036cbb28b4671d83e374d8e69130a4}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a57036cbb28b4671d83e374d8e69130a4} 
+\index{softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}!getElenco@{getElenco}}
+\index{getElenco@{getElenco}!softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getElenco()}{getElenco()}}
+{\footnotesize\ttfamily abstract Observable\+List$<$ T $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione}{softwareeng.\+biblioteca.\+model.\+Gestione}}$<$ T $>$.get\+Elenco (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Restituisce l\textquotesingle{}elenco completo degli elementi gestiti. 
+
+\begin{DoxyReturn}{Returns}
+Observable\+List$<$\+T$>$ La lista osservabile contenente tutti gli elementi. 
+\end{DoxyReturn}
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a6c50e7f33a115ea1b7284c1a7f1c7b5b}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a6c50e7f33a115ea1b7284c1a7f1c7b5b} 
+\index{softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}!modifica@{modifica}}
+\index{modifica@{modifica}!softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{modifica()}{modifica()}}
+{\footnotesize\ttfamily abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione}{softwareeng.\+biblioteca.\+model.\+Gestione}}$<$ T $>$.modifica (\begin{DoxyParamCaption}\item[{T}]{elemento }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Modifica un elemento esistente nella collezione. 
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em elemento} & L\textquotesingle{}oggetto di tipo T con i dati aggiornati. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+elemento != null 
+
+get\+Elenco().contains(elemento) == true 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+L\textquotesingle{}elemento nella collezione risulta aggiornato. 
+\end{DoxyPostcond}
+
+\end{DoxyItemize}\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_adb407862199197b322e896d27f934c7c}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_adb407862199197b322e896d27f934c7c} 
+\index{softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}!rimuovi@{rimuovi}}
+\index{rimuovi@{rimuovi}!softwareeng.biblioteca.model.Gestione$<$ T $>$@{softwareeng.biblioteca.model.Gestione$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rimuovi()}{rimuovi()}}
+{\footnotesize\ttfamily abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione}{softwareeng.\+biblioteca.\+model.\+Gestione}}$<$ T $>$.rimuovi (\begin{DoxyParamCaption}\item[{T}]{elemento }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Rimuove un elemento dalla collezione. 
+
+Nota\+: Le implementazioni specifiche possono lanciare eccezioni (es. Eliminazione\+Non\+Valida\+Exception) se la rimozione viola vincoli di integrità referenziale.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em elemento} & L\textquotesingle{}oggetto di tipo T da rimuovere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+elemento != null 
+
+get\+Elenco().contains(elemento) == true 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+get\+Elenco().contains(elemento) == false 
+\end{DoxyPostcond}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/softwareeng/biblioteca/model/\mbox{\hyperlink{Gestione_8java}{Gestione.\+java}}\end{DoxyCompactItemize}

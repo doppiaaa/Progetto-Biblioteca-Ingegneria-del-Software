@@ -1,0 +1,16 @@
+var searchData=
+[
+  ['catalogo_0',['catalogo',['../classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo.html#ad24af38980fceeed21961589649a0710',1,'softwareeng.biblioteca.model.Catalogo.Catalogo()'],['../classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo.html',1,'softwareeng.biblioteca.model.Catalogo']]],
+  ['catalogo_2ejava_1',['Catalogo.java',['../Catalogo_8java.html',1,'']]],
+  ['checkdisponibilità_2',['checkDisponibilità',['../classsoftwareeng_1_1biblioteca_1_1model_1_1Libro.html#a21f59bafa34f3b1819e6be643d3c3558',1,'softwareeng::biblioteca::model::Libro']]],
+  ['checkdisponibilita_3',['checkDisponibilita',['../classsoftwareeng_1_1biblioteca_1_1model_1_1Utente.html#a5fd30631061495390f7efc752387712c',1,'softwareeng::biblioteca::model::Utente']]],
+  ['checkid_4',['checkid',['../classsoftwareeng_1_1biblioteca_1_1model_1_1ListaUtenti.html#a59f94b179e34f64790091735c7ee92c6',1,'softwareeng.biblioteca.model.ListaUtenti.checkID()'],['../classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti.html#a406f7d3f3c89df857ee82756dae11f23',1,'softwareeng.biblioteca.model.ListaPrestiti.checkID()'],['../interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneUtenti.html#a576959114fe6f4d777c04652acaca432',1,'softwareeng.biblioteca.model.GestioneUtenti.checkID()'],['../interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti.html#a18befd8d7b275e274a33760c9525b698',1,'softwareeng.biblioteca.model.GestionePrestiti.checkID()'],['../interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri.html#abb608aab5e4a9faa5804d9225e811126',1,'softwareeng.biblioteca.model.GestioneLibri.checkID()'],['../interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione.html#a0845156902f2156ba0a9c6416c5a85e0',1,'softwareeng.biblioteca.model.Gestione.checkID()'],['../classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo.html#a0f4eff7a89f1b8eb1c920e2f3df665e9',1,'softwareeng.biblioteca.model.Catalogo.checkID()']]],
+  ['checkprestiti_5',['checkprestiti',['../classsoftwareeng_1_1biblioteca_1_1model_1_1Libro.html#a646dbabf516014ef9ce5b03ee53d19a8',1,'softwareeng.biblioteca.model.Libro.checkPrestiti()'],['../classsoftwareeng_1_1biblioteca_1_1model_1_1Utente.html#a80af07ef557c646e102657c8a2513ebc',1,'softwareeng.biblioteca.model.Utente.checkPrestiti()']]],
+  ['coesione_20cohesion_6',['6.2 Analisi della Coesione (Cohesion)',['../md_Design_2Documentazione.html#autotoc_md23',1,'']]],
+  ['cohesion_7',['6.2 Analisi della Coesione (Cohesion)',['../md_Design_2Documentazione.html#autotoc_md23',1,'']]],
+  ['compareto_8',['compareto',['../classsoftwareeng_1_1biblioteca_1_1model_1_1Libro.html#a77f2e945cb6c7fcc8acc024fa69d949e',1,'softwareeng.biblioteca.model.Libro.compareTo()'],['../classsoftwareeng_1_1biblioteca_1_1model_1_1Utente.html#a60502f9587bcea8430858fb4f42e7a98',1,'softwareeng.biblioteca.model.Utente.compareTo()']]],
+  ['componenti_9',['3. Analisi dei Componenti',['../md_Design_2Documentazione.html#autotoc_md4',1,'']]],
+  ['contract_10',['6.4 Robustezza e &quot;Design by Contract&quot;',['../md_Design_2Documentazione.html#autotoc_md25',1,'']]],
+  ['controller_20dell_20interfaccia_20ui_20logic_11',['3.2 Controller dell&apos;Interfaccia (UI Logic)',['../md_Design_2Documentazione.html#autotoc_md6',1,'']]],
+  ['coupling_12',['6.3 Analisi dell&apos;Accoppiamento (Coupling)',['../md_Design_2Documentazione.html#autotoc_md24',1,'']]]
+];

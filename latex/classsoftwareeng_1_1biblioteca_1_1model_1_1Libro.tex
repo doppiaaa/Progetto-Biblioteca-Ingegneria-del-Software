@@ -1,0 +1,219 @@
+\doxysection{softwareeng.\+biblioteca.\+model.\+Libro Class Reference}
+\hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+
+
+Rappresenta un libro nel catalogo della biblioteca.  
+
+
+
+
+Inheritance diagram for softwareeng.\+biblioteca.\+model.\+Libro\+:
+% FIG 0
+
+
+Collaboration diagram for softwareeng.\+biblioteca.\+model.\+Libro\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a364fe4a4439b1573b4cd4dfbaeb50844}{Libro}} (String titolo, String autore, String ISBN, int year, int copie\+Totali)
+\begin{DoxyCompactList}\small\item\em Costruttore della classe Libro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a250cd53dfc0d05294a277b1aadf79755}{modifica}} (Map$<$ String, Object $>$ attributi)
+\begin{DoxyCompactList}\small\item\em Modifica gli attributi del libro. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a21f59bafa34f3b1819e6be643d3c3558}{check\+Disponibilità}} ()
+\begin{DoxyCompactList}\small\item\em Verifica la disponibilità per un nuovo prestito. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a646dbabf516014ef9ce5b03ee53d19a8}{check\+Prestiti}} ()
+\begin{DoxyCompactList}\small\item\em Verifica se il libro ha copie attualmente prestate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a9e38c5992702900f482e0fadd8466c83}{up\+Copie}} ()
+\begin{DoxyCompactList}\small\item\em Incrementa il numero di copie disponibili. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_af0abe5237920d47a1302d81f01a73730}{down\+Copie}} ()
+\begin{DoxyCompactList}\small\item\em Decrementa il numero di copie disponibili. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_aae0fa5a6b2ac1dacaaff0164f9757532}{to\+String}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione testuale del libro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a77f2e945cb6c7fcc8acc024fa69d949e}{compare\+To}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} l)
+\begin{DoxyCompactList}\small\item\em Implementa il confronto tra due oggetti Libro (ad esempio, per l\textquotesingle{}ordinamento). \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a63106ade85d33b4e026cfc08f11a1bc1}{get\+ISBN}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce il codice ISBN del libro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Rappresenta un libro nel catalogo della biblioteca. 
+
+La classe Libro gestisce le informazioni anagrafiche (Titolo, Autore, ISBN) e lo stato delle copie fisiche (copie\+Totali, copie\+Disponibili), permettendo di tracciare la disponibilità per i prestiti.
+
+\begin{DoxySeeAlso}{See also}
+Catalogo 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a364fe4a4439b1573b4cd4dfbaeb50844}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a364fe4a4439b1573b4cd4dfbaeb50844} 
+\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}!Libro@{Libro}}
+\index{Libro@{Libro}!softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+\doxysubsubsection{\texorpdfstring{Libro()}{Libro()}}
+{\footnotesize\ttfamily softwareeng.\+biblioteca.\+model.\+Libro.\+Libro (\begin{DoxyParamCaption}\item[{String}]{titolo,  }\item[{String}]{autore,  }\item[{String}]{ISBN,  }\item[{int}]{year,  }\item[{int}]{copie\+Totali }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Costruttore della classe Libro. 
+
+Inizializza un nuovo libro e imposta il numero di copie disponibili uguale al numero totale di copie.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em titolo} & Titolo del libro. \\
+\hline
+\mbox{\texttt{ in}}  & {\em autore} & Autore del libro. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ISBN} & Codice ISBN univoco. \\
+\hline
+\mbox{\texttt{ in}}  & {\em year} & Anno di pubblicazione. \\
+\hline
+\mbox{\texttt{ in}}  & {\em copie\+Totali} & Numero totale di copie possedute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+copie\+Totali \texorpdfstring{$>$}{>}= 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+copie\+Disponibili == copie\+Totali 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a21f59bafa34f3b1819e6be643d3c3558}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a21f59bafa34f3b1819e6be643d3c3558} 
+\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}!checkDisponibilità@{checkDisponibilità}}
+\index{checkDisponibilità@{checkDisponibilità}!softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+\doxysubsubsection{\texorpdfstring{checkDisponibilità()}{checkDisponibilità()}}
+{\footnotesize\ttfamily boolean softwareeng.\+biblioteca.\+model.\+Libro.\+check\+Disponibilità (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica la disponibilità per un nuovo prestito. 
+
+\begin{DoxyReturn}{Returns}
+true se c\textquotesingle{}è almeno una copia disponibile (copie\+Disponibili \texorpdfstring{$>$}{>} 0), false altrimenti. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Il valore di ritorno è (copie\+Disponibili \texorpdfstring{$>$}{>} 0). 
+\end{DoxyPostcond}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a646dbabf516014ef9ce5b03ee53d19a8}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a646dbabf516014ef9ce5b03ee53d19a8} 
+\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}!checkPrestiti@{checkPrestiti}}
+\index{checkPrestiti@{checkPrestiti}!softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+\doxysubsubsection{\texorpdfstring{checkPrestiti()}{checkPrestiti()}}
+{\footnotesize\ttfamily boolean softwareeng.\+biblioteca.\+model.\+Libro.\+check\+Prestiti (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica se il libro ha copie attualmente prestate. 
+
+Utile per la logica di eliminazione del libro dal catalogo.
+
+\begin{DoxyReturn}{Returns}
+true se non ci sono prestiti attivi (copie\+Totali = copie\+Disponibili), false altrimenti. 
+\end{DoxyReturn}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a77f2e945cb6c7fcc8acc024fa69d949e}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a77f2e945cb6c7fcc8acc024fa69d949e} 
+\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}!compareTo@{compareTo}}
+\index{compareTo@{compareTo}!softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+\doxysubsubsection{\texorpdfstring{compareTo()}{compareTo()}}
+{\footnotesize\ttfamily int softwareeng.\+biblioteca.\+model.\+Libro.\+compare\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}}}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implementa il confronto tra due oggetti Libro (ad esempio, per l\textquotesingle{}ordinamento). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em l} & L\textquotesingle{}oggetto Libro da confrontare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valore intero che indica l\textquotesingle{}ordine relativo. 
+\end{DoxyReturn}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_af0abe5237920d47a1302d81f01a73730}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_af0abe5237920d47a1302d81f01a73730} 
+\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}!downCopie@{downCopie}}
+\index{downCopie@{downCopie}!softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+\doxysubsubsection{\texorpdfstring{downCopie()}{downCopie()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+model.\+Libro.\+down\+Copie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Decrementa il numero di copie disponibili. 
+
+Questo metodo viene chiamato tipicamente all\textquotesingle{}erogazione di un prestito.
+
+\begin{DoxyPrecond}{Precondition}
+check\+Disponibilità() == true 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+copie\+Disponibili == copie\+Disponibili)-- 
+\end{DoxyPostcond}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a63106ade85d33b4e026cfc08f11a1bc1}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a63106ade85d33b4e026cfc08f11a1bc1} 
+\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}!getISBN@{getISBN}}
+\index{getISBN@{getISBN}!softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+\doxysubsubsection{\texorpdfstring{getISBN()}{getISBN()}}
+{\footnotesize\ttfamily String softwareeng.\+biblioteca.\+model.\+Libro.\+get\+ISBN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Restituisce il codice ISBN del libro. 
+
+\begin{DoxyReturn}{Returns}
+Stringa contenente l\textquotesingle{}ISBN. 
+\end{DoxyReturn}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a250cd53dfc0d05294a277b1aadf79755}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a250cd53dfc0d05294a277b1aadf79755} 
+\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}!modifica@{modifica}}
+\index{modifica@{modifica}!softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+\doxysubsubsection{\texorpdfstring{modifica()}{modifica()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+model.\+Libro.\+modifica (\begin{DoxyParamCaption}\item[{Map$<$ String, Object $>$}]{attributi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Modifica gli attributi del libro. 
+
+Permette di aggiornare le proprietà del libro utilizzando una mappa di attributi. La logica interna deve gestire la riassegnazione di copie\+Disponibili in caso di modifica di copie\+Totali per mantenere la consistenza.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em attributi} & Mappa contenente le coppie identificatore, valore per i campi da modificare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+attributi != null 
+\end{DoxyPrecond}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_aae0fa5a6b2ac1dacaaff0164f9757532}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_aae0fa5a6b2ac1dacaaff0164f9757532} 
+\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}!toString@{toString}}
+\index{toString@{toString}!softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String softwareeng.\+biblioteca.\+model.\+Libro.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Restituisce una rappresentazione testuale del libro. 
+
+\begin{DoxyReturn}{Returns}
+Stringa contenente i dettagli principali del libro (es. Titolo, Autore). 
+\end{DoxyReturn}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a9e38c5992702900f482e0fadd8466c83}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro_a9e38c5992702900f482e0fadd8466c83} 
+\index{softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}!upCopie@{upCopie}}
+\index{upCopie@{upCopie}!softwareeng.biblioteca.model.Libro@{softwareeng.biblioteca.model.Libro}}
+\doxysubsubsection{\texorpdfstring{upCopie()}{upCopie()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+model.\+Libro.\+up\+Copie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Incrementa il numero di copie disponibili. 
+
+Questo metodo viene chiamato tipicamente alla restituzione di un libro.
+
+\begin{DoxyPrecond}{Precondition}
+copie\+Disponibili \texorpdfstring{$<$}{<} copie\+Totali 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+copie\+Disponibili == copie\+Disponibili++ 
+\end{DoxyPostcond}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/softwareeng/biblioteca/model/Libro.\+java\end{DoxyCompactItemize}

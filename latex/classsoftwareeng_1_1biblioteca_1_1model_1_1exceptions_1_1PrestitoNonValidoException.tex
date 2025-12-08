@@ -1,0 +1,71 @@
+\doxysection{softwareeng.\+biblioteca.\+model.\+exceptions.\+Prestito\+Non\+Valido\+Exception Class Reference}
+\hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException}{}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException}\index{softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException@{softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException}}
+
+
+Eccezione lanciata quando un tentativo di prestito viola le regole di business.  
+
+
+
+
+Inheritance diagram for softwareeng.\+biblioteca.\+model.\+exceptions.\+Prestito\+Non\+Valido\+Exception\+:
+% FIG 0
+
+
+Collaboration diagram for softwareeng.\+biblioteca.\+model.\+exceptions.\+Prestito\+Non\+Valido\+Exception\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException_abcf1011fec5c5ec973dffa3dc63ea32c}{Prestito\+Non\+Valido\+Exception}} ()
+\begin{DoxyCompactList}\small\item\em Costruttore predefinito. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException_a0e67bb89fd287aed04f28315869e1ad3}{Prestito\+Non\+Valido\+Exception}} (String msg)
+\begin{DoxyCompactList}\small\item\em Costruttore con messaggio di dettaglio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Eccezione lanciata quando un tentativo di prestito viola le regole di business. 
+
+Questa eccezione viene sollevata dai gestori dei prestiti (vedi Gestione\+Prestiti\+::add\+Prestito) quando non è possibile completare la transazione. Le cause comuni includono\+:
+\begin{DoxyItemize}
+\item Il libro richiesto non ha copie disponibili (Libro\+::check\+Disponibilità restituisce false).
+\item L\textquotesingle{}utente ha raggiunto il limite massimo di prestiti attivi o ha sanzioni (Utente\+::check\+Disponibilità restituisce false).
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti}{softwareeng.\+biblioteca.\+model.\+Gestione\+Prestiti} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException_abcf1011fec5c5ec973dffa3dc63ea32c}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException_abcf1011fec5c5ec973dffa3dc63ea32c} 
+\index{softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException@{softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException}!PrestitoNonValidoException@{PrestitoNonValidoException}}
+\index{PrestitoNonValidoException@{PrestitoNonValidoException}!softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException@{softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException}}
+\doxysubsubsection{\texorpdfstring{PrestitoNonValidoException()}{PrestitoNonValidoException()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily softwareeng.\+biblioteca.\+model.\+exceptions.\+Prestito\+Non\+Valido\+Exception.\+Prestito\+Non\+Valido\+Exception (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Costruttore predefinito. 
+
+Crea una nuova istanza di Prestito\+Non\+Valido\+Exception senza un messaggio di dettaglio specifico. \Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException_a0e67bb89fd287aed04f28315869e1ad3}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException_a0e67bb89fd287aed04f28315869e1ad3} 
+\index{softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException@{softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException}!PrestitoNonValidoException@{PrestitoNonValidoException}}
+\index{PrestitoNonValidoException@{PrestitoNonValidoException}!softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException@{softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException}}
+\doxysubsubsection{\texorpdfstring{PrestitoNonValidoException()}{PrestitoNonValidoException()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily softwareeng.\+biblioteca.\+model.\+exceptions.\+Prestito\+Non\+Valido\+Exception.\+Prestito\+Non\+Valido\+Exception (\begin{DoxyParamCaption}\item[{String}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Costruttore con messaggio di dettaglio. 
+
+Crea una nuova istanza di Prestito\+Non\+Valido\+Exception specificando la causa dell\textquotesingle{}errore.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em msg} & Il messaggio descrittivo dell\textquotesingle{}errore (es. "{}\+Copie esaurite"{}, "{}\+Utente non abilitato"{}). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/softwareeng/biblioteca/model/exceptions/\mbox{\hyperlink{PrestitoNonValidoException_8java}{Prestito\+Non\+Valido\+Exception.\+java}}\end{DoxyCompactItemize}

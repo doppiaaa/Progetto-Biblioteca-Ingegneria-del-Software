@@ -1,0 +1,232 @@
+\doxysection{softwareeng.\+biblioteca.\+model.\+Lista\+Prestiti Class Reference}
+\hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti}{}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti}\index{softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}}
+
+
+Classe concreta per la gestione dell\textquotesingle{}elenco dei prestiti della biblioteca.  
+
+
+
+
+Inheritance diagram for softwareeng.\+biblioteca.\+model.\+Lista\+Prestiti\+:
+% FIG 0
+
+
+Collaboration diagram for softwareeng.\+biblioteca.\+model.\+Lista\+Prestiti\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_aad0c94d57b4d5341ef49d6ec29dbe2f1}{Lista\+Prestiti}} ()
+\begin{DoxyCompactList}\small\item\em Costruttore predefinito. \end{DoxyCompactList}\item 
+Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} $>$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_ad388d734ce33dfb7c133313887a6e3c3}{get\+Elenco}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}elenco completo dei prestiti. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a86ab9a9f89b682c38fce1af19cd7457f}{aggiungi}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} prestito)
+\begin{DoxyCompactList}\small\item\em Aggiunge un oggetto Prestito direttamente alla lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a1a559205e97cd937b689737d5c23c0d2}{rimuovi}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} prestito)
+\begin{DoxyCompactList}\small\item\em Rimuove un prestito dalla lista. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a406f7d3f3c89df857ee82756dae11f23}{check\+ID}} (String id)
+\begin{DoxyCompactList}\small\item\em Verifica l\textquotesingle{}esistenza di un prestito tramite il suo identificativo univoco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a9104401f42636ce58ed13ca06c0a8be8}{add\+Prestito}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente}{Utente}} utente, \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} libro)  throws Prestito\+Non\+Valido\+Exception
+\begin{DoxyCompactList}\small\item\em Crea e registra un nuovo prestito tra un utente e un libro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti}{softwareeng.\+biblioteca.\+model.\+Gestione\+Prestiti}}}
+\begin{DoxyCompactItemize}
+\item 
+Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti_a4a1e5393892360b4e04464ed5cffa910}{ricerca}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente}{Utente}} u)
+\begin{DoxyCompactList}\small\item\em Ricerca i prestiti associati a uno specifico utente. \end{DoxyCompactList}\item 
+Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti_a25c931d3433d90f8e0fdc67cb0ccc85c}{ricerca}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} l)
+\begin{DoxyCompactList}\small\item\em Ricerca i prestiti associati a uno specifico libro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti_ade5296f095a54f6a05e569e8b7736279}{disattiva}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} p)
+\begin{DoxyCompactList}\small\item\em Disattiva (chiude) un prestito attivo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione}{softwareeng.\+biblioteca.\+model.\+Gestione$<$ Prestito $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+abstract Observable\+List$<$ T $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a57036cbb28b4671d83e374d8e69130a4}{get\+Elenco}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}elenco completo degli elementi gestiti. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_ade68bfc48e9704f4de6a0ec47788477b}{aggiungi}} (T elemento)
+\begin{DoxyCompactList}\small\item\em Aggiunge un nuovo elemento alla collezione. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_adb407862199197b322e896d27f934c7c}{rimuovi}} (T elemento)
+\begin{DoxyCompactList}\small\item\em Rimuove un elemento dalla collezione. \end{DoxyCompactList}\item 
+abstract boolean \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a0845156902f2156ba0a9c6416c5a85e0}{check\+ID}} (String id)
+\begin{DoxyCompactList}\small\item\em Verifica l\textquotesingle{}univocità di un identificativo all\textquotesingle{}interno della collezione. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a6c50e7f33a115ea1b7284c1a7f1c7b5b}{modifica}} (T elemento)
+\begin{DoxyCompactList}\small\item\em Modifica un elemento esistente nella collezione. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe concreta per la gestione dell\textquotesingle{}elenco dei prestiti della biblioteca. 
+
+Questa classe implementa l\textquotesingle{}interfaccia Gestione\+Prestiti e l\textquotesingle{}interfaccia Serializable. Si occupa di memorizzare i prestiti correnti e gestisce la logica transazionale per la creazione di nuovi prestiti, garantendo la consistenza tra disponibilità dei libri e stato degli utenti.
+
+\begin{DoxySeeAlso}{See also}
+Gestione\+Prestiti 
+
+Prestito 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_aad0c94d57b4d5341ef49d6ec29dbe2f1}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_aad0c94d57b4d5341ef49d6ec29dbe2f1} 
+\index{softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}!ListaPrestiti@{ListaPrestiti}}
+\index{ListaPrestiti@{ListaPrestiti}!softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}}
+\doxysubsubsection{\texorpdfstring{ListaPrestiti()}{ListaPrestiti()}}
+{\footnotesize\ttfamily softwareeng.\+biblioteca.\+model.\+Lista\+Prestiti.\+Lista\+Prestiti (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Costruttore predefinito. 
+
+Inizializza la lista dei prestiti come una collezione vuota osservabile tramite FXCollections.\+observable\+Array\+List().
+
+\begin{DoxyPostcond}{Postcondition}
+prestiti != null \&\& prestiti.\+is\+Empty() == true 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a9104401f42636ce58ed13ca06c0a8be8}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a9104401f42636ce58ed13ca06c0a8be8} 
+\index{softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}!addPrestito@{addPrestito}}
+\index{addPrestito@{addPrestito}!softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}}
+\doxysubsubsection{\texorpdfstring{addPrestito()}{addPrestito()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+model.\+Lista\+Prestiti.\+add\+Prestito (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente}{Utente}}}]{utente,  }\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}}}]{libro }\end{DoxyParamCaption}) throws Prestito\+Non\+Valido\+Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Crea e registra un nuovo prestito tra un utente e un libro. 
+
+Questo metodo implementa la logica di business per l\textquotesingle{}erogazione di un prestito\+:
+\begin{DoxyEnumerate}
+\item Verifica che il libro abbia copie disponibili (\begin{DoxySeeAlso}{See also}
+Libro\+::check\+Disponibilità).
+\end{DoxySeeAlso}
+
+\item Verifica che l\textquotesingle{}utente sia abilitato al prestito (\begin{DoxySeeAlso}{See also}
+Utente\+::check\+Disponibilità).
+\end{DoxySeeAlso}
+
+\item Se i controlli hanno successo, crea il nuovo Prestito, decrementa le copie del libro e registra il prestito nel sistema.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utente} & L\textquotesingle{}utente che richiede il prestito. \\
+\hline
+\mbox{\texttt{ in}}  & {\em libro} & Il libro da prestare.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+utente != null \&\& libro != null
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Un nuovo oggetto Prestito è creato e aggiunto alla lista prestiti. 
+
+libro.\+get\+Copie\+Disponibili() == libro.\+get\+Copie\+Disponibili()-- 
+
+il prestito viene aggiunto alla lista dei prestti attivi dell\textquotesingle{}utente.
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Prestito\+Non\+Valido\+Exception} & Se non ci sono copie disponibili o l\textquotesingle{}utente non può contrarre nuovi prestiti. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti_a7adcdaf85be4ba4c557aa78a5afbde37}{softwareeng.\+biblioteca.\+model.\+Gestione\+Prestiti}}.
+
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a86ab9a9f89b682c38fce1af19cd7457f}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a86ab9a9f89b682c38fce1af19cd7457f} 
+\index{softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}!aggiungi@{aggiungi}}
+\index{aggiungi@{aggiungi}!softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}}
+\doxysubsubsection{\texorpdfstring{aggiungi()}{aggiungi()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+model.\+Lista\+Prestiti.\+aggiungi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}}}]{prestito }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Aggiunge un oggetto Prestito direttamente alla lista. 
+
+Metodo di basso livello per inserire un prestito nella collezione (es. in fase di caricamento dati).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em prestito} & L\textquotesingle{}oggetto Prestito da aggiungere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+prestito != null 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+prestiti.\+contains(prestito) == true 
+
+prestiti.\+size() == old(prestiti.\+size()) + 1 
+\end{DoxyPostcond}
+
+
+Implements \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti_a92cff17ae3c1ddeb9047b26d88902c95}{softwareeng.\+biblioteca.\+model.\+Gestione\+Prestiti}}.
+
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a406f7d3f3c89df857ee82756dae11f23}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a406f7d3f3c89df857ee82756dae11f23} 
+\index{softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}!checkID@{checkID}}
+\index{checkID@{checkID}!softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}}
+\doxysubsubsection{\texorpdfstring{checkID()}{checkID()}}
+{\footnotesize\ttfamily boolean softwareeng.\+biblioteca.\+model.\+Lista\+Prestiti.\+check\+ID (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica l\textquotesingle{}esistenza di un prestito tramite il suo identificativo univoco. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & La stringa rappresentante l\textquotesingle{}ID del prestito. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se esiste un prestito con quell\textquotesingle{}ID, false altrimenti. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti_a18befd8d7b275e274a33760c9525b698}{softwareeng.\+biblioteca.\+model.\+Gestione\+Prestiti}}.
+
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_ad388d734ce33dfb7c133313887a6e3c3}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_ad388d734ce33dfb7c133313887a6e3c3} 
+\index{softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}!getElenco@{getElenco}}
+\index{getElenco@{getElenco}!softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}}
+\doxysubsubsection{\texorpdfstring{getElenco()}{getElenco()}}
+{\footnotesize\ttfamily Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} $>$ softwareeng.\+biblioteca.\+model.\+Lista\+Prestiti.\+get\+Elenco (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Restituisce l\textquotesingle{}elenco completo dei prestiti. 
+
+\begin{DoxyReturn}{Returns}
+Observable\+List$<$\+Prestito$>$ La lista osservabile di tutti i prestiti. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti_a27f865102cd75c77cdfcad65e258f19d}{softwareeng.\+biblioteca.\+model.\+Gestione\+Prestiti}}.
+
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a1a559205e97cd937b689737d5c23c0d2}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti_a1a559205e97cd937b689737d5c23c0d2} 
+\index{softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}!rimuovi@{rimuovi}}
+\index{rimuovi@{rimuovi}!softwareeng.biblioteca.model.ListaPrestiti@{softwareeng.biblioteca.model.ListaPrestiti}}
+\doxysubsubsection{\texorpdfstring{rimuovi()}{rimuovi()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+model.\+Lista\+Prestiti.\+rimuovi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}}}]{prestito }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rimuove un prestito dalla lista. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em prestito} & L\textquotesingle{}oggetto Prestito da rimuovere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+prestito != null 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+prestiti.\+contains(prestito) == false 
+\end{DoxyPostcond}
+
+
+Implements \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestionePrestiti_a38616b7e24e9b11588372ce7de1b0b86}{softwareeng.\+biblioteca.\+model.\+Gestione\+Prestiti}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/softwareeng/biblioteca/model/\mbox{\hyperlink{ListaPrestiti_8java}{Lista\+Prestiti.\+java}}\end{DoxyCompactItemize}

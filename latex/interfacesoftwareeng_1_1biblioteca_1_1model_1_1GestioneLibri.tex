@@ -1,0 +1,268 @@
+\doxysection{softwareeng.\+biblioteca.\+model.\+Gestione\+Libri Interface Reference}
+\hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri}{}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri}\index{softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}}
+
+
+Interfaccia che definisce il contratto per la gestione del catalogo libri.  
+
+
+
+
+Inheritance diagram for softwareeng.\+biblioteca.\+model.\+Gestione\+Libri\+:
+% FIG 0
+
+
+Collaboration diagram for softwareeng.\+biblioteca.\+model.\+Gestione\+Libri\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a9168dfbf428f30e09e072770c5b81457}{get\+Elenco}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}elenco completo dei libri presenti nel catalogo. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a612d4ede96ad5873eac7f12e0a98f5bd}{aggiungi}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} libro)
+\begin{DoxyCompactList}\small\item\em Aggiunge un nuovo libro al catalogo. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a8676478d9bd612e55a5eadb1f47c986a}{rimuovi}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} libro)
+\begin{DoxyCompactList}\small\item\em Rimuove un libro dal catalogo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a3453f7620f5b727f2926c71663cac3d5}{modifica}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} libro)
+\begin{DoxyCompactList}\small\item\em Modifica i dati di un libro esistente. \end{DoxyCompactList}\item 
+abstract boolean \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_abb608aab5e4a9faa5804d9225e811126}{check\+ID}} (String id)
+\begin{DoxyCompactList}\small\item\em Verifica l\textquotesingle{}esistenza di un libro tramite il suo codice ISBN. \end{DoxyCompactList}\item 
+Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a7e9065557b29c39997b8e2bce0eb3cfa}{ricerca\+Titolo}} (String titolo)
+\begin{DoxyCompactList}\small\item\em Ricerca i libri che contengono la stringa specificata nel titolo. \end{DoxyCompactList}\item 
+Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a2d92bcea63faef0d5a0768733546cc31}{ricerca\+Autore}} (String autore)
+\begin{DoxyCompactList}\small\item\em Ricerca i libri scritti da un determinato autore. \end{DoxyCompactList}\item 
+Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_af23ab6518e791c48bc691c627890948b}{ricerca\+ISBN}} (String isbn)
+\begin{DoxyCompactList}\small\item\em Ricerca un libro tramite il suo codice ISBN. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione}{softwareeng.\+biblioteca.\+model.\+Gestione$<$ Libro $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+abstract Observable\+List$<$ T $>$ \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a57036cbb28b4671d83e374d8e69130a4}{get\+Elenco}} ()
+\begin{DoxyCompactList}\small\item\em Restituisce l\textquotesingle{}elenco completo degli elementi gestiti. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_ade68bfc48e9704f4de6a0ec47788477b}{aggiungi}} (T elemento)
+\begin{DoxyCompactList}\small\item\em Aggiunge un nuovo elemento alla collezione. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_adb407862199197b322e896d27f934c7c}{rimuovi}} (T elemento)
+\begin{DoxyCompactList}\small\item\em Rimuove un elemento dalla collezione. \end{DoxyCompactList}\item 
+abstract boolean \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a0845156902f2156ba0a9c6416c5a85e0}{check\+ID}} (String id)
+\begin{DoxyCompactList}\small\item\em Verifica l\textquotesingle{}univocità di un identificativo all\textquotesingle{}interno della collezione. \end{DoxyCompactList}\item 
+abstract void \mbox{\hyperlink{interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione_a6c50e7f33a115ea1b7284c1a7f1c7b5b}{modifica}} (T elemento)
+\begin{DoxyCompactList}\small\item\em Modifica un elemento esistente nella collezione. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaccia che definisce il contratto per la gestione del catalogo libri. 
+
+Estende l\textquotesingle{}interfaccia generica Gestione$<$\+T$>$ specializzandola per la classe Libro. Oltre alle operazioni CRUD standard (Create, Read, Update, Delete), definisce metodi specifici per la ricerca di libri basati sui loro attributi (Titolo, Autore, ISBN).
+
+\begin{DoxySeeAlso}{See also}
+Gestione 
+
+Libro 
+
+Catalogo 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a612d4ede96ad5873eac7f12e0a98f5bd}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a612d4ede96ad5873eac7f12e0a98f5bd} 
+\index{softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}!aggiungi@{aggiungi}}
+\index{aggiungi@{aggiungi}!softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}}
+\doxysubsubsection{\texorpdfstring{aggiungi()}{aggiungi()}}
+{\footnotesize\ttfamily abstract void softwareeng.\+biblioteca.\+model.\+Gestione\+Libri.\+aggiungi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}}}]{libro }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Aggiunge un nuovo libro al catalogo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em libro} & L\textquotesingle{}oggetto Libro da aggiungere.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+libro != null 
+
+check\+ID(libro.\+get\+ISBN()) == false (Il libro con questo ISBN non deve esistere) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+get\+Elenco().contains(libro) == true 
+
+get\+Elenco().size() == get\+Elenco().size()++ 
+\end{DoxyPostcond}
+
+
+Implemented in \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo_ae0d753d934ccaab626019aeb5e60484a}{softwareeng.\+biblioteca.\+model.\+Catalogo}}.
+
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_abb608aab5e4a9faa5804d9225e811126}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_abb608aab5e4a9faa5804d9225e811126} 
+\index{softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}!checkID@{checkID}}
+\index{checkID@{checkID}!softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}}
+\doxysubsubsection{\texorpdfstring{checkID()}{checkID()}}
+{\footnotesize\ttfamily abstract boolean softwareeng.\+biblioteca.\+model.\+Gestione\+Libri.\+check\+ID (\begin{DoxyParamCaption}\item[{String}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Verifica l\textquotesingle{}esistenza di un libro tramite il suo codice ISBN. 
+
+Utilizzato per garantire l\textquotesingle{}unicità dei libri all\textquotesingle{}interno del catalogo.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & Il codice ISBN da verificare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se l\textquotesingle{}ISBN è già presente, false altrimenti. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo_a0f4eff7a89f1b8eb1c920e2f3df665e9}{softwareeng.\+biblioteca.\+model.\+Catalogo}}.
+
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a9168dfbf428f30e09e072770c5b81457}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a9168dfbf428f30e09e072770c5b81457} 
+\index{softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}!getElenco@{getElenco}}
+\index{getElenco@{getElenco}!softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}}
+\doxysubsubsection{\texorpdfstring{getElenco()}{getElenco()}}
+{\footnotesize\ttfamily abstract Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} $>$ softwareeng.\+biblioteca.\+model.\+Gestione\+Libri.\+get\+Elenco (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Restituisce l\textquotesingle{}elenco completo dei libri presenti nel catalogo. 
+
+\begin{DoxyReturn}{Returns}
+Observable\+List$<$\+Libro$>$ La lista osservabile di tutti i libri. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo_a471673417e00b5b5267261ea23365798}{softwareeng.\+biblioteca.\+model.\+Catalogo}}.
+
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a3453f7620f5b727f2926c71663cac3d5}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a3453f7620f5b727f2926c71663cac3d5} 
+\index{softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}!modifica@{modifica}}
+\index{modifica@{modifica}!softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}}
+\doxysubsubsection{\texorpdfstring{modifica()}{modifica()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+model.\+Gestione\+Libri.\+modifica (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}}}]{libro }\end{DoxyParamCaption})}
+
+
+
+Modifica i dati di un libro esistente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em libro} & L\textquotesingle{}oggetto Libro con i dati aggiornati.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+libro != null 
+
+get\+Elenco().contains(libro) == true 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Il libro nel catalogo riflette i nuovi attributi. 
+\end{DoxyPostcond}
+
+
+Implemented in \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo_ab7cf0b1acc9446dac2ccd4a6c11026e3}{softwareeng.\+biblioteca.\+model.\+Catalogo}}.
+
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a2d92bcea63faef0d5a0768733546cc31}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a2d92bcea63faef0d5a0768733546cc31} 
+\index{softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}!ricercaAutore@{ricercaAutore}}
+\index{ricercaAutore@{ricercaAutore}!softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}}
+\doxysubsubsection{\texorpdfstring{ricercaAutore()}{ricercaAutore()}}
+{\footnotesize\ttfamily Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} $>$ softwareeng.\+biblioteca.\+model.\+Gestione\+Libri.\+ricerca\+Autore (\begin{DoxyParamCaption}\item[{String}]{autore }\end{DoxyParamCaption})}
+
+
+
+Ricerca i libri scritti da un determinato autore. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em autore} & Il nome dell\textquotesingle{}autore da cercare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Observable\+List$<$\+Libro$>$ Una lista di libri dell\textquotesingle{}autore specificato. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo_ae2a6e280f7a1a66d704d343104416ae1}{softwareeng.\+biblioteca.\+model.\+Catalogo}}.
+
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_af23ab6518e791c48bc691c627890948b}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_af23ab6518e791c48bc691c627890948b} 
+\index{softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}!ricercaISBN@{ricercaISBN}}
+\index{ricercaISBN@{ricercaISBN}!softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}}
+\doxysubsubsection{\texorpdfstring{ricercaISBN()}{ricercaISBN()}}
+{\footnotesize\ttfamily Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} $>$ softwareeng.\+biblioteca.\+model.\+Gestione\+Libri.\+ricerca\+ISBN (\begin{DoxyParamCaption}\item[{String}]{isbn }\end{DoxyParamCaption})}
+
+
+
+Ricerca un libro tramite il suo codice ISBN. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em isbn} & Il codice ISBN esatto da cercare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Observable\+List$<$\+Libro$>$ Una lista contenente il libro trovato (o vuota se non trovato). 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo_a7f0f0eb9176557525c98af6dc5ccf071}{softwareeng.\+biblioteca.\+model.\+Catalogo}}.
+
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a7e9065557b29c39997b8e2bce0eb3cfa}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a7e9065557b29c39997b8e2bce0eb3cfa} 
+\index{softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}!ricercaTitolo@{ricercaTitolo}}
+\index{ricercaTitolo@{ricercaTitolo}!softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}}
+\doxysubsubsection{\texorpdfstring{ricercaTitolo()}{ricercaTitolo()}}
+{\footnotesize\ttfamily Observable\+List$<$ \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}} $>$ softwareeng.\+biblioteca.\+model.\+Gestione\+Libri.\+ricerca\+Titolo (\begin{DoxyParamCaption}\item[{String}]{titolo }\end{DoxyParamCaption})}
+
+
+
+Ricerca i libri che contengono la stringa specificata nel titolo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em titolo} & Il titolo (o parte di esso) da cercare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Observable\+List$<$\+Libro$>$ Una lista di libri che corrispondono ai criteri di ricerca. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo_a5b951d4e3470935a0ff9b033aa0d1f30}{softwareeng.\+biblioteca.\+model.\+Catalogo}}.
+
+\Hypertarget{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a8676478d9bd612e55a5eadb1f47c986a}\label{interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri_a8676478d9bd612e55a5eadb1f47c986a} 
+\index{softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}!rimuovi@{rimuovi}}
+\index{rimuovi@{rimuovi}!softwareeng.biblioteca.model.GestioneLibri@{softwareeng.biblioteca.model.GestioneLibri}}
+\doxysubsubsection{\texorpdfstring{rimuovi()}{rimuovi()}}
+{\footnotesize\ttfamily abstract void softwareeng.\+biblioteca.\+model.\+Gestione\+Libri.\+rimuovi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Libro}{Libro}}}]{libro }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Rimuove un libro dal catalogo. 
+
+Prima di rimuovere il libro, verifica che non ci siano prestiti attivi associati ad esso per mantenere l\textquotesingle{}integrità del database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em libro} & L\textquotesingle{}oggetto Libro da rimuovere.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+libro != null 
+
+get\+Elenco().contains(libro) == true
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+get\+Elenco().contains(libro) == false 
+
+get\+Elenco().size() == get\+Elenco().size()--
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Eliminazione\+Non\+Valida\+Exception} & Se il libro ha copie attualmente in prestito. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo_ae20a877152ed050ce115d76a25658a40}{softwareeng.\+biblioteca.\+model.\+Catalogo}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/softwareeng/biblioteca/model/\mbox{\hyperlink{GestioneLibri_8java}{Gestione\+Libri.\+java}}\end{DoxyCompactItemize}

@@ -5,6 +5,7 @@
  */
 package softwareeng.biblioteca.controller;
 import softwareeng.biblioteca.model.*;
+import softwareeng.biblioteca.application.MainApp;
 
 /**
  *
@@ -20,57 +21,78 @@ public class PrestitiController {
     private Utente utenteSelezionato;
     private Prestito prestitoSelezionato;
 
-    @Override
-    public void setMainApp(MainApp app);
-    
-    @Override
-    public void setDati(Gestione<Prestito> interfaccia);
+    /**
+     * @brief Imposta il riferimento alla classe MainApp.
+     * Imposta il riferimento alla classe principale MainApp per la gestione
+     * della navigazione e l'accesso ai dati globali.
+     * @param app L'istanza della MainApp dell'applicazione.
+     */
+    public void setMainApp(MainApp app){
+        
+    }
 
-    public void setDati(GestionePrestiti prestiti, GestioneLibri catalogo, GestioneUtenti utenti);
+    public void setDati(GestionePrestiti prestiti, GestioneLibri catalogo, GestioneUtenti utenti){
+        
+    }
 
-    @Override
-    public void goHome();
+    /**
+     * @brief Torna alla schermata principale (Home).
+     * * Gestisce il click per tornare alla schermata principale (Home).
+     */
+    public void goHome(){
+        
+    }
     
-    public void goToLibri();
+    /**
+     * @brief Passa alla schermata di gestione dei Libri.
+     * * Gestisce il click per passare alla schermata di gestione dei Libri.
+     */
+    public void goToLibri(){
+        
+    }
     
-    public void goToUtenti();
+    /**
+     * @brief Passa alla schermata di gestione degli Utenti.
+     * * Gestisce il click per passare alla schermata di gestione degli Utenti.
+     */
+    public void goToUtenti(){
+        
+    }
+  
+    public void mostraDialogLibri(){
+        
+    }
     
-    @Override
-    public void goToPrestiti();
-    
-    public void mostraDialogLibri();
-    
-    public void mostraDialogUtenti();
+    public void mostraDialogUtenti(){
+        
+    }
 
-    @Override
-    public void clickNuovo();
+    public void clickNuovo(){
+        
+    }
     
-    public void clickConferma();
+    public void clickConferma(){
+        
+    }
     
-    @Override
-    public void seleziona(Prestito elemento);
+    public void seleziona(Prestito elemento){
+        
+    }
     
-    public void seleziona(Libro libro);
+    public void seleziona(Libro libro){
+        
+    }
     
-    public void seleziona(Utente utente);
+    public void seleziona(Utente utente){
+        
+    }
 
-    @Override
-    public void rimuovi();
-
-    @Override
-    public void modifica();
+    public void rimuovi(){
+        
+    }
     
-    public void disattiva();
+    public void disattiva(){
+        
+    }
 
-    @Override
-    public boolean showEditDialog(Prestito elemento);
-
-    @Override
-    public boolean showEditDialog();
-
-    @Override
-    public void popolaForm(Prestito elemento);
-
-    @Override
-    public void sendAttrbitui(Map<String, Object> attributi);
 }
