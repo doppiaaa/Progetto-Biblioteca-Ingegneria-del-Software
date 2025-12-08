@@ -104,14 +104,14 @@ public class Utente implements Comparable<Utente>, Serializable {
     }
 
     /**
-     * @brief Disattiva un prestito specifico.
+     * @brief Rimuove un prestito dalla lista dell'utente.
      *
-     * @param[in] p Il Prestito da disattivare (restituire).
+     * @param[in] p Il Prestito da rimuovere (restituire).
      * @pre p != null
      * @pre prestiti.contains(p) == true
      * @post p.isAttivo() == false
      */
-    public void disattiva(Prestito p){
+    public void rimuoviPrestito(Prestito p){
         
     }
 

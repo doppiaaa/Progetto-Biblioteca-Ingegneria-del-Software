@@ -26,8 +26,8 @@ boolean \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a80af
 \begin{DoxyCompactList}\small\item\em Si accerta che l\textquotesingle{}utente non abbia prestiti attivi in sospeso. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a7e728e0ce39f3283306a831003126cbd}{aggiungi}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} p)
 \begin{DoxyCompactList}\small\item\em Aggiunge un prestito attivo alla lista dell\textquotesingle{}utente. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a111d482e4560c7eb5a222d2e09789480}{disattiva}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} p)
-\begin{DoxyCompactList}\small\item\em Disattiva un prestito specifico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a7b3466e9d9c79cd6016b212e24aef983}{rimuovi\+Prestito}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}} p)
+\begin{DoxyCompactList}\small\item\em Rimuove un prestito dalla lista dell\textquotesingle{}utente. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_affd63cb2f4e2bc2b7f07da9ea7fc3239}{to\+String}} ()
 \begin{DoxyCompactList}\small\item\em Restituisce una rappresentazione in stringa dell\textquotesingle{}utente. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a60502f9587bcea8430858fb4f42e7a98}{compare\+To}} (\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente}{Utente}} u)
@@ -69,7 +69,7 @@ Inizializza un nuovo utente e crea una lista vuota per i suoi prestiti.
 matricola è una stringa univoca non presente in Lista\+Utenti (verificato esternamente). 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-prestiti è una lista vuota. 
+creazione di un nuovo oggetto Utente 
 \end{DoxyPostcond}
 
 
@@ -145,29 +145,6 @@ Implementa il confronto tra due oggetti Utente per l\textquotesingle{}ordinament
 \begin{DoxyReturn}{Returns}
 Valore intero che indica l\textquotesingle{}ordine relativo. 
 \end{DoxyReturn}
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a111d482e4560c7eb5a222d2e09789480}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a111d482e4560c7eb5a222d2e09789480} 
-\index{softwareeng.biblioteca.model.Utente@{softwareeng.biblioteca.model.Utente}!disattiva@{disattiva}}
-\index{disattiva@{disattiva}!softwareeng.biblioteca.model.Utente@{softwareeng.biblioteca.model.Utente}}
-\doxysubsubsection{\texorpdfstring{disattiva()}{disattiva()}}
-{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+model.\+Utente.\+disattiva (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Disattiva un prestito specifico. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em p} & Il Prestito da disattivare (restituire). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyPrecond}{Precondition}
-p != null 
-
-prestiti.\+contains(p) == true 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-p.\+is\+Attivo() == false (Stato aggiornato dal metodo Prestito\+::disattiva()) 
-\end{DoxyPostcond}
 \Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a97bc7a7d3f53e188f687f76fadd21f74}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a97bc7a7d3f53e188f687f76fadd21f74} 
 \index{softwareeng.biblioteca.model.Utente@{softwareeng.biblioteca.model.Utente}!getMatricola@{getMatricola}}
 \index{getMatricola@{getMatricola}!softwareeng.biblioteca.model.Utente@{softwareeng.biblioteca.model.Utente}}
@@ -201,6 +178,29 @@ Permette di aggiornare le proprietà dell\textquotesingle{}utente (es. nome, cog
 \begin{DoxyPrecond}{Precondition}
 attributi != null 
 \end{DoxyPrecond}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a7b3466e9d9c79cd6016b212e24aef983}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_a7b3466e9d9c79cd6016b212e24aef983} 
+\index{softwareeng.biblioteca.model.Utente@{softwareeng.biblioteca.model.Utente}!rimuoviPrestito@{rimuoviPrestito}}
+\index{rimuoviPrestito@{rimuoviPrestito}!softwareeng.biblioteca.model.Utente@{softwareeng.biblioteca.model.Utente}}
+\doxysubsubsection{\texorpdfstring{rimuoviPrestito()}{rimuoviPrestito()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+model.\+Utente.\+rimuovi\+Prestito (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito}{Prestito}}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rimuove un prestito dalla lista dell\textquotesingle{}utente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p} & Il Prestito da rimuovere (restituire). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+p != null 
+
+prestiti.\+contains(p) == true 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+p.\+is\+Attivo() == false 
+\end{DoxyPostcond}
 \Hypertarget{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_affd63cb2f4e2bc2b7f07da9ea7fc3239}\label{classsoftwareeng_1_1biblioteca_1_1model_1_1Utente_affd63cb2f4e2bc2b7f07da9ea7fc3239} 
 \index{softwareeng.biblioteca.model.Utente@{softwareeng.biblioteca.model.Utente}!toString@{toString}}
 \index{toString@{toString}!softwareeng.biblioteca.model.Utente@{softwareeng.biblioteca.model.Utente}}

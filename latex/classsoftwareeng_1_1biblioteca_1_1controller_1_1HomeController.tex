@@ -1,31 +1,104 @@
 \doxysection{softwareeng.\+biblioteca.\+controller.\+Home\+Controller Class Reference}
 \hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController}{}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController}\index{softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}}
+
+
+Gestisce le interazioni della schermata Home.  
+
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a9101c9d255ef3a0603842a4996b73e4a}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a9101c9d255ef3a0603842a4996b73e4a} 
-void {\bfseries set\+Main\+App} (Main\+App app)
-\item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a8778e39af59ff95f8a9c7a79f4a08ba6}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a8778e39af59ff95f8a9c7a79f4a08ba6} 
-void {\bfseries go\+To\+Libri} ()
-\item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a480b2e63e3927c272106eea4e1c9c4db}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a480b2e63e3927c272106eea4e1c9c4db} 
-void {\bfseries go\+To\+Utenti} ()
-\item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_af70de3b766ab5b1f8fa7c854d017347e}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_af70de3b766ab5b1f8fa7c854d017347e} 
-void {\bfseries go\+To\+Prestiti} ()
-\item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_aaafd4a781998c3cc8c05acc42baafb3a}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_aaafd4a781998c3cc8c05acc42baafb3a} 
-void {\bfseries esci} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a9101c9d255ef3a0603842a4996b73e4a}{set\+Main\+App}} (Main\+App app)
+\begin{DoxyCompactList}\small\item\em Imposta il riferimento alla classe Main\+App. Imposta il riferimento alla classe principale Main\+App per la gestione della navigazione e l\textquotesingle{}accesso ai dati globali. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a8778e39af59ff95f8a9c7a79f4a08ba6}{go\+To\+Libri}} ()
+\begin{DoxyCompactList}\small\item\em Passa alla schermata di gestione dei Libri. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a480b2e63e3927c272106eea4e1c9c4db}{go\+To\+Utenti}} ()
+\begin{DoxyCompactList}\small\item\em Passa alla schermata di gestione degli Utenti. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_af70de3b766ab5b1f8fa7c854d017347e}{go\+To\+Prestiti}} ()
+\begin{DoxyCompactList}\small\item\em Passa alla schermata di gestione dei Prestiti. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_aaafd4a781998c3cc8c05acc42baafb3a}{esci}} ()
+\begin{DoxyCompactList}\small\item\em Gestisce l\textquotesingle{}evento di chiusura dell\textquotesingle{}applicazione. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyAuthor}{Author}
-cashrules 
-\end{DoxyAuthor}
+Gestisce le interazioni della schermata Home. 
+
+Questa classe è responsabile della gestione degli eventi (click sui pulsanti) che permettono la navigazione verso le altre sezioni dell\textquotesingle{}applicazione (Libri, Utenti, Prestiti). 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_aaafd4a781998c3cc8c05acc42baafb3a}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_aaafd4a781998c3cc8c05acc42baafb3a} 
+\index{softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}!esci@{esci}}
+\index{esci@{esci}!softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}}
+\doxysubsubsection{\texorpdfstring{esci()}{esci()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+controller.\+Home\+Controller.\+esci (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gestisce l\textquotesingle{}evento di chiusura dell\textquotesingle{}applicazione. 
+
+
+\begin{DoxyItemize}
+\item Richiama il metodo di salvataggio dei dati dalla Main\+App prima di terminare l\textquotesingle{}esecuzione del programma, garantendo la persistenza delle modifiche. Tipicamente associato al pulsante "{}\+Esci"{} dell\textquotesingle{}interfaccia utente.
+\item \begin{DoxySeeAlso}{See also}
+Main\+App\+::salva\+Dati() 
+\end{DoxySeeAlso}
+
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a8778e39af59ff95f8a9c7a79f4a08ba6}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a8778e39af59ff95f8a9c7a79f4a08ba6} 
+\index{softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}!goToLibri@{goToLibri}}
+\index{goToLibri@{goToLibri}!softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}}
+\doxysubsubsection{\texorpdfstring{goToLibri()}{goToLibri()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+controller.\+Home\+Controller.\+go\+To\+Libri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Passa alla schermata di gestione dei Libri. 
+
+
+\begin{DoxyItemize}
+\item Gestisce il click per passare alla schermata di gestione dei Libri. 
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_af70de3b766ab5b1f8fa7c854d017347e}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_af70de3b766ab5b1f8fa7c854d017347e} 
+\index{softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}!goToPrestiti@{goToPrestiti}}
+\index{goToPrestiti@{goToPrestiti}!softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}}
+\doxysubsubsection{\texorpdfstring{goToPrestiti()}{goToPrestiti()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+controller.\+Home\+Controller.\+go\+To\+Prestiti (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Passa alla schermata di gestione dei Prestiti. 
+
+
+\begin{DoxyItemize}
+\item Gestisce il click per passare alla schermata di gestione dei Prestiti. 
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a480b2e63e3927c272106eea4e1c9c4db}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a480b2e63e3927c272106eea4e1c9c4db} 
+\index{softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}!goToUtenti@{goToUtenti}}
+\index{goToUtenti@{goToUtenti}!softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}}
+\doxysubsubsection{\texorpdfstring{goToUtenti()}{goToUtenti()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+controller.\+Home\+Controller.\+go\+To\+Utenti (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Passa alla schermata di gestione degli Utenti. 
+
+
+\begin{DoxyItemize}
+\item Gestisce il click per passare alla schermata di gestione degli Utenti. 
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a9101c9d255ef3a0603842a4996b73e4a}\label{classsoftwareeng_1_1biblioteca_1_1controller_1_1HomeController_a9101c9d255ef3a0603842a4996b73e4a} 
+\index{softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}!setMainApp@{setMainApp}}
+\index{setMainApp@{setMainApp}!softwareeng.biblioteca.controller.HomeController@{softwareeng.biblioteca.controller.HomeController}}
+\doxysubsubsection{\texorpdfstring{setMainApp()}{setMainApp()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+controller.\+Home\+Controller.\+set\+Main\+App (\begin{DoxyParamCaption}\item[{Main\+App}]{app }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Imposta il riferimento alla classe Main\+App. Imposta il riferimento alla classe principale Main\+App per la gestione della navigazione e l\textquotesingle{}accesso ai dati globali. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & L\textquotesingle{}istanza della Main\+App dell\textquotesingle{}applicazione. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/main/java/softwareeng/biblioteca/controller/Home\+Controller.\+java\end{DoxyCompactItemize}
+src/main/java/softwareeng/biblioteca/controller/\mbox{\hyperlink{HomeController_8java}{Home\+Controller.\+java}}\end{DoxyCompactItemize}

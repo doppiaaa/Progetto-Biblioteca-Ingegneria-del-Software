@@ -110,9 +110,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7e728e0ce39f3283306a831003126cbd" id="r_a7e728e0ce39f3283306a831003126cbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsoftwareeng_1_1biblioteca_1_1model_1_1Utente.html#a7e728e0ce39f3283306a831003126cbd">aggiungi</a> (<a class="el" href="classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito.html">Prestito</a> p)</td></tr>
 <tr class="memdesc:a7e728e0ce39f3283306a831003126cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiunge un prestito attivo alla lista dell'utente.  <br /></td></tr>
 <tr class="separator:a7e728e0ce39f3283306a831003126cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a111d482e4560c7eb5a222d2e09789480" id="r_a111d482e4560c7eb5a222d2e09789480"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsoftwareeng_1_1biblioteca_1_1model_1_1Utente.html#a111d482e4560c7eb5a222d2e09789480">disattiva</a> (<a class="el" href="classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito.html">Prestito</a> p)</td></tr>
-<tr class="memdesc:a111d482e4560c7eb5a222d2e09789480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disattiva un prestito specifico.  <br /></td></tr>
-<tr class="separator:a111d482e4560c7eb5a222d2e09789480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b3466e9d9c79cd6016b212e24aef983" id="r_a7b3466e9d9c79cd6016b212e24aef983"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsoftwareeng_1_1biblioteca_1_1model_1_1Utente.html#a7b3466e9d9c79cd6016b212e24aef983">rimuoviPrestito</a> (<a class="el" href="classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito.html">Prestito</a> p)</td></tr>
+<tr class="memdesc:a7b3466e9d9c79cd6016b212e24aef983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove un prestito dalla lista dell'utente.  <br /></td></tr>
+<tr class="separator:a7b3466e9d9c79cd6016b212e24aef983"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affd63cb2f4e2bc2b7f07da9ea7fc3239" id="r_affd63cb2f4e2bc2b7f07da9ea7fc3239"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsoftwareeng_1_1biblioteca_1_1model_1_1Utente.html#affd63cb2f4e2bc2b7f07da9ea7fc3239">toString</a> ()</td></tr>
 <tr class="memdesc:affd63cb2f4e2bc2b7f07da9ea7fc3239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce una rappresentazione in stringa dell'utente.  <br /></td></tr>
 <tr class="separator:affd63cb2f4e2bc2b7f07da9ea7fc3239"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,7 +185,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section pre"><dt>Precondition</dt><dd>matricola è una stringa univoca non presente in ListaUtenti (verificato esternamente). </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>prestiti è una lista vuota. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>creazione di un nuovo oggetto Utente </dd></dl>
 
 </div>
 </div>
@@ -321,44 +321,6 @@ prestiti.size() == prestiti.size()++ </dd></dl>
 
 </div>
 </div>
-<a id="a111d482e4560c7eb5a222d2e09789480" name="a111d482e4560c7eb5a222d2e09789480"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a111d482e4560c7eb5a222d2e09789480">&#9670;&#160;</a></span>disattiva()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void softwareeng.biblioteca.model.Utente.disattiva </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito.html">Prestito</a>&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Disattiva un prestito specifico. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>Il Prestito da disattivare (restituire). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section pre"><dt>Precondition</dt><dd>p != null </dd>
-<dd>
-prestiti.contains(p) == true </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>p.isAttivo() == false (Stato aggiornato dal metodo Prestito::disattiva()) </dd></dl>
-
-</div>
-</div>
 <a id="a97bc7a7d3f53e188f687f76fadd21f74" name="a97bc7a7d3f53e188f687f76fadd21f74"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97bc7a7d3f53e188f687f76fadd21f74">&#9670;&#160;</a></span>getMatricola()</h2>
 
@@ -420,6 +382,44 @@ prestiti.contains(p) == true </dd></dl>
   </dd>
 </dl>
 <dl class="section pre"><dt>Precondition</dt><dd>attributi != null </dd></dl>
+
+</div>
+</div>
+<a id="a7b3466e9d9c79cd6016b212e24aef983" name="a7b3466e9d9c79cd6016b212e24aef983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b3466e9d9c79cd6016b212e24aef983">&#9670;&#160;</a></span>rimuoviPrestito()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void softwareeng.biblioteca.model.Utente.rimuoviPrestito </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito.html">Prestito</a>&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rimuove un prestito dalla lista dell'utente. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>Il Prestito da rimuovere (restituire). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>p != null </dd>
+<dd>
+prestiti.contains(p) == true </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>p.isAttivo() == false </dd></dl>
 
 </div>
 </div>

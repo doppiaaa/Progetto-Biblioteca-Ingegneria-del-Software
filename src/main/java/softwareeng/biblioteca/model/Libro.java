@@ -9,11 +9,7 @@ import java.util.Objects;
 import java.io.Serializable;
 import java.lang.Comparable;
 
-/**
- * @file ListaPrestiti.java
- * @brief File contenente l'implementazione della classe ListaPrestiti.
- * @version 1.0
- */
+
 /**
  * @brief Rappresenta un libro nel catalogo della biblioteca.
  *
@@ -29,7 +25,7 @@ public class Libro implements Serializable, Comparable<Libro> {
     /** Nome dell'autore del libro. */
     private String autore;
     /** Codice identificativo univoco del libro. */
-    private String ISBN;
+    private String isbn;
     /** Anno di pubblicazione. */
     private int year;
     /** Numero totale di copie fisiche possedute dalla biblioteca. */

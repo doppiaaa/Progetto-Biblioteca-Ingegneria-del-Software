@@ -5,6 +5,7 @@
  */
 package softwareeng.biblioteca.model;
 import java.time.LocalDate;
+import java.io.Serializable;
 
 /**
  *
@@ -23,19 +24,17 @@ import java.time.LocalDate;
  * per un determinato periodo di tempo. Gestisce inoltre lo stato del prestito (attivo/scaduto)
  * e la generazione del suo identificativo univoco.
  */
-public class Prestito {
+public class Prestito implements Serializable, Comparable<Prestito> {
     /** Utente che ha effettuato il prestito */
     private Utente utente;
     /** Libro oggetto del prestito */
     private Libro libro;
     /** Data di inizio del prestito */
     private LocalDate dataInizio;
-    /** Data di scadenza o restituzione del prestito */
-    private LocalDate dataFine;
-    /** Indica se il prestito è attualmente in corso */
-    private boolean attivo;
-    /** Indica se il prestito ha superato la data di scadenza prevista */
-    private boolean scaduto;
+    /** Data di scadenza del prestito */
+    private LocalDate dataPrevistaRestituzione;
+    /** Data avvenuta restituzione del prestito*/
+    private LocalDate dataRestituzioneEffettiva;
     /** Contatore statico per la generazione univoca degli ID */
     private static int cont;
     /** Identificativo univoco del prestito */
@@ -47,20 +46,20 @@ public class Prestito {
      * Genera automaticamente l'ID univoco e imposta il prestito come attivo.
      * * @param[in] u L'utente che richiede il prestito.
      * @param[in] l Il libro da prestare.
-     * @param[in] dataFine La data prevista per la fine del prestito.
+     * @param[in] dataPrevistaRestituzione La data prevista per la fine del prestito.
      * @pre u != null && l != null
      * 
      * @post L'istanza è creata con un ID univoco incrementale.
      */
-    public Prestito(Utente u, Libro l, LocalDate dataFine){
+    public Prestito(Utente u, Libro l, LocalDate dataPrevistaRestituzione){
         
     }
 
     /**
      * @brief Disattiva il prestito corrente.
      * * Questo metodo viene chiamato quando il libro viene restituito.
-     * Imposta lo stato del prestito su non attivo.
-     * * @post attivo == false
+     * Imposta la data di restituzione avvenuta.
+     * * @post dataRestituzioneEffettiva== LocalDate.now()
      */
     public void disattiva(){
     
@@ -94,9 +93,23 @@ public class Prestito {
     
     /**
      * @brief Controlla se il prestito è attivo
-     * @return true se il prestito è attivo, false altrimenti
+     * @return true se il prestito non è ancora stato restituito, false altrimenti
      */
-    public boolean isActive(){
-        return this.attivo;
+    public boolean isAttivo(){
+        
+    }
+    
+    /**
+     * @brief Controlla se il prestito è scaduto.
+     * Controlla che la dataRestituzioneEffettiva sia null e che la data attuale sia successiva alla dataPrevistaRestituzione.
+     * @return true se il prestito è scaduto e non stato riconsegnato, false altrimenti
+     */
+    public boolean isScaduto(){
+        
+    }
+    
+    @Override
+    public int compareTo(Prestito){
+        
     }
 }

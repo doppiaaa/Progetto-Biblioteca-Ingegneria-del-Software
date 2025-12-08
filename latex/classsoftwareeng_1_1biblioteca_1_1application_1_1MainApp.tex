@@ -2,6 +2,11 @@
 \hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp}{}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp}\index{softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}}
 
 
+Classe principale dell\textquotesingle{}applicazione che gestisce l\textquotesingle{}inizializzazione, lo stato e la navigazione.  
+
+
+
+
 Inheritance diagram for softwareeng.\+biblioteca.\+application.\+Main\+App\+:
 % FIG 0
 
@@ -11,30 +16,140 @@ Collaboration diagram for softwareeng.\+biblioteca.\+application.\+Main\+App\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a6d4e60a4e04b02db44ddc66553280935}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a6d4e60a4e04b02db44ddc66553280935} 
-void {\bfseries start} (Stage primary\+Stage)
-\item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ab36eee78fda573690f6656bc0c8524a8}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ab36eee78fda573690f6656bc0c8524a8} 
-void {\bfseries mostra\+Home} ()
-\item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a4141b56507ae2522f07583fefa184025}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a4141b56507ae2522f07583fefa184025} 
-void {\bfseries mostra\+Libri} ()
-\item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ad5b19280b1696f5ed00dcb768e50571d}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ad5b19280b1696f5ed00dcb768e50571d} 
-void {\bfseries mostra\+Utenti} ()
-\item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_acd3e835fe5ad9699517011f4037f3803}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_acd3e835fe5ad9699517011f4037f3803} 
-void {\bfseries mostra\+Prestiti} ()
-\item 
-\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a198492dff2380ca28091ac8195e1d62e}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a198492dff2380ca28091ac8195e1d62e} 
-void {\bfseries carica\+Dati} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a6d4e60a4e04b02db44ddc66553280935}{start}} (Stage primary\+Stage)
+\begin{DoxyCompactList}\small\item\em Punto di ingresso principale dell\textquotesingle{}applicazione Java\+FX. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ab36eee78fda573690f6656bc0c8524a8}{mostra\+Home}} ()
+\begin{DoxyCompactList}\small\item\em Mostra la schermata principale (Home View). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a4141b56507ae2522f07583fefa184025}{mostra\+Libri}} ()
+\begin{DoxyCompactList}\small\item\em Mostra la schermata di gestione dei Libri (CRUD). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ad5b19280b1696f5ed00dcb768e50571d}{mostra\+Utenti}} ()
+\begin{DoxyCompactList}\small\item\em Mostra la schermata di gestione degli Utenti (CRUD). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_acd3e835fe5ad9699517011f4037f3803}{mostra\+Prestiti}} ()
+\begin{DoxyCompactList}\small\item\em Mostra la schermata di gestione dei Prestiti. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a198492dff2380ca28091ac8195e1d62e}{carica\+Dati}} ()
+\begin{DoxyCompactList}\small\item\em Carica i dati persistenti all\textquotesingle{}avvio dell\textquotesingle{}applicazione. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a93d6bde29f9f056ef87bbf511d05f1ec}{salva\+Dati}} ()
+\begin{DoxyCompactList}\small\item\em Salva lo stato corrente dell\textquotesingle{}applicazione. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\begin{DoxyAuthor}{Author}
-cashrules 
-\end{DoxyAuthor}
+Classe principale dell\textquotesingle{}applicazione che gestisce l\textquotesingle{}inizializzazione, lo stato e la navigazione. 
+
+
+\begin{DoxyItemize}
+\item Questa classe funge da orcestratore centrale del progetto, detenendo le istanze di tutte le classi di Gestione (Model) e gestendo la logica di navigazione (routing) tra le diverse View (schermate FXML).
+\item Estende la classe \textquotesingle{}Application\textquotesingle{} di Java\+FX ed è il punto d\textquotesingle{}ingresso per l\textquotesingle{}esecuzione del programma.
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+Home\+Controller 
+
+Gestore\+File 
+\end{DoxySeeAlso}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a198492dff2380ca28091ac8195e1d62e}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a198492dff2380ca28091ac8195e1d62e} 
+\index{softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}!caricaDati@{caricaDati}}
+\index{caricaDati@{caricaDati}!softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}}
+\doxysubsubsection{\texorpdfstring{caricaDati()}{caricaDati()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+application.\+Main\+App.\+carica\+Dati (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Carica i dati persistenti all\textquotesingle{}avvio dell\textquotesingle{}applicazione. 
+
+
+\begin{DoxyItemize}
+\item Chiama il Gestore\+File per leggere i dati binari dai file e ripopola le liste del Model (Catalogo, Lista\+Utenti, Lista\+Prestiti). Gestisce inoltre l\textquotesingle{}aggiornamento del contatore statico degli ID. 
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ab36eee78fda573690f6656bc0c8524a8}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ab36eee78fda573690f6656bc0c8524a8} 
+\index{softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}!mostraHome@{mostraHome}}
+\index{mostraHome@{mostraHome}!softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}}
+\doxysubsubsection{\texorpdfstring{mostraHome()}{mostraHome()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+application.\+Main\+App.\+mostra\+Home (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mostra la schermata principale (Home View). 
+
+
+\begin{DoxyItemize}
+\item Carica il file FXML della Home e imposta l\textquotesingle{}Home\+Controller. Utilizzato all\textquotesingle{}avvio dell\textquotesingle{}applicazione o quando si torna alla pagina iniziale. 
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a4141b56507ae2522f07583fefa184025}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a4141b56507ae2522f07583fefa184025} 
+\index{softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}!mostraLibri@{mostraLibri}}
+\index{mostraLibri@{mostraLibri}!softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}}
+\doxysubsubsection{\texorpdfstring{mostraLibri()}{mostraLibri()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+application.\+Main\+App.\+mostra\+Libri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mostra la schermata di gestione dei Libri (CRUD). 
+
+
+\begin{DoxyItemize}
+\item Carica il file FXML della gestione Libri e imposta il Libri\+Controller. Inoltre, inietta le dipendenze necessarie per il CRUD (Catalogo, Main\+App). 
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_acd3e835fe5ad9699517011f4037f3803}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_acd3e835fe5ad9699517011f4037f3803} 
+\index{softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}!mostraPrestiti@{mostraPrestiti}}
+\index{mostraPrestiti@{mostraPrestiti}!softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}}
+\doxysubsubsection{\texorpdfstring{mostraPrestiti()}{mostraPrestiti()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+application.\+Main\+App.\+mostra\+Prestiti (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mostra la schermata di gestione dei Prestiti. 
+
+
+\begin{DoxyItemize}
+\item Carica il file FXML della gestione Prestiti e imposta il Prestiti\+Controller. Inietta le tre gestioni dati (Libri, Utenti, Prestiti) necessarie per la logica. 
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ad5b19280b1696f5ed00dcb768e50571d}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_ad5b19280b1696f5ed00dcb768e50571d} 
+\index{softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}!mostraUtenti@{mostraUtenti}}
+\index{mostraUtenti@{mostraUtenti}!softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}}
+\doxysubsubsection{\texorpdfstring{mostraUtenti()}{mostraUtenti()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+application.\+Main\+App.\+mostra\+Utenti (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mostra la schermata di gestione degli Utenti (CRUD). 
+
+
+\begin{DoxyItemize}
+\item Carica il file FXML della gestione Utenti e imposta l\textquotesingle{}Utenti\+Controller. Inoltre, inietta le dipendenze necessarie per il CRUD (Lista\+Utenti, Main\+App). 
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a93d6bde29f9f056ef87bbf511d05f1ec}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a93d6bde29f9f056ef87bbf511d05f1ec} 
+\index{softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}!salvaDati@{salvaDati}}
+\index{salvaDati@{salvaDati}!softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}}
+\doxysubsubsection{\texorpdfstring{salvaDati()}{salvaDati()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+application.\+Main\+App.\+salva\+Dati (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Salva lo stato corrente dell\textquotesingle{}applicazione. 
+
+
+\begin{DoxyItemize}
+\item Chiama il Gestore\+File per serializzare l\textquotesingle{}intero stato del Model (Catalogo, Liste) sui rispettivi file. Questo metodo viene chiamato prima della chiusura dell\textquotesingle{}applicazione. 
+\end{DoxyItemize}\Hypertarget{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a6d4e60a4e04b02db44ddc66553280935}\label{classsoftwareeng_1_1biblioteca_1_1application_1_1MainApp_a6d4e60a4e04b02db44ddc66553280935} 
+\index{softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}!start@{start}}
+\index{start@{start}!softwareeng.biblioteca.application.MainApp@{softwareeng.biblioteca.application.MainApp}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void softwareeng.\+biblioteca.\+application.\+Main\+App.\+start (\begin{DoxyParamCaption}\item[{Stage}]{primary\+Stage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Punto di ingresso principale dell\textquotesingle{}applicazione Java\+FX. 
+
+
+\begin{DoxyItemize}
+\item Inizializza la finestra principale (Stage), carica le dipendenze del Model (Catalogo, Liste) e avvia l\textquotesingle{}interfaccia utente chiamando mostra\+Home().
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em primary\+Stage} & Lo Stage principale dell\textquotesingle{}applicazione. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

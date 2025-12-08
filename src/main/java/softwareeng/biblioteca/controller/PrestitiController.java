@@ -31,6 +31,13 @@ public class PrestitiController {
         
     }
 
+    /**
+     * @brief Inietta le tre istanze dei Gestori dati necessarie per la transazione.
+     *
+     * @param prestiti L'istanza del GestorePrestiti (ListaPrestiti).
+     * @param catalogo L'istanza del GestoreLibri (Catalogo).
+     * @param utenti L'istanza del GestoreUtenti (ListaUtenti).
+     */
     public void setDati(GestionePrestiti prestiti, GestioneLibri catalogo, GestioneUtenti utenti){
         
     }
@@ -59,38 +66,89 @@ public class PrestitiController {
         
     }
   
+    /**
+     * @brief Mostra un dialog per la selezione di un Libro.
+     *
+     * Tipicamente apre una finestra di ricerca e selezione dal Catalogo per l'erogazione di un nuovo prestito.
+     */
     public void mostraDialogLibri(){
         
     }
     
+    /**
+     * @brief Mostra un dialog per la selezione di un Utente.
+     *
+     * Tipicamente apre una finestra di ricerca e selezione dalla ListaUtenti per l'erogazione di un nuovo prestito.
+     */
     public void mostraDialogUtenti(){
         
     }
 
+    /**
+     * @brief Prepara l'interfaccia utente per l'inserimento di un nuovo prestito.
+     *
+     * Resetta i campi di selezione e abilita i pulsanti pertinenti.
+     */
     public void clickNuovo(){
         
     }
     
+    /**
+     * @brief Esegue la transazione di creazione di un nuovo prestito.
+     *
+     * Chiama `GestionePrestiti::addPrestito(Utente, Libro)`. Gestisce le eccezioni
+     * relative alla non validità del prestito (es. PrestitoNonValidoException).
+     */
     public void clickConferma(){
         
     }
     
+    /**
+     * @brief Seleziona un Prestito dalla TableView principale.
+     *
+     * Imposta l'attributo prestitoSelezionato per le operazioni di disattivazione/rimozione.
+     * @param elemento Il Prestito selezionato.
+     */
     public void seleziona(Prestito elemento){
         
     }
     
+    /**
+     * @brief Seleziona un Libro dal dialog di ricerca (per il nuovo prestito).
+     *
+     * Imposta l'attributo libroSelezionato.
+     * @param libro Il Libro selezionato.
+     */
     public void seleziona(Libro libro){
         
     }
     
+    /**
+     * @brief Seleziona un Utente dal dialog di ricerca (per il nuovo prestito).
+     *
+     * Imposta l'attributo utenteSelezionato.
+     * @param utente L'Utente selezionato.
+     */
     public void seleziona(Utente utente){
         
     }
 
+    /**
+     * @brief Implementa l'azione di rimozione di un prestito.
+     *
+     * Utilizzato per cancellare un prestito (generalmente storico o creato per errore).
+     * Chiama `GestionePrestiti::rimuovi(Prestito)`.
+     */
     public void rimuovi(){
         
     }
     
+    /**
+     * @brief Implementa l'azione di restituzione di un libro.
+     *
+     * Chiama `GestionePrestiti::disattiva(Prestito)` per chiudere il prestito,
+     * aggiornare lo stato del libro (upCopie) e dell'utente (rimuoviPrestito).
+     */
     public void disattiva(){
         
     }

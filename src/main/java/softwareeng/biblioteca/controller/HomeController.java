@@ -1,16 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @file HomeController.java
+ * @brief Controllore per la schermata principale (Home) dell'applicazione.
+ * @version 1.0
  */
 package softwareeng.biblioteca.controller;
 import softwareeng.biblioteca.application.MainApp;
 
 /**
+ * @brief Gestisce le interazioni della schermata Home.
  *
- * @author cashrules
+ * Questa classe è responsabile della gestione degli eventi (click sui pulsanti)
+ * che permettono la navigazione verso le altre sezioni dell'applicazione (Libri, Utenti, Prestiti).
  */
 public class HomeController {
+    /** Riferimento all'istanza principale dell'applicazione per la navigazione.*/
     private MainApp mainApp;
 
     /**
@@ -22,19 +25,38 @@ public class HomeController {
     public void setMainApp(MainApp app){
         
     }
-
+    
+    /**
+     * @brief Passa alla schermata di gestione dei Libri.
+     * * Gestisce il click per passare alla schermata di gestione dei Libri.
+     */
     public void goToLibri(){
         
     }
 
+    /**
+     * @brief Passa alla schermata di gestione degli Utenti.
+     * * Gestisce il click per passare alla schermata di gestione degli Utenti.
+     */
     public void goToUtenti(){
         
     }
 
+     /**
+     * @brief Passa alla schermata di gestione dei Prestiti.
+     * * Gestisce il click per passare alla schermata di gestione dei Prestiti.
+     */
     public void goToPrestiti(){
         
     }
     
+    /**
+     * @brief Gestisce l'evento di chiusura dell'applicazione.
+     * * Richiama il metodo di salvataggio dei dati dalla MainApp prima di terminare
+     * l'esecuzione del programma, garantendo la persistenza delle modifiche.
+     * Tipicamente associato al pulsante "Esci" dell'interfaccia utente.
+     * * @see MainApp#salvaDati()
+     */
     public void esci(){
         
     }

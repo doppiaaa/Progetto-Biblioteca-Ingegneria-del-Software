@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['main_0',['main',['../classsoftwareeng_1_1biblioteca_1_1application_1_1Main.html#acf67dd716b8886eb8705dbb48f56653a',1,'softwareeng::biblioteca::application::Main']]],
-  ['modifica_1',['modifica',['../classsoftwareeng_1_1biblioteca_1_1model_1_1Catalogo.html#ab7cf0b1acc9446dac2ccd4a6c11026e3',1,'softwareeng.biblioteca.model.Catalogo.modifica()'],['../interfacesoftwareeng_1_1biblioteca_1_1model_1_1Gestione.html#a6c50e7f33a115ea1b7284c1a7f1c7b5b',1,'softwareeng.biblioteca.model.Gestione.modifica()'],['../interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneLibri.html#a3453f7620f5b727f2926c71663cac3d5',1,'softwareeng.biblioteca.model.GestioneLibri.modifica()'],['../interfacesoftwareeng_1_1biblioteca_1_1model_1_1GestioneUtenti.html#aa5d3ce14e415602cdbc11632005a3bf2',1,'softwareeng.biblioteca.model.GestioneUtenti.modifica()'],['../classsoftwareeng_1_1biblioteca_1_1model_1_1Libro.html#a250cd53dfc0d05294a277b1aadf79755',1,'softwareeng.biblioteca.model.Libro.modifica()'],['../classsoftwareeng_1_1biblioteca_1_1model_1_1Utente.html#abdd1a80150ad733f4b1f9a8143c50ef7',1,'softwareeng.biblioteca.model.Utente.modifica()']]]
+  ['libro_0',['Libro',['../classsoftwareeng_1_1biblioteca_1_1model_1_1Libro.html#a364fe4a4439b1573b4cd4dfbaeb50844',1,'softwareeng::biblioteca::model::Libro']]],
+  ['listaprestiti_1',['ListaPrestiti',['../classsoftwareeng_1_1biblioteca_1_1model_1_1ListaPrestiti.html#aad0c94d57b4d5341ef49d6ec29dbe2f1',1,'softwareeng::biblioteca::model::ListaPrestiti']]],
+  ['listautenti_2',['ListaUtenti',['../classsoftwareeng_1_1biblioteca_1_1model_1_1ListaUtenti.html#a2b933b1f97f623e5c552b292ccc91115',1,'softwareeng::biblioteca::model::ListaUtenti']]]
 ];
