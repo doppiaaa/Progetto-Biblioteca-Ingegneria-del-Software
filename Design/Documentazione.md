@@ -23,7 +23,8 @@ Il sistema segue un'architettura derivata dal pattern **MVC (Model-View-Controll
     * **Relazioni:** Ha una relazione di **composizione** (rombo pieno) con i gestori dei dati, indicando che `MainApp` possiede e controlla il ciclo di vita di questi oggetti.
 
 ### 3.2 Controller dell'Interfaccia (UI Logic)
-Le classi `HomeController`, `LibriController`, `UtentiController` e `PrestitiController` gestiscono la logica di presentazione.
+Le classi `HomeController`, `LibriController`, `UtentiController` e `PrestitiController` gestiscono la logica di presentazione.  
+La scelta di utilizzare metodi espliciti come popolaForm(T) e showEditDialog() riflette la priorità data all'esperienza utente (UX). Il controller funge da mediatore visivo, recuperando e visualizzando lo stato del Model prima di richiedere l'input, una scelta tipica di un'interfaccia user-friendly basata su form e dialog box.  
 * **Dependency Injection:** Tutti i controller presentano un metodo `setMainApp(MainApp)`, indicando che ricevono un riferimento all'applicazione principale per poter navigare tra le schermate e accedere ai dati condivisi.
 * **Funzionalità:** Espongono metodi per la gestione degli eventi UI (es. `clickNuovo`, `rimuovi`, `modifica`) e per il passaggio di dati (`setData`, `sendAttributi`).
 
@@ -100,7 +101,8 @@ Sono definite eccezioni personalizzate per gestire errori di dominio specifici, 
     1.  `checkDisponibilità()` su Libro (copie > 0).
     2.  `checkDisponibilità()` su Utente (limite prestiti/sanzioni).
 * **Aggiornamento:** Se entrambi i check hanno successo: creazione `Prestito`, decremento copie libro (`downCopie()`), registrazione prestito.
-* **Errore:** Se un check fallisce, viene sollevata `PrestitoNonValidoException`.
+* **Errore:** Se un check fallisce, viene sollevata `PrestitoNonValidoException`.  
+* **UX**:La selezione del Libro e dell'Utente avviene tramite finestre di dialogo modali (mostraDialogLibri, mostraDialogUtenti), una scelta architetturale per guidare l'utente e minimizzare gli errori di input (es. digitazione scorretta di ISBN o Matricola).
 
 ### 5.5 Restituzione Prestito
 ![DIagrammaSequenzaRestituzionePrestito](DiagrammaSequenzaRestituzione.svg)
@@ -136,7 +138,7 @@ Obiettivo: **Basso Accoppiamento**.
 * **Associazione vs Ereditarietà:** Privilegiata l'associazione (es. `Prestito` -> `Libro`) per ridurre l'accoppiamento forte tipico dell'ereditarietà.
 
 ### 6.4 Robustezza e "Design by Contract"
-La progettazione incorpora elementi di Design by Contract.
+La progettazione incorpora elementi di Design by Contract. Le eccezioni personalizzate agiscono come guardie UI: il loro lancio interrompe la transazione e permette al Controller di mostrare un Alert esmplice e specifico (es. 'Impossibile rimuovere utente con prestiti ancora attivi'), migliorando l'usabilità rispetto a messaggi di errore generici.
 * **Precondizioni:** Verifica di disponibilità (`checkDisponibilità`) prima di creare prestiti.
 * **Eccezioni:** `PrestitoNonValidoException` impedisce violazioni delle invarianti (es. prestare un libro con 0 copie).
 * **Integrità:** `checkPrestiti()` agisce da guardia contro stati inconsistenti.
