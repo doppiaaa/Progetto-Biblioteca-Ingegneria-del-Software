@@ -1,6 +1,0 @@
-var searchData=
-[
-  ['popolaform_0',['popolaform',['../classsoftwareeng_1_1biblioteca_1_1controller_1_1LibriController.html#a036ff8af037329f6acf83ceecfef0327',1,'softwareeng.biblioteca.controller.LibriController.popolaForm()'],['../classsoftwareeng_1_1biblioteca_1_1controller_1_1TController.html#a18274d0ad51456d8e82c4aca912e4238',1,'softwareeng.biblioteca.controller.TController.popolaForm()'],['../classsoftwareeng_1_1biblioteca_1_1controller_1_1UtentiController.html#ac6e58d3808f9ce93d53eb6a870cf67c4',1,'softwareeng.biblioteca.controller.UtentiController.popolaForm()']]],
-  ['prestito_1',['Prestito',['../classsoftwareeng_1_1biblioteca_1_1model_1_1Prestito.html#a4fb17067a3378f868d9872569ae2003a',1,'softwareeng::biblioteca::model::Prestito']]],
-  ['prestitononvalidoexception_2',['prestitononvalidoexception',['../classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException.html#abcf1011fec5c5ec973dffa3dc63ea32c',1,'softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException.PrestitoNonValidoException()'],['../classsoftwareeng_1_1biblioteca_1_1model_1_1exceptions_1_1PrestitoNonValidoException.html#a0e67bb89fd287aed04f28315869e1ad3',1,'softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException.PrestitoNonValidoException(String msg)']]]
-];
