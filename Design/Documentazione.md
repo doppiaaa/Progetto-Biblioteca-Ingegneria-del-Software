@@ -14,6 +14,8 @@ Il sistema segue un'architettura derivata dal pattern **MVC (Model-View-Controll
 
 ## 3. Analisi dei Componenti
 
+![Diagramma delle classi](ClassDiagram.svg)
+
 ### 3.1 Inizializzazione e Orchestrazione
 * **Main:** È il punto di ingresso dell'applicazione (`main(args)`), responsabile dell'avvio del ciclo di vita del software.
 * **MainApp:** È la classe centrale del sistema.
@@ -65,6 +67,8 @@ Sono definite eccezioni personalizzate per gestire errori di dominio specifici, 
 
 ## 5. Vista Dinamica e Flussi Operativi (Sequence Diagrams)
 
+
+![DiagrammaSequenzaAggiungi<T>](SequenceDiagramAggiungiT.svg)
 ### 5.1 Inserimento Nuova Entità (Generico)
 * **Diagramma:** *Add Generic*
 * **Flusso:** L'attore inizia l'azione `clickNuovo()`. Il sistema mostra un dialog di inserimento.
@@ -72,20 +76,20 @@ Sono definite eccezioni personalizzate per gestire errori di dominio specifici, 
 * **Esito:**
     * *False (ID non presente):* L'oggetto viene creato (`<<create>>`), aggiunto e salvato.
     * *True (ID duplicato):* Operazione abortita, messaggio di errore ("Elemento già nel Database").
-
+![DiagrammaSequenzaModifica<T>](DiagrammaSequenzaModificaT.svg)
 ### 5.2 Modifica Entità (Generico)
 * **Diagramma:** *Modify Generic*
 * **Flusso:** Selezione elemento e click su `modifica()`.
 * **Binding:** Il controller recupera i dati (`popolaForm(T)`) per il dialog.
 * **Persistenza:** Le modifiche sono inviate tramite una `Map` (DTO implicito). Il gestore aggiorna il modello e notifica il successo.
-
+![DiagrammaSequenzaRimuovi<T>](DiagrammaSequenzaRimuoviT.svg)
 ### 5.3 Rimozione Entità e Integrità Referenziale
 * **Diagramma:** *Delete Generic*
 * **Flusso:** Richiesta `rimuovi()` e conferma esplicita ("Are you sure?").
 * **Guardia:** `checkPrestiti()` verifica se l'entità ha dipendenze attive.
     * *True (Vincoli ok):* Oggetto rimosso fisicamente.
     * *False (Violazione):* Viene lanciata `EliminazioneNonValidaException`. Il controller mostra errore ("Prestito Attivo"), prevenendo inconsistenze.
-
+![DiagrammaSequenzaRegistrazionePrestito](DiagrammaSequenzaPrestito.svg)
 ### 5.4 Registrazione Prestito (Workflow Transazionale)
 * **Diagramma:** *Add Loan*
 * **Interazione:** Selezione sequenziale di Libro e Utente.
@@ -94,7 +98,7 @@ Sono definite eccezioni personalizzate per gestire errori di dominio specifici, 
     2.  `checkDisponibilità()` su Utente (limite prestiti/sanzioni).
 * **Aggiornamento:** Se entrambi i check hanno successo: creazione `Prestito`, decremento copie libro (`downCopie()`), registrazione prestito.
 * **Errore:** Se un check fallisce, viene sollevata `PrestitoNonValidoException`.
-
+![DIagrammaSequenzaRestituzionePrestito](DiagrammaSequenzarestituzione.svg)
 ### 5.5 Restituzione Prestito
 * **Diagramma:** *Return Loan*
 * **Flusso:** Selezione prestito e comando `disattiva()`.
