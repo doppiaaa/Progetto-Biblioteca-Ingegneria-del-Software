@@ -68,29 +68,32 @@ Sono definite eccezioni personalizzate per gestire errori di dominio specifici, 
 ## 5. Vista Dinamica e Flussi Operativi (Sequence Diagrams)
 
 
+### 5.1 Inserimento Nuova Entità (Generico)  
 ![DiagrammaSequenzaAggiungi<T>](SequenceDiagramAggiungiT.svg)
-### 5.1 Inserimento Nuova Entità (Generico)
 * **Diagramma:** *Add Generic*
 * **Flusso:** L'attore inizia l'azione `clickNuovo()`. Il sistema mostra un dialog di inserimento.
 * **Validazione:** Alla conferma (`sendAttributi`), il gestore controlla l'unicità tramite `checkID(String)` (es. ISBN o Matricola).
 * **Esito:**
     * *False (ID non presente):* L'oggetto viene creato (`<<create>>`), aggiunto e salvato.
     * *True (ID duplicato):* Operazione abortita, messaggio di errore ("Elemento già nel Database").
+
+### 5.2 Modifica Entità (Generico)  
 ![DiagrammaSequenzaModifica<T>](DiagrammaSequenzaModificaT.svg)
-### 5.2 Modifica Entità (Generico)
 * **Diagramma:** *Modify Generic*
 * **Flusso:** Selezione elemento e click su `modifica()`.
 * **Binding:** Il controller recupera i dati (`popolaForm(T)`) per il dialog.
 * **Persistenza:** Le modifiche sono inviate tramite una `Map` (DTO implicito). Il gestore aggiorna il modello e notifica il successo.
-![DiagrammaSequenzaRimuovi<T>](DiagrammaSequenzaRimuoviT.svg)
+
 ### 5.3 Rimozione Entità e Integrità Referenziale
+![DiagrammaSequenzaRimuovi<T>](DiagrammaSequenzaRimuoviT.svg)
 * **Diagramma:** *Delete Generic*
 * **Flusso:** Richiesta `rimuovi()` e conferma esplicita ("Are you sure?").
 * **Guardia:** `checkPrestiti()` verifica se l'entità ha dipendenze attive.
     * *True (Vincoli ok):* Oggetto rimosso fisicamente.
     * *False (Violazione):* Viene lanciata `EliminazioneNonValidaException`. Il controller mostra errore ("Prestito Attivo"), prevenendo inconsistenze.
-![DiagrammaSequenzaRegistrazionePrestito](DiagrammaSequenzaPrestito.svg)
+
 ### 5.4 Registrazione Prestito (Workflow Transazionale)
+![DiagrammaSequenzaRegistrazionePrestito](DiagrammaSequenzaPrestito.svg)
 * **Diagramma:** *Add Loan*
 * **Interazione:** Selezione sequenziale di Libro e Utente.
 * **Doppia Validazione:**
@@ -98,8 +101,9 @@ Sono definite eccezioni personalizzate per gestire errori di dominio specifici, 
     2.  `checkDisponibilità()` su Utente (limite prestiti/sanzioni).
 * **Aggiornamento:** Se entrambi i check hanno successo: creazione `Prestito`, decremento copie libro (`downCopie()`), registrazione prestito.
 * **Errore:** Se un check fallisce, viene sollevata `PrestitoNonValidoException`.
-![DIagrammaSequenzaRestituzionePrestito](DiagrammaSequenzarestituzione.svg)
+
 ### 5.5 Restituzione Prestito
+![DIagrammaSequenzaRestituzionePrestito](DiagrammaSequenzaRestituzione.svg)
 * **Diagramma:** *Return Loan*
 * **Flusso:** Selezione prestito e comando `disattiva()`.
 * **Side-effects:**
