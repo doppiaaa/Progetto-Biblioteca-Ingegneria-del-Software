@@ -44,6 +44,7 @@ public class Prestito implements Serializable, Comparable<Prestito> {
      * @brief Costruttore della classe Prestito.
      * * Inizializza un nuovo prestito associando un utente a un libro.
      * Genera automaticamente l'ID univoco e imposta il prestito come attivo.
+     * Si assicura che il numero di copie disponibile decrementi e si aggiunga il prestito alla lista dell'utente
      * * @param[in] u L'utente che richiede il prestito.
      * @param[in] l Il libro da prestare.
      * @param[in] dataPrevistaRestituzione La data prevista per la fine del prestito.
@@ -52,7 +53,14 @@ public class Prestito implements Serializable, Comparable<Prestito> {
      * @post L'istanza è creata con un ID univoco incrementale.
      */
     public Prestito(Utente u, Libro l, LocalDate dataPrevistaRestituzione){
-        
+        this.libro=l;
+        this.utente=u;
+        this.dataPrevistaRestituzione=dataPrevistaRestituzione;
+        this.dataInizio=LocalDate.now();
+        this.cont=++cont;
+        this.id= "" + cont;
+        l.downCopie();
+        u.aggiungi(this);
     }
 
     /**
@@ -62,7 +70,10 @@ public class Prestito implements Serializable, Comparable<Prestito> {
      * * @post dataRestituzioneEffettiva== LocalDate.now()
      */
     public void disattiva(){
-    
+        this.libro.upCopie();
+        this.utente.rimuoviPrestito(this);
+        this.dataRestituzioneEffettiva=LocalDate.now();
+        
     }
 
     /**
@@ -71,8 +82,8 @@ public class Prestito implements Serializable, Comparable<Prestito> {
      * il conteggio degli ID ed evitare duplicati.
      * * @param[in] c Il valore intero da assegnare al contatore statico.
      */
-    public static void setContatore(int){
-        
+    public static void setContatore(int i){
+        cont = i;
     }
 
     /**
@@ -80,7 +91,7 @@ public class Prestito implements Serializable, Comparable<Prestito> {
      * * @return Una stringa rappresentante l'ID univoco del prestito.
      */
     public String getID(){
-        
+        return this.id;
     }
 
     /**
@@ -88,7 +99,7 @@ public class Prestito implements Serializable, Comparable<Prestito> {
      * * @return Stringa contenente i dettagli principali del prestito (ID, Utente, Libro).
      */
     public String toString(){
-        
+        return "Prestito numero: " + this.id + "/n Libro :" + this.libro + "/n Preso in prestito dall'utente :" + this.utente + "/n Data inizio prestito: "+ this.dataInizio +"/n Da restituire entro: " + this.dataPrevistaRestituzione;
     }
     
     /**
@@ -96,7 +107,7 @@ public class Prestito implements Serializable, Comparable<Prestito> {
      * @return true se il prestito non è ancora stato restituito, false altrimenti
      */
     public boolean isAttivo(){
-        
+        return (this.dataRestituzioneEffettiva==null);
     }
     
     /**
@@ -105,11 +116,14 @@ public class Prestito implements Serializable, Comparable<Prestito> {
      * @return true se il prestito è scaduto e non stato riconsegnato, false altrimenti
      */
     public boolean isScaduto(){
-        
+        return (LocalDate.now().isAfter(this.dataPrevistaRestituzione));
     }
     
     @Override
-    public int compareTo(Prestito){
-        
+    public int compareTo(Prestito p){
+        int cmp = this.dataPrevistaRestituzione.compareTo(p.dataPrevistaRestituzione);
+        if (cmp!=0)
+            return cmp;
+        return this.id.compareTo(p.id);
     }
 }

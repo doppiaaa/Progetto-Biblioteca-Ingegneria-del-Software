@@ -66,7 +66,16 @@ public class Utente implements Comparable<Utente>, Serializable {
      * @pre attributi != null
      */
     public void modifica(Map<String, Object> attributi){
-        
+        attributi.forEach((chiave, valore) -> {
+            switch(chiave.toLowerCase()){
+                case "nome":
+                    this.nome=(String)valore;
+                case "cognome":
+                    this.cognome=(String)valore;
+                case "mail":
+                    this.mail=(String)valore;              
+           } 
+        });
     }
 
     /**
@@ -77,6 +86,8 @@ public class Utente implements Comparable<Utente>, Serializable {
      * @return true se il numero di prestiti attivi è inferiore al limite massimo, false altrimenti.
      */
     public boolean checkDisponibilita() {
+        
+        return (prestiti.size()< 3);
         
     }
     
@@ -89,6 +100,8 @@ public class Utente implements Comparable<Utente>, Serializable {
      */
     public boolean checkPrestiti() {
         
+        return (prestiti.size()==0);
+        
     }
 
     /**
@@ -100,7 +113,7 @@ public class Utente implements Comparable<Utente>, Serializable {
      * @post prestiti.size() == prestiti.size()++
      */
     public void aggiungi(Prestito p){
-        
+        prestiti.add(p);
     }
 
     /**
@@ -109,10 +122,10 @@ public class Utente implements Comparable<Utente>, Serializable {
      * @param[in] p Il Prestito da rimuovere (restituire).
      * @pre p != null
      * @pre prestiti.contains(p) == true
-     * @post p.isAttivo() == false
+     * @post p.contains(p) == false
      */
     public void rimuoviPrestito(Prestito p){
-        
+        prestiti.remove(p);
     }
 
     /**
@@ -122,7 +135,7 @@ public class Utente implements Comparable<Utente>, Serializable {
      */
     @Override
     public String toString(){
-        
+        return "Utente: " + this.matricola + "/n Nome e Cognome: " + this.nome + this.cognome + "/n mail: " + this.mail + "/n L'utente ha al momento "+ this.prestiti.size()+ " prestiti attivi.";
     }
 
     /**
@@ -133,8 +146,15 @@ public class Utente implements Comparable<Utente>, Serializable {
      */
     @Override
     public int compareTo(Utente u){
-        
-    }
+        int cmp= this.cognome.compareTo(u.cognome);
+        if (cmp!=0) 
+            return cmp;
+        cmp=this.nome.compareTo(u.nome);
+        if (cmp!=0) 
+            return cmp;
+        return this.matricola.compareTo(u.matricola);
+        }
+    
 
     /**
      * @brief Restituisce la matricola dell'utente.

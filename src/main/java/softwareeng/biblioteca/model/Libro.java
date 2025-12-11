@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.io.Serializable;
 import java.lang.Comparable;
+import softwareeng.biblioteca.model.exceptions.EliminazioneNonValidaException;
 
 
 /**
@@ -48,7 +49,13 @@ public class Libro implements Serializable, Comparable<Libro> {
      * @pre copieTotali >= 0
      * @post copieDisponibili == copieTotali
      */
-    public Libro(String titolo, String autore, String ISBN, int year, int copieTotali){
+    public Libro(String titolo, String autore, String isbn, int year, int copieTotali){
+        this.titolo=titolo;
+        this.autore=autore;
+        this.isbn=isbn;
+        this.year=year;
+        this.copieTotali=copieTotali;
+        this.copieDisponibili=this.copieTotali;
         
     }
 
@@ -64,6 +71,26 @@ public class Libro implements Serializable, Comparable<Libro> {
      */
     public void modifica(Map<String, Object> attributi){
         
+        attributi.forEach((chiave, valore) -> {
+            switch(chiave.toLowerCase()){
+                case "titolo":
+                    this.titolo=(String)valore;
+                case "autore":
+                    this.autore=(String)valore;
+                case "year":
+                    this.year=(int)valore;
+                case "copietotali":
+                    int nuoveCopie =(int)valore;
+                    int diff= nuoveCopie - this.copieTotali;
+                    if(diff<0 && Math.abs(diff)>this.copieDisponibili){
+                        throw new EliminazioneNonValidaException("Stai cercando di eliminare dei libri attualmente in prestito: ci sono attualmente " + (this.copieDisponibili-this.copieTotali) + " copie in prestito.");
+                    }
+                                       
+                    this.copieTotali= nuoveCopie;
+                    this.copieDisponibili+=diff;
+           } 
+        });
+        
     }
 
     /**
@@ -73,7 +100,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      * @post Il valore di ritorno è (copieDisponibili > 0).
      */
     public boolean checkDisponibilità(){
-        
+        return this.copieDisponibili>0;
     }
 
     /**
@@ -84,7 +111,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      * @return true se non ci sono prestiti attivi (copieTotali = copieDisponibili), false altrimenti.
      */
     public boolean checkPrestiti(){
-        
+        return this.copieDisponibili==this.copieTotali;
     }
 
     /**
@@ -96,7 +123,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      * @post copieDisponibili == copieDisponibili++
      */
     public void upCopie(){
-        
+        this.copieDisponibili++;
     }
 
     /**
@@ -108,7 +135,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      * @post copieDisponibili == copieDisponibili)--
      */
     public void downCopie(){
-        
+        this.copieDisponibili--;
     }
 
     /**
@@ -118,7 +145,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      */
     @Override
     public String toString(){
-        
+        return "Libro :"+this.isbn+"\nTitolo: "+this.titolo+"\nAutore: "+this.autore+"\nAnno di pubblicazione: "+this.year+"\nAttualmente sono disponibili "+ this.copieDisponibili+ " delle "+ this.copieTotali+ "copie totali";
     }
 
     /**
@@ -129,7 +156,13 @@ public class Libro implements Serializable, Comparable<Libro> {
      */
     @Override
     public int compareTo(Libro l){
-        
+        int cmp= this.titolo.compareTo(l.titolo);
+        if (cmp!=0)
+            return cmp;
+        cmp = this.autore.compareTo(l.autore);
+        if (cmp!=0)
+            return cmp;
+        return this.isbn.compareTo(l.isbn);
     }
 
     /**
@@ -138,7 +171,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      * @return Stringa contenente l'ISBN.
      */
     public String getISBN(){
-        
+        return this.isbn;
     }
     
 }
