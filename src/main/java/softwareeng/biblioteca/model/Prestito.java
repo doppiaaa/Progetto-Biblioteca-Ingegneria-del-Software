@@ -85,6 +85,10 @@ public class Prestito implements Serializable, Comparable<Prestito> {
     public static void setContatore(int i){
         cont = i;
     }
+    
+    public static int getContatore(){
+        return cont;
+    }
 
     /**
      * @brief Restituisce l'identificativo del prestito.
