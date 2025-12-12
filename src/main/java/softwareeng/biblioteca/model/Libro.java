@@ -173,5 +173,15 @@ public class Libro implements Serializable, Comparable<Libro> {
     public String getISBN(){
         return this.isbn;
     }
+
+    public String getTitolo() {
+        return titolo;
+    }
+
+    public String getAutore() {
+        return autore;
+    }
+    
+    
     
 }

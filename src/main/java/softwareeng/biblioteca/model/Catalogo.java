@@ -4,8 +4,12 @@
  * and open the template in the editor.
  */
 package softwareeng.biblioteca.model;
+
+import softwareeng.biblioteca.model.exceptions.EliminazioneNonValidaException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @file Catalogo.java
@@ -39,7 +43,7 @@ public class Catalogo implements GestioneLibri {
      * @post libri != null && libri.isEmpty() == true
      */
     public Catalogo(){
-        
+        this.libri = FXCollections.observableArrayList();
     }
 
     /**
@@ -49,7 +53,7 @@ public class Catalogo implements GestioneLibri {
      */
     @Override
     public ObservableList<Libro> getElenco(){
-        
+        return this.libri;
     }
 
     /**
@@ -65,6 +69,7 @@ public class Catalogo implements GestioneLibri {
     @Override
     public void aggiungi(Libro libro){
         
+        this.libri.add(libro);
     }
 
     /**
@@ -81,19 +86,26 @@ public class Catalogo implements GestioneLibri {
      * @throws EliminazioneNonValidaException Se il libro ha copie in prestito (violazione integrità).
      */
     @Override
-    public void rimuovi(Libro libro){
+    public void rimuovi(Libro libro) throws EliminazioneNonValidaException{
         
+        if (!libro.checkPrestiti()) {
+            throw new EliminazioneNonValidaException("Impossibile rimuovere il libro: ci sono ancora copie in prestito.");
+        }
+        this.libri.remove(libro);
     }
 
     /**
      * @brief Modifica i dati di un libro esistente.
      *
-     * @param[in] libro L'oggetto Libro con i dati aggiornati.
+     * @param[in] libro L'oggetto Libro da modificare.
+     * @param[in] attributi La Mappa con le coppie id-valore da inserire.
      * @pre libro != null
      * @pre libri.contains(libro) == true
      */
     @Override
-    public void modifica(Libro libro);
+    public void modifica(Libro libro, Map<String, Object> attributi){
+        libro.modifica(attributi);
+    }
 
     /**
      * @brief Verifica l'esistenza di un libro tramite ISBN.
@@ -103,7 +115,11 @@ public class Catalogo implements GestioneLibri {
      */
     @Override
     public boolean checkID(String id){
-        
+        for (Libro libro : libri){
+            if(libro.getISBN().equals(id))
+                return true;
+        }
+        return false;
     }
 
     /**
@@ -114,6 +130,13 @@ public class Catalogo implements GestioneLibri {
      */
     @Override
     public ObservableList<Libro> ricercaTitolo(String titolo) {
+        String ricerca= titolo.toLowerCase();
+        
+        List<Libro> risultati = libri.stream()
+                .filter(libro -> libro.getTitolo().toLowerCase().contains(ricerca))
+                .collect(Collectors.toList());
+        
+        return FXCollections.observableArrayList(risultati);
     }
 
     /**
@@ -124,6 +147,14 @@ public class Catalogo implements GestioneLibri {
      */
     @Override
     public ObservableList<Libro> ricercaAutore(String autore) {
+        String ricerca= autore.toLowerCase();
+        
+        List<Libro> risultati = libri.stream()
+                .filter(libro -> libro.getAutore().toLowerCase().contains(ricerca))
+                .collect(Collectors.toList());
+        
+        return FXCollections.observableArrayList(risultati);
+        
     }
     
     /**
@@ -134,6 +165,14 @@ public class Catalogo implements GestioneLibri {
      */
     @Override
     public ObservableList<Libro> ricercaISBN(String isbn) {
+        String ricerca= isbn.toLowerCase();
+        
+        List<Libro> risultati = libri.stream()
+                .filter(libro -> libro.getISBN().toLowerCase().contains(ricerca))
+                .collect(Collectors.toList());
+        
+        return FXCollections.observableArrayList(risultati);
+        
     }
     
 }

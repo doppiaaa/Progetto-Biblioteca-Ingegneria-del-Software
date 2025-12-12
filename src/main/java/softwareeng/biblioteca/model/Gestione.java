@@ -7,6 +7,7 @@ package softwareeng.biblioteca.model;
   
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.util.Map;
 /**
  * @file Gestione.java
  * @brief Interfaccia generica per la gestione delle collezioni di entità del sistema.
@@ -65,12 +66,13 @@ public abstract interface Gestione<T> {
 
     /**
      * @brief Modifica un elemento esistente nella collezione.
-     * * @param[in] elemento L'oggetto di tipo T con i dati aggiornati.
+     * * @param[in] elemento L'oggetto di tipo T a cui applicare le modifiche.
+     * * @param[in] attributi Mappa contenente la coppia id-valore dei dati da modificare.
      * @pre elemento != null
      * @pre getElenco().contains(elemento) == true
      * @post L'elemento nella collezione risulta aggiornato.
      */
-    public abstract void modifica(T elemento);
+    public abstract void modifica(T elemento, Map<String, Object> attributi);
     
 
 }

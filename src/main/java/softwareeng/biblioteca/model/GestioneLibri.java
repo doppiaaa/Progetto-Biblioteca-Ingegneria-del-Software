@@ -7,6 +7,7 @@ package softwareeng.biblioteca.model;
 
 import javafx.collections.ObservableList;
 import softwareeng.biblioteca.model.exceptions.EliminazioneNonValidaException;
+import java.util.Map;
 /**
  * @file GestioneLibri.java
  * @brief Interfaccia per la definizione delle operazioni di gestione dei libri.
@@ -65,14 +66,14 @@ public interface GestioneLibri extends Gestione<Libro> {
    /**
      * @brief Modifica i dati di un libro esistente.
      *
-     * @param[in] libro L'oggetto Libro con i dati aggiornati.
-     *
+     * @param[in] libro L'oggetto Libro daModificare.
+     * @param[in] attributi La Mappa di coppie id-valore di dati da sovrascrivere.
      * @pre libro != null
      * @pre getElenco().contains(libro) == true
      * @post Il libro nel catalogo riflette i nuovi attributi.
      */
     @Override
-    public void modifica(Libro libro);
+    public void modifica(Libro libro, Map<String, Object> attributi);
 
     /**
      * @brief Verifica l'esistenza di un libro tramite il suo codice ISBN.
