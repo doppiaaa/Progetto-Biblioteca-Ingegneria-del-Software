@@ -99,7 +99,7 @@ public class Libro implements Serializable, Comparable<Libro> {
      * @return true se c'è almeno una copia disponibile (copieDisponibili > 0), false altrimenti.
      * @post Il valore di ritorno è (copieDisponibili > 0).
      */
-    public boolean checkDisponibilità(){
+    public boolean checkDisponibilita(){
         return this.copieDisponibili>0;
     }
 

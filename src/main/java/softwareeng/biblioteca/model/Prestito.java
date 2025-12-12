@@ -73,6 +73,7 @@ public class Prestito implements Serializable, Comparable<Prestito> {
         this.libro.upCopie();
         this.utente.rimuoviPrestito(this);
         this.dataRestituzioneEffettiva=LocalDate.now();
+        this.dataPrevistaRestituzione=null;
         
     }
 

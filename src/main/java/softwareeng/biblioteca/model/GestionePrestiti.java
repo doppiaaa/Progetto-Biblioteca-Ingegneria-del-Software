@@ -6,6 +6,7 @@
 package softwareeng.biblioteca.model;
 import javafx.collections.ObservableList;
 import softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException;
+import java.time.LocalDate;
 
 
 /**
@@ -85,7 +86,7 @@ public interface GestionePrestiti extends Gestione<Prestito> {
      *
      * @throws PrestitoNonValidoException Se l'utente ha raggiunto il limite o il libro non ha copie disponibili.
      */
-    public void addPrestito(Utente utente, Libro libro) throws PrestitoNonValidoException;
+    public void addPrestito(Utente utente, Libro libro, LocalDate dataScadenza) throws PrestitoNonValidoException;
 
     /**
      * @brief Ricerca i prestiti associati a uno specifico utente.

@@ -8,6 +8,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 /**
  *
  * @author cashrules
@@ -45,7 +48,7 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
      * @post prestiti != null && prestiti.isEmpty() == true
      */
     public ListaPrestiti() {
-        
+        this.prestiti = FXCollections.observableArrayList();
     }
 
     /**
@@ -55,7 +58,7 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
      */
     @Override
     public ObservableList<Prestito> getElenco(){
-        
+        return this.prestiti;
     }
 
     /**
@@ -70,7 +73,7 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
      */
     @Override
     public void aggiungi(Prestito prestito){
-        
+        this.prestiti.add(prestito);
     }
 
     /**
@@ -82,7 +85,7 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
      */
     @Override
     public void rimuovi(Prestito prestito){
-        
+        this.prestiti.remove(prestito);
     }
 
     /**
@@ -93,7 +96,11 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
      */
     @Override
     public boolean checkID(String id){
-        
+        for (Prestito p: prestiti){
+            if(p.getID().equals(id))
+                return true;
+        }
+        return false;
     }
 
     /**
@@ -117,8 +124,57 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
      * @throws PrestitoNonValidoException Se non ci sono copie disponibili o l'utente non può contrarre nuovi prestiti.
      */
     @Override
-    public void addPrestito(Utente utente, Libro libro) throws PrestitoNonValidoException{
+    public void addPrestito(Utente utente, Libro libro, LocalDate dataScadenza ) throws PrestitoNonValidoException{
+        if(!libro.checkDisponibilita()){
+            throw new PrestitoNonValidoException("impossibile registrare il prestito: non ci sono copie del libro disponibili.");
+        }
+        if(!utente.checkDisponibilita()){
+            throw new PrestitoNonValidoException("impossibile registrare il prestito: l'utente ha già 3 prestiti attivi.");
+        }
+        Prestito p= new Prestito(utente, libro, dataScadenza);
+    }
+    
+    /**
+     * @brief Disattiva (chiude) un prestito attivo.
+     *
+     * Gestisce la restituzione del libro.
+     *
+     * @param[in] p Il prestito da disattivare.
+     *
+     * @pre p.isAttivo() == true
+     * @post p.isAttivo() == false
+     * @post Il libro associato incrementa le copie disponibili (libro.upCopie()).
+     * @post Il prestito viene scollegato dalla lista attiva dell'utente.
+     */
+    @Override 
+    public void disattiva(Prestito p){
+        p.disattiva();
+    }
+    
+    /**
+     * @brief Ricerca i prestiti associati a uno specifico utente.
+     *
+     * Metodo definito nel Diagramma delle Classi.
+     *
+     * @param[in] u L'utente di cui cercare i prestiti.
+     * @return ObservableList<Prestito> Lista dei prestiti associati all'utente.
+     */
+    public ObservableList<Prestito> ricerca(Utente u){
         
+
+    }
+
+    /**
+     * @brief Ricerca i prestiti associati a uno specifico libro.
+     *
+     * Metodo definito nel Diagramma delle Classi.
+     *
+     * @param[in] l Il libro di cui cercare i prestiti (attivi o passati).
+     * @return ObservableList<Prestito> Lista dei prestiti associati al libro.
+     */
+    public ObservableList<Prestito> ricerca(Libro l){
+        
+
     }
 
 }
