@@ -83,11 +83,7 @@ public class CatalogoTest {
     @Test
     public void testModifica() {
         System.out.println("modifica");
-        Libro libro = null;
-        Catalogo instance = new Catalogo();
-        instance.modifica(libro);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**

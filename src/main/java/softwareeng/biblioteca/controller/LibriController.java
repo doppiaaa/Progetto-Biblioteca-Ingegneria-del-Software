@@ -123,7 +123,7 @@ public class LibriController extends TController<Libro> {
      */
     @Override
     public boolean showEditDialog(Libro elemento){
-        
+        return true;
     }
 
     /**
@@ -133,7 +133,7 @@ public class LibriController extends TController<Libro> {
      */
     @Override
     public boolean showEditDialog(){
-        
+        return true;
     }
 
     /**

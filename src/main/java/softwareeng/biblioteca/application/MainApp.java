@@ -7,6 +7,7 @@ package softwareeng.biblioteca.application;
 
 import javafx.application.Application;
 import softwareeng.biblioteca.model.*;
+import javafx.stage.Stage;
 
 /**
  * @class MainApp
@@ -47,7 +48,7 @@ public class MainApp extends Application {
      * Utilizzato per il salvataggio e caricamento dello stato dell'applicazione.
      * @see GestoreFile
      */
-    private SalvataggioFile gestoreFile;
+    private SalvataggioDati gestoreFile;
 
     /**
     * @brief Punto di ingresso principale dell'applicazione JavaFX.

@@ -4,7 +4,7 @@
  */
 package softwareeng.biblioteca.model;
 
-import java.util.Map;
+import java.util.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,6 +17,9 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author cashrules
  */
 public class LibroTest {
+    
+    private Libro libroDisponibile;
+    private Libro libroNonDisponibile;
     
     public LibroTest() {
     }
@@ -31,6 +34,14 @@ public class LibroTest {
     
     @BeforeEach
     public void setUp() {
+        // [Implementazione del metodo setUp()]
+        
+        libroDisponibile = new Libro("Design Pattern", "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides", "978-0201633610", 1994, 5);
+        
+        libroNonDisponibile= new Libro("Lezioni di automatica", "Francesco Basile, Pasquale Chiacchio", "978-8891647566", 2021, 3);
+        libroNonDisponibile.downCopie();
+        libroNonDisponibile.downCopie();
+        libroNonDisponibile.downCopie();
     }
     
     @AfterEach
@@ -43,25 +54,33 @@ public class LibroTest {
     @Test
     public void testModifica() {
         System.out.println("modifica");
-        Map<String, Object> attributi = null;
-        Libro instance = null;
-        instance.modifica(attributi);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Map<String, Object> attributi = new HashMap();
+        attributi.put("copietotali", 2);
+        
+        libroDisponibile.modifica(attributi);
+        
+        assertThrows(softwareeng.biblioteca.model.exceptions.EliminazioneNonValidaException.class, () -> {
+            libroNonDisponibile.modifica(attributi);
+        }, "Il tentativo di riduzione deve fallire per vincolo di integrità.");
+        
+        assertEquals(2, libroDisponibile.getCopieDisponibili());
+        assertEquals(2, libroDisponibile.getCopieTotali());
+        assertEquals(3, libroNonDisponibile.getCopieTotali());
+        assertEquals(0, libroNonDisponibile.getCopieDisponibili());
+        
     }
 
     /**
      * Test of checkDisponibilità method, of class Libro.
      */
     @Test
-    public void testCheckDisponibilità() {
-        System.out.println("checkDisponibilit\u00e0");
-        Libro instance = null;
-        boolean expResult = false;
-        boolean result = instance.checkDisponibilità();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testCheckDisponibilita() {
+        System.out.println("checkDisponibilita");
+        
+        assertTrue(libroDisponibile.checkDisponibilita());
+        assertTrue(!libroNonDisponibile.checkDisponibilita());
+    
+        
     }
 
     /**
@@ -70,12 +89,9 @@ public class LibroTest {
     @Test
     public void testCheckPrestiti() {
         System.out.println("checkPrestiti");
-        Libro instance = null;
-        boolean expResult = false;
-        boolean result = instance.checkPrestiti();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        assertTrue(libroDisponibile.checkPrestiti());
+        assertTrue(!libroNonDisponibile.checkPrestiti());
     }
 
     /**
@@ -84,10 +100,12 @@ public class LibroTest {
     @Test
     public void testUpCopie() {
         System.out.println("upCopie");
-        Libro instance = null;
-        instance.upCopie();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        libroNonDisponibile.upCopie();
+        assertEquals(1, libroNonDisponibile.getCopieDisponibili());
+        libroNonDisponibile.upCopie();
+        assertEquals(2, libroNonDisponibile.getCopieDisponibili());
+        
+        assertEquals(3, libroNonDisponibile.getCopieTotali());
     }
 
     /**
@@ -96,10 +114,9 @@ public class LibroTest {
     @Test
     public void testDownCopie() {
         System.out.println("downCopie");
-        Libro instance = null;
-        instance.downCopie();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        libroDisponibile.downCopie();
+        assertEquals(4, libroDisponibile.getCopieDisponibili());
+        assertEquals(5, libroDisponibile.getCopieTotali());
     }
 
     /**
@@ -108,12 +125,13 @@ public class LibroTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Libro instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result= libroDisponibile.toString();
+        
+        assertTrue(result.contains("Design Pattern"));
+        assertTrue(result.contains("978-0201633610"));
+        assertTrue(result.contains("Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides"));
+        assertTrue(result.contains("1994"));
+        assertTrue(result.contains("5"));
     }
 
     /**
@@ -122,13 +140,9 @@ public class LibroTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        Libro l = null;
-        Libro instance = null;
-        int expResult = 0;
-        int result = instance.compareTo(l);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assert(libroDisponibile.compareTo(libroNonDisponibile)<0);
+        assert(libroDisponibile.compareTo(libroDisponibile)==0);
+        
     }
 
     /**
@@ -137,12 +151,51 @@ public class LibroTest {
     @Test
     public void testGetISBN() {
         System.out.println("getISBN");
-        Libro instance = null;
-        String expResult = "";
-        String result = instance.getISBN();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("978-0201633610", libroDisponibile.getISBN());
+        assertEquals("978-8891647566", libroNonDisponibile.getISBN());
+
+    }
+
+    /**
+     * Test of getTitolo method, of class Libro.
+     */
+    @Test
+    public void testGetTitolo() {
+        System.out.println("getTitolo");
+        assertEquals("Design Pattern", libroDisponibile.getTitolo());
+        assertEquals("Lezioni di automatica", libroNonDisponibile.getTitolo());
+    }
+
+    /**
+     * Test of getAutore method, of class Libro.
+     */
+    @Test
+    public void testGetAutore() {
+        System.out.println("getAutore");
+       System.out.println("getTitolo");
+        assertEquals("Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides", libroDisponibile.getAutore());
+        assertEquals("Francesco Basile, Pasquale Chiacchio", libroNonDisponibile.getAutore());
+    }
+
+    /**
+     * Test of getCopieTotali method, of class Libro.
+     */
+    @Test
+    public void testGetCopieTotali() {
+        System.out.println("getCopieTotali");
+        assertEquals(5, libroDisponibile.getCopieTotali());
+        assertEquals(3, libroNonDisponibile.getCopieTotali());
+        
+    }
+
+    /**
+     * Test of getCopieDisponibili method, of class Libro.
+     */
+    @Test
+    public void testGetCopieDisponibili() {
+        System.out.println("getCopieDisponibili");
+        assertEquals(5, libroDisponibile.getCopieDisponibili());
+        assertEquals(0, libroNonDisponibile.getCopieDisponibili());
     }
     
 }

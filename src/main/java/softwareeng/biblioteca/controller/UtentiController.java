@@ -119,7 +119,7 @@ public class UtentiController extends TController<Utente> {
      */
     @Override
     public boolean showEditDialog(Utente utente){
-        
+        return true;
     }
     
     /**
@@ -129,7 +129,7 @@ public class UtentiController extends TController<Utente> {
      */
     @Override    
     public boolean showEditDialog(){
-        
+        return true;
     }
     
     /**

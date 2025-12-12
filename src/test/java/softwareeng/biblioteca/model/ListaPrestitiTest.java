@@ -4,6 +4,7 @@
  */
 package softwareeng.biblioteca.model;
 
+import java.util.Map;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -98,10 +99,62 @@ public class ListaPrestitiTest {
     @Test
     public void testAddPrestito() {
         System.out.println("addPrestito");
-        Utente utente = null;
-        Libro libro = null;
+        
+    }
+
+    /**
+     * Test of disattiva method, of class ListaPrestiti.
+     */
+    @Test
+    public void testDisattiva() {
+        System.out.println("disattiva");
+        Prestito p = null;
         ListaPrestiti instance = new ListaPrestiti();
-        instance.addPrestito(utente, libro);
+        instance.disattiva(p);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ricerca method, of class ListaPrestiti.
+     */
+    @Test
+    public void testRicerca_Utente() {
+        System.out.println("ricerca");
+        Utente u = null;
+        ListaPrestiti instance = new ListaPrestiti();
+        ObservableList<Prestito> expResult = null;
+        ObservableList<Prestito> result = instance.ricerca(u);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ricerca method, of class ListaPrestiti.
+     */
+    @Test
+    public void testRicerca_Libro() {
+        System.out.println("ricerca");
+        Libro l = null;
+        ListaPrestiti instance = new ListaPrestiti();
+        ObservableList<Prestito> expResult = null;
+        ObservableList<Prestito> result = instance.ricerca(l);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of modifica method, of class ListaPrestiti.
+     */
+    @Test
+    public void testModifica() {
+        System.out.println("modifica");
+        Prestito prestito = null;
+        Map<String, Object> attributi = null;
+        ListaPrestiti instance = new ListaPrestiti();
+        instance.modifica(prestito, attributi);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

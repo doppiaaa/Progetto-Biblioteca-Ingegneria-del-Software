@@ -4,6 +4,7 @@
  */
 package softwareeng.biblioteca.model;
 
+import java.util.Map;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -88,6 +89,50 @@ public class ListaUtentiTest {
         boolean expResult = false;
         boolean result = instance.checkID(id);
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ricercaCognome method, of class ListaUtenti.
+     */
+    @Test
+    public void testRicercaCognome() {
+        System.out.println("ricercaCognome");
+        String cognome = "";
+        ListaUtenti instance = new ListaUtenti();
+        ObservableList<Utente> expResult = null;
+        ObservableList<Utente> result = instance.ricercaCognome(cognome);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ricercaMatricola method, of class ListaUtenti.
+     */
+    @Test
+    public void testRicercaMatricola() {
+        System.out.println("ricercaMatricola");
+        String matricola = "";
+        ListaUtenti instance = new ListaUtenti();
+        ObservableList<Utente> expResult = null;
+        ObservableList<Utente> result = instance.ricercaMatricola(matricola);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of modifica method, of class ListaUtenti.
+     */
+    @Test
+    public void testModifica() {
+        System.out.println("modifica");
+        Utente utente = null;
+        Map<String, Object> attributi = null;
+        ListaUtenti instance = new ListaUtenti();
+        instance.modifica(utente, attributi);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

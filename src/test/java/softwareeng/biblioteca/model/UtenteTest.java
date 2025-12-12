@@ -18,25 +18,10 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class UtenteTest {
     
+    
     public UtenteTest() {
     }
 
-    @org.junit.jupiter.api.BeforeAll
-    public static void setUpClass() throws Exception {
-    }
-
-    @org.junit.jupiter.api.AfterAll
-    public static void tearDownClass() throws Exception {
-    }
-
-    @org.junit.jupiter.api.BeforeEach
-    public void setUp() throws Exception {
-    }
-
-    @org.junit.jupiter.api.AfterEach
-    public void tearDown() throws Exception {
-    }
-    
     @BeforeAll
     public static void setUpClass() {
     }
@@ -47,12 +32,13 @@ public class UtenteTest {
     
     @BeforeEach
     public void setUp() {
+        
     }
     
     @AfterEach
     public void tearDown() {
     }
-
+    
     /**
      * Test of modifica method, of class Utente.
      */
@@ -158,6 +144,20 @@ public class UtenteTest {
         Utente instance = null;
         String expResult = "";
         String result = instance.getMatricola();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getCognome method, of class Utente.
+     */
+    @Test
+    public void testGetCognome() {
+        System.out.println("getCognome");
+        Utente instance = null;
+        String expResult = "";
+        String result = instance.getCognome();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

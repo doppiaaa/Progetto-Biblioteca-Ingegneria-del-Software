@@ -83,11 +83,12 @@ public class Libro implements Serializable, Comparable<Libro> {
                     int nuoveCopie =(int)valore;
                     int diff= nuoveCopie - this.copieTotali;
                     if(diff<0 && Math.abs(diff)>this.copieDisponibili){
-                        throw new EliminazioneNonValidaException("Stai cercando di eliminare dei libri attualmente in prestito: ci sono attualmente " + (this.copieDisponibili-this.copieTotali) + " copie in prestito.");
-                    }
+                        throw new EliminazioneNonValidaException("Stai cercando di eliminare dei libri attualmente in prestito: ci sono attualmente " + (this.copieTotali-this.copieDisponibili) + " copie in prestito.");
+                    }else{
                                        
                     this.copieTotali= nuoveCopie;
                     this.copieDisponibili+=diff;
+                    }
            } 
         });
         
@@ -181,6 +182,15 @@ public class Libro implements Serializable, Comparable<Libro> {
     public String getAutore() {
         return autore;
     }
+
+    public int getCopieTotali() {
+        return copieTotali;
+    }
+
+    public int getCopieDisponibili() {
+        return copieDisponibili;
+    }
+    
     
     
     
