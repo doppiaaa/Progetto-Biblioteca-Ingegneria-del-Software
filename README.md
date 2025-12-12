@@ -19,16 +19,16 @@ Progetto di Ingegneria del Software: applicazione di gestione di una biblioteca
 ### 3.1 Design
 * **Progettazione:** Progettare il sistema ✅
 * **Documentazione:** Scrivere il documento che include:
-    * **Diagrammi delle classi ⏳**
-    * **Diagrammi di sequenza per le interazioni ⏳**
+    * **Diagrammi delle classi ✅**
+    * **Diagrammi di sequenza per le interazioni ✅**
     * altro... (se necessario)
     * Commenti ⏳
-* **Upload del documento ⏳**
+* **Upload del documento ✅**
 * **Aggiornamenti (se necessari)**
 
 ### 3.2 Design di dettaglo
-* **Progettazione delle classi:** definire e creare le classi ⏳.
-* **Documentazione e implementazione Doxygen**: documentare le interfacce pubbliche delle classi utilizzando **doxygen** ⏳.
+* **Progettazione delle classi:** definire e creare le classi ✅.
+* **Documentazione e implementazione Doxygen**: documentare le interfacce pubbliche delle classi utilizzando **doxygen** ✅.
 * **Aggiornamenti (se necessari)**
 
 ## 4. Implementazione e testing (Scadenza 15 Dicembre)
