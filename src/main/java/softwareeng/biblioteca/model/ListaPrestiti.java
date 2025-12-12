@@ -160,7 +160,10 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
      * @return ObservableList<Prestito> Lista dei prestiti associati all'utente.
      */
     public ObservableList<Prestito> ricerca(Utente u){
-        
+        List<Prestito> ricerca= prestiti.stream()
+                .filter(prestito -> prestito.getUtente().equals(u))
+                .collect(Collectors.toList());
+        return FXCollections.observableArrayList(ricerca);
 
     }
 
@@ -173,7 +176,10 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
      * @return ObservableList<Prestito> Lista dei prestiti associati al libro.
      */
     public ObservableList<Prestito> ricerca(Libro l){
-        
+        List<Prestito> ricerca= prestiti.stream()
+                .filter(prestito -> prestito.getLibro().equals(l))
+                .collect(Collectors.toList());
+        return FXCollections.observableArrayList(ricerca);
 
     }
 
