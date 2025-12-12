@@ -6,6 +6,7 @@
 package softwareeng.biblioteca.model;
 
 import javafx.collections.ObservableList;
+import java.util.Map;
 
 /**
  * @file GestioneUtenti.java
@@ -85,7 +86,7 @@ public interface GestioneUtenti extends Gestione<Utente> {
      * @pre getElenco().contains(utente) == true
      * @post L'utente presente in lista riflette i nuovi dati passati.
      */
-    public void modifica(Utente utente);
+    public void modifica(Utente utente, Map<String,Object> attributi);
 
     /**
      * @brief Ricerca gli utenti per cognome.

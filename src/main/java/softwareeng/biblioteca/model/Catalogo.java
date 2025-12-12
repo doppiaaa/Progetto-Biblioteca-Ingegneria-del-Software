@@ -105,6 +105,14 @@ public class Catalogo implements GestioneLibri {
     @Override
     public void modifica(Libro libro, Map<String, Object> attributi){
         libro.modifica(attributi);
+        
+        //Notifica alla ObservableList (per aggiornare la UI)
+        
+        int index = this.libri.indexOf(libro);
+        if (index != -1) {
+            // Sostituisce l'elemento con sé stesso.
+            this.libri.set(index, libro); 
+        }
     }
 
     /**
@@ -174,5 +182,7 @@ public class Catalogo implements GestioneLibri {
         return FXCollections.observableArrayList(risultati);
         
     }
+    
+    
     
 }

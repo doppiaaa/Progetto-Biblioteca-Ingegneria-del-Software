@@ -164,4 +164,10 @@ public class Utente implements Comparable<Utente>, Serializable {
     public String getMatricola(){
         return this.matricola;
     }
+
+    public String getCognome() {
+        return cognome;
+    }
+    
+    
 }

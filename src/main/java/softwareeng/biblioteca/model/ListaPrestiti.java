@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
 import softwareeng.biblioteca.model.exceptions.PrestitoNonValidoException;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 /**
  *
@@ -181,6 +181,18 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
                 .collect(Collectors.toList());
         return FXCollections.observableArrayList(ricerca);
 
+    }
+    
+    /**
+     * @brief NON IMPLEMENTATO. 
+     * Il prestito non è un'entità modificabile (solo creato o chiuso).
+     * Questo metodo è richiesto dall'interfaccia Gestione<T> ma è una No-Op.
+     * * @param prestito L'oggetto Prestito da modificare.
+     * @param attributi La Mappa degli attributi (ignorata).
+     */
+    @Override
+    public void modifica(Prestito prestito, Map<String, Object> attributi) {
+        // Nessuna operazione
     }
 
 }
