@@ -132,6 +132,8 @@ public class ListaPrestiti implements Serializable, GestionePrestiti{
             throw new PrestitoNonValidoException("impossibile registrare il prestito: l'utente ha già 3 prestiti attivi.");
         }
         Prestito p= new Prestito(utente, libro, dataScadenza);
+        
+        this.prestiti.add(p);
     }
     
     /**
