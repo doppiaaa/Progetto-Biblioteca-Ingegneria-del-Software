@@ -168,6 +168,16 @@ public class Utente implements Comparable<Utente>, Serializable {
     public String getCognome() {
         return cognome;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public ArrayList<Prestito> getPrestiti() {
+        return prestiti;
+    }
+    
+    
     
     
 }

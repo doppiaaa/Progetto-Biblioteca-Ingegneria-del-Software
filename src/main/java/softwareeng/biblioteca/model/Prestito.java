@@ -58,7 +58,7 @@ public class Prestito implements Serializable, Comparable<Prestito> {
         this.dataPrevistaRestituzione=dataPrevistaRestituzione;
         this.dataInizio=LocalDate.now();
         this.cont=++cont;
-        this.id= "" + cont;
+        this.id= "" + this.cont;
         l.downCopie();
         u.aggiungi(this);
     }
