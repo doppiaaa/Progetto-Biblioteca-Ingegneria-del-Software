@@ -28,7 +28,7 @@ public class PrestitiController {
      * @param app L'istanza della MainApp dell'applicazione.
      */
     public void setMainApp(MainApp app){
-        
+        this.mainApp = app;
     }
 
     /**
@@ -47,7 +47,9 @@ public class PrestitiController {
      * * Gestisce il click per tornare alla schermata principale (Home).
      */
     public void goHome(){
-        
+        if(mainApp != null) {
+            mainApp.mostraHome();
+        }
     }
     
     /**

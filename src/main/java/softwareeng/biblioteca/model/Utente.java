@@ -179,6 +179,10 @@ public class Utente implements Comparable<Utente>, Serializable {
     public ArrayList<Prestito> getPrestiti() {
         return prestiti;
     }
+
+    public String getMail() {
+        return mail;
+    }
     
     
     

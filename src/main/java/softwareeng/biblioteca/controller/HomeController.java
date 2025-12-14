@@ -5,6 +5,7 @@
  */
 package softwareeng.biblioteca.controller;
 import softwareeng.biblioteca.application.MainApp;
+import javafx.application.Platform;
 
 /**
  * @brief Gestisce le interazioni della schermata Home.
@@ -23,7 +24,7 @@ public class HomeController {
      * @param app L'istanza della MainApp dell'applicazione.
      */
     public void setMainApp(MainApp app){
-        
+        this.mainApp = app;
     }
     
     /**
@@ -31,7 +32,10 @@ public class HomeController {
      * * Gestisce il click per passare alla schermata di gestione dei Libri.
      */
     public void goToLibri(){
-        
+        if(mainApp != null) {
+            
+            mainApp.mostraLibri();
+        }
     }
 
     /**
@@ -39,7 +43,10 @@ public class HomeController {
      * * Gestisce il click per passare alla schermata di gestione degli Utenti.
      */
     public void goToUtenti(){
+        if(mainApp != null) {
         
+            mainApp.mostraUtenti();
+        } 
     }
 
      /**
@@ -47,7 +54,10 @@ public class HomeController {
      * * Gestisce il click per passare alla schermata di gestione dei Prestiti.
      */
     public void goToPrestiti(){
-        
+        if(mainApp != null) {
+            
+            mainApp.mostraPrestiti();
+        }
     }
     
     /**
@@ -58,6 +68,11 @@ public class HomeController {
      * * @see MainApp#salvaDati()
      */
     public void esci(){
-        
+        if(mainApp != null) {
+            // 1. Delega alla MainApp il compito di salvare lo stato corrente
+            mainApp.salvaDati();
+        }
+        // 2. Termina la piattaforma JavaFX in modo pulito
+        Platform.exit();
     }
 }

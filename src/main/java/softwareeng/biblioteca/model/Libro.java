@@ -194,8 +194,11 @@ public class Libro implements Serializable, Comparable<Libro> {
     public int getCopieDisponibili() {
         return copieDisponibili;
     }
+
+    public int getYear() {
+        return year;
+    }
     
-    
-    
+        
     
 }
