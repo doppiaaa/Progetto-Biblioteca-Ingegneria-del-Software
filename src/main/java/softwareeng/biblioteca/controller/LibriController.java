@@ -16,6 +16,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.collections.FXCollections;
+import javafx.collections.transformation.SortedList;
+import javafx.collections.ObservableList;
 
 /**
  * @brief Gestisce le interazioni e la logica di business per l'entità Libro.
@@ -120,6 +122,8 @@ public class LibriController extends TController<Libro> {
                 libroSelezionato = newValue; // Aggiorna l'attributo di classe
                 mostraDettagliLibro(newValue); // Aggiorna la vista
             });
+        
+        gestisciRicercaLibro();
     }
     
     /**
@@ -163,25 +167,30 @@ public class LibriController extends TController<Libro> {
     @FXML
     private void gestisciRicercaLibro() {
         String termineRicerca = tfRicerca.getText();
-        
-        // Controlla se il campo di ricerca è vuoto
+        ObservableList<Libro> risultati;
+
+        // 1. Recupera i dati (tutti o filtrati)
         if (termineRicerca == null || termineRicerca.trim().isEmpty()) {
-            // Se vuoto, mostra tutti i libri
-            tableLibri.setItems(catalogo.getElenco());
+            risultati = catalogo.getElenco();
         } else {
-            // Delega la ricerca al Catalogo che gestisce la logica unificata
-            // NOTA: il metodo ricerca(String) non era esplicitamente nel Catalogo.java inviato, 
-            // ma era presente ricercaTitolo, ricercaAutore, ecc.
-            // Se 'ricerca' generica non esiste, usiamo 'ricercaTitolo' come fallback o implementala nel model.
-            // Per ora assumo esista o sia un wrapper nel controller:
-            // Sostituisco con ricercaTitolo per coerenza con i file inviati
-            tableLibri.setItems(catalogo.ricercaTitolo(termineRicerca));
+            // Nota: assicurati che questo metodo esista nel tuo GestioneLibri o usa quello corretto
+            risultati = catalogo.ricercaTitolo(termineRicerca);
         }
+
+        // 2. Avvolgi i risultati in una SortedList
+        SortedList<Libro> datiOrdinati = new SortedList<>(risultati);
+
+        // 3. Imposta il comparatore usando il metodo compareTo della classe Libro
+        datiOrdinati.setComparator((libro1, libro2) -> libro1.compareTo(libro2));
+
+        // 4. Aggiorna la tabella con la lista ordinata
+        tableLibri.setItems(datiOrdinati);
         
-        // Deseleziona qualsiasi libro e pulisce i dettagli
+        // Pulizia selezione
         tableLibri.getSelectionModel().clearSelection();
         mostraDettagliLibro(null);
     }
+    
 
     /**
      * @brief Torna alla schermata principale (Home).

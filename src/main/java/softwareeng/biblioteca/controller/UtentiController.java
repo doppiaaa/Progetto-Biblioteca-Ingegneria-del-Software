@@ -16,6 +16,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.layout.GridPane;
+import javafx.collections.transformation.SortedList;
+import javafx.collections.ObservableList;
 
 /**
  * @brief Gestisce le interazioni e la logica di business per l'entità Utente.
@@ -104,6 +106,7 @@ public class UtentiController extends TController<Utente> {
                 utenteSelezionato = newValue;
                 mostraDettagliUtente(newValue);
             });
+        gestisciRicercaUtente();
     }
 
     /**
@@ -138,14 +141,25 @@ public class UtentiController extends TController<Utente> {
     @FXML
     private void gestisciRicercaUtente() {
         String input = tfRicerca.getText();
+        ObservableList<Utente> risultati;
+        
+        // 1. Recupera i dati (tutti o filtrati)
         if (input == null || input.trim().isEmpty()) {
-            tableUtenti.setItems(gestioneUtenti.getElenco());
+            risultati = gestioneUtenti.getElenco();
         } else {
-            // Usiamo il metodo specifico del model ListaUtenti
-            tableUtenti.setItems(gestioneUtenti.ricercaCognome(input));
+            risultati = gestioneUtenti.ricercaCognome(input);
         }
         
-        // Pulisce selezione dopo ricerca
+        // 2. Avvolgi i risultati in una SortedList
+        SortedList<Utente> datiOrdinati = new SortedList<>(risultati);
+        
+        // 3. Imposta il comparatore usando il metodo compareTo della classe Utente
+        datiOrdinati.setComparator((u1, u2) -> u1.compareTo(u2));
+        
+        // 4. Aggiorna la tabella con la lista ordinata
+        tableUtenti.setItems(datiOrdinati);
+        
+        // Pulisce selezione e dettagli
         tableUtenti.getSelectionModel().clearSelection();
         mostraDettagliUtente(null);
     }
