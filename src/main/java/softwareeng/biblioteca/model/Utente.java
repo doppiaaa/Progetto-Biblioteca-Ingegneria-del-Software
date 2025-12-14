@@ -70,10 +70,13 @@ public class Utente implements Comparable<Utente>, Serializable {
             switch(chiave.toLowerCase()){
                 case "nome":
                     this.nome=(String)valore;
+                    break;
                 case "cognome":
                     this.cognome=(String)valore;
+                    break;
                 case "mail":
-                    this.mail=(String)valore;              
+                    this.mail=(String)valore;     
+                    break;
            } 
         });
     }

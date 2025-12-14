@@ -4,7 +4,8 @@
  */
 package softwareeng.biblioteca.model;
 
-import java.util.Map;
+import java.util.*;
+import java.time.LocalDate;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -19,6 +20,18 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class ListaPrestitiTest {
     
+    private ListaPrestiti lista;
+    
+    // Oggetti per i test (Utenti e Libri)
+    private Utente utenteLibero; // Utente che può prendere in prestito
+    private Utente utentePieno;  // Utente con 3 prestiti attivi
+    private Libro libroDisponibile; // Libro con copie > 0
+    private Libro libroNonDisponibile; // Libro con copie = 0
+
+    // Variabili per i prestiti
+    private Prestito p1, p2, p3, p4;
+    private LocalDate dataScadenza = LocalDate.of(2026, Month.JANUARY, 10);
+    
     public ListaPrestitiTest() {
     }
     
@@ -32,10 +45,34 @@ public class ListaPrestitiTest {
     
     @BeforeEach
     public void setUp() {
+        Prestito.setContatore(0); 
+        lista = new ListaPrestiti();
+
+        // 1. Setup Utenti
+        utenteLibero = new Utente("Marco", "Neri", "U001", "marco@mail.it");
+        utentePieno = new Utente("Sara", "Gialli", "U002", "sara@mail.it");
+        
+        // 2. Setup Libri
+        libroDisponibile = new Libro("Libro OK", "Autore OK", "L111", 2000, 2); // 2 copie
+        libroNonDisponibile = new Libro("Libro NO", "Autore NO", "L222", 2000, 1); // 1 copia
+
+        // 3. Simula 3 prestiti per riempire l'utentePieno (BF-1.3)
+        // Nota: la creazione di Prestito aggiorna automaticamente l'utente e il libro.
+        p1 = new Prestito(utentePieno, libroDisponibile, dataScadenza.plusDays(1)); // 1/3
+        p2 = new Prestito(utentePieno, libroDisponibile, dataScadenza.plusDays(2)); // 2/3
+        p3 = new Prestito(utentePieno, libroDisponibile, dataScadenza.plusDays(3)); // 3/3
+        
+        // Aggiungiamo i prestiti alla lista del gestore (altrimenti addPrestito fallirà nel test)
+        lista.aggiungi(p1);
+        lista.aggiungi(p2);
+        lista.aggiungi(p3);
     }
     
     @AfterEach
     public void tearDown() {
+        
+        lista = null;
+        Prestito.setContatore(0);
     }
 
     /**
@@ -44,12 +81,7 @@ public class ListaPrestitiTest {
     @Test
     public void testGetElenco() {
         System.out.println("getElenco");
-        ListaPrestiti instance = new ListaPrestiti();
-        ObservableList<Prestito> expResult = null;
-        ObservableList<Prestito> result = instance.getElenco();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -58,11 +90,7 @@ public class ListaPrestitiTest {
     @Test
     public void testAggiungi() {
         System.out.println("aggiungi");
-        Prestito prestito = null;
-        ListaPrestiti instance = new ListaPrestiti();
-        instance.aggiungi(prestito);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -71,11 +99,7 @@ public class ListaPrestitiTest {
     @Test
     public void testRimuovi() {
         System.out.println("rimuovi");
-        Prestito prestito = null;
-        ListaPrestiti instance = new ListaPrestiti();
-        instance.rimuovi(prestito);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -84,13 +108,7 @@ public class ListaPrestitiTest {
     @Test
     public void testCheckID() {
         System.out.println("checkID");
-        String id = "";
-        ListaPrestiti instance = new ListaPrestiti();
-        boolean expResult = false;
-        boolean result = instance.checkID(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -108,11 +126,7 @@ public class ListaPrestitiTest {
     @Test
     public void testDisattiva() {
         System.out.println("disattiva");
-        Prestito p = null;
-        ListaPrestiti instance = new ListaPrestiti();
-        instance.disattiva(p);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -121,13 +135,7 @@ public class ListaPrestitiTest {
     @Test
     public void testRicerca_Utente() {
         System.out.println("ricerca");
-        Utente u = null;
-        ListaPrestiti instance = new ListaPrestiti();
-        ObservableList<Prestito> expResult = null;
-        ObservableList<Prestito> result = instance.ricerca(u);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -136,13 +144,7 @@ public class ListaPrestitiTest {
     @Test
     public void testRicerca_Libro() {
         System.out.println("ricerca");
-        Libro l = null;
-        ListaPrestiti instance = new ListaPrestiti();
-        ObservableList<Prestito> expResult = null;
-        ObservableList<Prestito> result = instance.ricerca(l);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -151,12 +153,7 @@ public class ListaPrestitiTest {
     @Test
     public void testModifica() {
         System.out.println("modifica");
-        Prestito prestito = null;
-        Map<String, Object> attributi = null;
-        ListaPrestiti instance = new ListaPrestiti();
-        instance.modifica(prestito, attributi);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
     
 }

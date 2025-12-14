@@ -75,10 +75,13 @@ public class Libro implements Serializable, Comparable<Libro> {
             switch(chiave.toLowerCase()){
                 case "titolo":
                     this.titolo=(String)valore;
+                    break;
                 case "autore":
                     this.autore=(String)valore;
+                    break;
                 case "year":
                     this.year=(int)valore;
+                    break;
                 case "copietotali":
                     int nuoveCopie =(int)valore;
                     int diff= nuoveCopie - this.copieTotali;
@@ -88,6 +91,7 @@ public class Libro implements Serializable, Comparable<Libro> {
                                        
                     this.copieTotali= nuoveCopie;
                     this.copieDisponibili+=diff;
+                    break;
                     }
            } 
         });
