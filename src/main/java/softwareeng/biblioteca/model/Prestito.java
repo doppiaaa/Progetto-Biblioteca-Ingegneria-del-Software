@@ -25,6 +25,7 @@ import java.io.Serializable;
  * e la generazione del suo identificativo univoco.
  */
 public class Prestito implements Serializable, Comparable<Prestito> {
+    private static final long serialVersionUID = 1L;
     /** Utente che ha effettuato il prestito */
     private Utente utente;
     /** Libro oggetto del prestito */
@@ -126,6 +127,16 @@ public class Prestito implements Serializable, Comparable<Prestito> {
     
     @Override
     public int compareTo(Prestito p){
+        
+        if(this.isAttivo()&&!p.isAttivo()){
+        return -1;
+        
+        }
+        if(!this.isAttivo()&&p.isAttivo()){
+        
+            return 1;
+        }
+        
         int cmp = this.dataPrevistaRestituzione.compareTo(p.dataPrevistaRestituzione);
         if (cmp!=0)
             return cmp;
@@ -140,5 +151,12 @@ public class Prestito implements Serializable, Comparable<Prestito> {
         return libro;
     }
     
+    public LocalDate getDataInizio() {
+        return dataInizio;
+    }
+
+    public LocalDate getDataPrevistaRestituzione() {
+        return dataPrevistaRestituzione;
+    }
     
 }

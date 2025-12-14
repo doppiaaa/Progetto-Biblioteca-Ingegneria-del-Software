@@ -21,6 +21,7 @@ import softwareeng.biblioteca.model.exceptions.EliminazioneNonValidaException;
  * @see Catalogo
  */
 public class Libro implements Serializable, Comparable<Libro> {
+    private static final long serialVersionUID = 1L;
     /** Titolo del libro. */
     private String titolo;
     /** Nome dell'autore del libro. */
@@ -161,10 +162,10 @@ public class Libro implements Serializable, Comparable<Libro> {
      */
     @Override
     public int compareTo(Libro l){
-        int cmp= this.titolo.compareTo(l.titolo);
+        int cmp= this.titolo.toLowerCase().compareTo(l.titolo.toLowerCase());
         if (cmp!=0)
             return cmp;
-        cmp = this.autore.compareTo(l.autore);
+        cmp = this.autore.toLowerCase().compareTo(l.autore.toLowerCase());
         if (cmp!=0)
             return cmp;
         return this.isbn.compareTo(l.isbn);

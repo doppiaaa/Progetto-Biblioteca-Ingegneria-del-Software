@@ -24,6 +24,7 @@ import java.lang.Comparable;
  * persistenza e Comparable per l'ordinamento.
  */
 public class Utente implements Comparable<Utente>, Serializable {
+    private static final long serialVersionUID = 1L;
     /** Nome anagrafico dell'utente. */
     private String nome;
     /** Cognome anagrafico dell'utente. */
@@ -149,13 +150,13 @@ public class Utente implements Comparable<Utente>, Serializable {
      */
     @Override
     public int compareTo(Utente u){
-        int cmp= this.cognome.compareTo(u.cognome);
+        int cmp= this.cognome.toLowerCase().compareTo(u.cognome.toLowerCase());
         if (cmp!=0) 
             return cmp;
-        cmp=this.nome.compareTo(u.nome);
+        cmp=this.nome.toLowerCase().compareTo(u.nome.toLowerCase());
         if (cmp!=0) 
             return cmp;
-        return this.matricola.compareTo(u.matricola);
+        return this.matricola.toLowerCase().compareTo(u.matricola.toLowerCase());
         }
     
 

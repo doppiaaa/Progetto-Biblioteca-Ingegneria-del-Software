@@ -27,9 +27,15 @@ public class GestoreFile implements SalvataggioDati {
      * * Inizializza la lista degli indirizzi dei file.
      */
     public GestoreFile(){
-        File directory= new File("data");
+        // Usa il percorso assoluto della cartella del progetto
+        String projectDir = System.getProperty("user.dir");
+        File directory = new File(projectDir, "data");
+        
+        // Stampa di debug per farti capire DOVE sta salvando
+        System.out.println("[DEBUG] Cartella dati: " + directory.getAbsolutePath());
+
         if(!directory.exists()){
-            boolean created=directory.mkdir();
+            directory.mkdir();
         }
     }
     
@@ -142,62 +148,50 @@ public class GestoreFile implements SalvataggioDati {
     }
     
     private Object leggi(String path) throws IOException, ClassNotFoundException {
-    // Controllo preliminare per il primo avvio
-    File f = new File(path);
-    if (!f.exists()) {
-        System.out.println("AVVISO: File " + path + " non trovato (Primo avvio o resettato).");
-        return null; 
+        // Costruiamo il file con percorso assoluto per sicurezza
+        File f = new File(System.getProperty("user.dir"), path);
+        
+        // Se non esiste O se è vuoto (0 byte), non provare a leggere
+        if (!f.exists() || f.length() == 0) {
+            return null; 
+        }
+        
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))) {
+            return ois.readObject();
+        }
     }
-    
-    // Apertura del flusso con try-with-resources
-    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))) {
-        return ois.readObject();
-    }
-    
-}
     
     private void scrivi(Object o, String path) throws IOException {
-    // Inizializzazione del flusso try-with-resources
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path))) {        
-            // Scrittura dell'oggetto sul disco
+        File f = new File(System.getProperty("user.dir"), path);
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f))) {        
             oos.writeObject(o);
         }
     }    
     
     
     private int leggiContatore(){
-        File f = new File(PATH_CONTATORE);
-        // Controllo file inesistente
-        if (!f.exists()) {
-            System.out.println("AVVISO: Contatore ID non trovato. Ripristino ID a 0.");
-            return 0; // Torna 0 (o il valore iniziale del contatore statico)
-        }
-
-        try (BufferedReader br = new BufferedReader(new FileReader(PATH_CONTATORE))) {
-            // Legge la prima riga (dove si presume ci sia il numero)
-            String linea = br.readLine();
+        File f = new File(System.getProperty("user.dir"), PATH_CONTATORE);
         
-            // Conversione e validazione
+        if (!f.exists()) return 0;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+            String linea = br.readLine();
             if (linea != null) {
                 return Integer.parseInt(linea.trim());
             }
         } catch (IOException | NumberFormatException e) {
-            // Gestione errore di I/O o se il file contiene testo non numerico
-            System.err.println("ERRORE CRITICO: Contatore ID corrotto o vuoto. Ripristino ID a 0.");
-    }
-    return 0;
+            System.err.println("Errore lettura contatore: " + e.getMessage());
+        }
+        return 0;
     }
     
     private void scriviContatore(int valore) throws IOException {
-    
-    try (PrintWriter pw = new PrintWriter(new File(PATH_CONTATORE))) {
-        
-        pw.print(valore);
-        pw.flush(); 
-        
-    } 
-    // Il try-with-resources chiude automaticamente il PrintWriter.
-}
+        File f = new File(System.getProperty("user.dir"), PATH_CONTATORE);
+        try (PrintWriter pw = new PrintWriter(f)) {
+            pw.print(valore);
+            pw.flush(); 
+        } 
+    }
     
     
 }

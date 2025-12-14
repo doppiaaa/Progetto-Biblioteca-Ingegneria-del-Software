@@ -93,6 +93,7 @@ public class LibriController extends TController<Libro> {
     @Override
     public void setDati(Gestione<Libro> interfaccia){
         this.catalogo = (GestioneLibri) interfaccia;
+        gestisciRicercaLibro();
     }
     
     /**
@@ -123,7 +124,7 @@ public class LibriController extends TController<Libro> {
                 mostraDettagliLibro(newValue); // Aggiorna la vista
             });
         
-        gestisciRicercaLibro();
+        
     }
     
     /**

@@ -79,6 +79,8 @@ public class UtentiController extends TController<Utente> {
     @Override
     public void setDati(Gestione<Utente> interfaccia){
         this.gestioneUtenti = (GestioneUtenti) interfaccia;
+        
+        gestisciRicercaUtente();
     }
     
     /**
@@ -106,7 +108,7 @@ public class UtentiController extends TController<Utente> {
                 utenteSelezionato = newValue;
                 mostraDettagliUtente(newValue);
             });
-        gestisciRicercaUtente();
+        
     }
 
     /**
