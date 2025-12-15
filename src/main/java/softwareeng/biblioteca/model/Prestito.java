@@ -136,11 +136,15 @@ public class Prestito implements Serializable, Comparable<Prestito> {
         
             return 1;
         }
-        
+        if(this.isAttivo() && p.isAttivo()){
         int cmp = this.dataPrevistaRestituzione.compareTo(p.dataPrevistaRestituzione);
         if (cmp!=0)
             return cmp;
         return this.id.compareTo(p.id);
+        }
+        if (!this.isAttivo() && !p.isAttivo()){
+            return this.id.compareTo(p.id);
+        }
     }
 
     public Utente getUtente() {
