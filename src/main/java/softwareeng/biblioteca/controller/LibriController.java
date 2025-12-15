@@ -411,7 +411,7 @@ public class LibriController extends TController<Libro> {
             String annoStr = (libro==null) ? "" : String.valueOf(libro.getYear());
             tfAnno = new TextField(annoStr);
             
-            String copieStr = (libro.getCopieTotali() == 0 && libro==null) ? "" : String.valueOf(libro.getCopieTotali());
+            String copieStr = libro==null ? "" : String.valueOf(libro.getCopieTotali());
             tfCopie = new TextField(copieStr);
 
             // Se è modifica, disabilitiamo l'ISBN (chiave primaria non modificabile)
