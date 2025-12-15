@@ -17,26 +17,38 @@ import java.io.*;
  */
 public class GestoreFile implements SalvataggioDati {
     /**Lista degli indirizzi (path) dei file utilizzati per la persistenza. */
-    private final String PATH_LIBRI = "data/libri.dat";
-    private final String PATH_UTENTI = "data/utenti.dat";
-    private final String PATH_PRESTITI = "data/prestiti.dat";
-    private final String PATH_CONTATORE = "data/contatore.txt";
+    private final String FILE_LIBRI = "libri.dat";
+    private final String FILE_UTENTI = "utenti.dat";
+    private final String FILE_PRESTITI = "prestiti.dat";
+    private final String FILE_CONTATORE = "contatore.txt";
+    
+    private String nomeCartella;
     
     /**
      * @brief Costruttore predefinito.
      * * Inizializza la lista degli indirizzi dei file.
      */
     public GestoreFile(){
-        // Usa il percorso assoluto della cartella del progetto
-        String projectDir = System.getProperty("user.dir");
-        File directory = new File(projectDir, "data");
+        this("data");
+    }
+    
+    /**
+     * @brief Costruttore per test o cartelle personalizzate.
+     * @param nomeCartella Il nome della directory in cui salvare i file.
+     */
+    public GestoreFile(String nomeCartella) {
+        this.nomeCartella = nomeCartella;
         
-        // Stampa di debug per farti capire DOVE sta salvando
-        System.out.println("[DEBUG] Cartella dati: " + directory.getAbsolutePath());
-
+        String projectDir = System.getProperty("user.dir");
+        File directory = new File(projectDir, this.nomeCartella);
+        
         if(!directory.exists()){
             directory.mkdir();
         }
+    }
+    
+    private String getPath(String fileName) {
+        return new File(nomeCartella, fileName).getPath();
     }
     
     /**
@@ -51,18 +63,16 @@ public class GestoreFile implements SalvataggioDati {
     @Override
     public void salva(GestioneLibri catalogo, GestioneUtenti utenti, GestionePrestiti prestiti){
         try {
-        // Serializzazione delle liste di oggetti (Binario)
-            scrivi(new ArrayList<>(catalogo.getElenco()), PATH_LIBRI);
-            scrivi(new ArrayList<>(utenti.getElenco()), PATH_UTENTI);
-            scrivi(new ArrayList<>(prestiti.getElenco()), PATH_PRESTITI);
+            // Usiamo il metodo helper getPath() per costruire il percorso corretto
+            scrivi(new ArrayList<>(catalogo.getElenco()), getPath(FILE_LIBRI));
+            scrivi(new ArrayList<>(utenti.getElenco()), getPath(FILE_UTENTI));
+            scrivi(new ArrayList<>(prestiti.getElenco()), getPath(FILE_PRESTITI));
         
-            // 2. Salvataggio del Contatore ID (Testuale)
             scriviContatore(Prestito.getContatore()); 
         
-            System.out.println("Salvataggio completato.");
+            System.out.println("Salvataggio completato in: " + nomeCartella);
         } catch (IOException e) {
-            // Cattura solo IOException, che è l'unica lanciata dai metodi di scrittura.
-            System.err.println("ERRORE SALVATAGGIO CRITICO: Impossibile scrivere su disco i dati. Causa: " + e.getMessage());
+            System.err.println("ERRORE SALVATAGGIO CRITICO: " + e.getMessage());
         }
     }
     
@@ -80,20 +90,20 @@ public class GestoreFile implements SalvataggioDati {
         try {
             // 1. Caricamento Libri (Binario)
             // Il cast è necessario perché leggiOggetto ritorna Object.
-            List<Libro> libriCaricati = (List<Libro>) leggi(PATH_LIBRI);
+            List<Libro> libriCaricati = (List<Libro>) leggi(getPath(FILE_LIBRI));
             if (libriCaricati != null) {
                 // setAll(): Ripopola l'ObservableList esistente con i dati caricati.
                 catalogo.getElenco().setAll(libriCaricati); 
             }
 
             // 2. Caricamento Utenti (Binario)
-            List<Utente> utentiCaricati = (List<Utente>) leggi(PATH_UTENTI);
+            List<Utente> utentiCaricati = (List<Utente>) leggi(getPath(FILE_UTENTI));
             if (utentiCaricati != null) {
                 utenti.getElenco().setAll(utentiCaricati);
             }
         
             // 3. Caricamento Prestiti (Binario)
-            List<Prestito> prestitiCaricati = (List<Prestito>) leggi(PATH_PRESTITI);
+            List<Prestito> prestitiCaricati = (List<Prestito>) leggi(getPath(FILE_PRESTITI));
             if (prestitiCaricati != null) {
                 prestiti.getElenco().setAll(prestitiCaricati);
             }
@@ -126,13 +136,13 @@ public class GestoreFile implements SalvataggioDati {
         try {
             // Troncare i file Binari (svuotare il contenuto a 0 byte)
             
-            new FileOutputStream(PATH_LIBRI).close();
-            new FileOutputStream(PATH_UTENTI).close();
-            new FileOutputStream(PATH_PRESTITI).close();
+            new FileOutputStream(getPath(FILE_LIBRI)).close();
+            new FileOutputStream(getPath(FILE_UTENTI)).close();
+            new FileOutputStream(getPath(FILE_PRESTITI)).close();
         
             // Sovrascrivere il Contatore ID a 0 (File Testuale)
             
-            try (PrintWriter pw = new PrintWriter(new File(PATH_CONTATORE))) {
+            try (PrintWriter pw = new PrintWriter(new File(getPath(FILE_CONTATORE)))) {
                 pw.print(0); 
                 pw.flush(); 
             }
@@ -170,7 +180,7 @@ public class GestoreFile implements SalvataggioDati {
     
     
     private int leggiContatore(){
-        File f = new File(System.getProperty("user.dir"), PATH_CONTATORE);
+        File f = new File(System.getProperty("user.dir"), getPath(FILE_CONTATORE));
         
         if (!f.exists()) return 0;
 
@@ -186,7 +196,7 @@ public class GestoreFile implements SalvataggioDati {
     }
     
     private void scriviContatore(int valore) throws IOException {
-        File f = new File(System.getProperty("user.dir"), PATH_CONTATORE);
+        File f = new File(System.getProperty("user.dir"), getPath(FILE_CONTATORE));
         try (PrintWriter pw = new PrintWriter(f)) {
             pw.print(valore);
             pw.flush(); 

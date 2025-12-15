@@ -44,7 +44,7 @@ public class GestoreFileTest {
     @BeforeEach
     public void setUp() {
         Prestito.setContatore(0);
-        instance = new GestoreFile();
+        instance = new GestoreFile("data_test");
         instance.reset(); // Assicurati che i file siano puliti prima di ogni test
 
         // Inizializzazione dei gestori in-memory
