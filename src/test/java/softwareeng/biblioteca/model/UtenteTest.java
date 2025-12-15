@@ -39,7 +39,7 @@ public class UtenteTest {
         
         utenteDisponibile= new Utente("Mario", "Rossi", "0012323676", "m.rossi12@studenti.unisa.it" );
         utenteNonDisponibile= new Utente("Maria", "Verdi", "0012323555", "m.verdi9@studenti.unisa.it" );
-        libroProva= new Libro("Prova", "Nessuno", "978888987876", 2004, 10);
+        libroProva= new Libro("Prova", "Nessuno", "978-8889878760", 2004, 10);
         prestito= new Prestito(utenteNonDisponibile, libroProva, LocalDate.now());
         utenteNonDisponibile.aggiungi(prestito);
         utenteNonDisponibile.aggiungi(prestito);

@@ -162,7 +162,7 @@ public class CatalogoTest {
         
         String idEsistente = l1.getISBN();
         
-        String idNonEsistente = "000-0000000000";
+        String idNonEsistente = "978-0000000000";
         
         assertTrue(catalogo.checkID(idEsistente), "L'ISBN esistente deve essere trovato.");
         assertFalse(catalogo.checkID(idNonEsistente), "L'ISBN non esistente non deve essere trovato.");
@@ -231,7 +231,7 @@ public class CatalogoTest {
         assertEquals(l1, result1.get(0), "Il risultato deve essere il libro l1.");
 
         // Ricerca per ISBN inesistente
-        ObservableList<Libro> result2 = catalogo.ricercaISBN("999-9999999999");
+        ObservableList<Libro> result2 = catalogo.ricercaISBN("978-0000000000");
         assertTrue(result2.isEmpty(), "La ricerca per ISBN inesistente deve restituire una lista vuota.");
         
         // Ricerca per parte di ISBN 

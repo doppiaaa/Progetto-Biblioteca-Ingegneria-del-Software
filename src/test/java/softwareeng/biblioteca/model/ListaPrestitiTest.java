@@ -50,12 +50,12 @@ public class ListaPrestitiTest {
         lista = new ListaPrestiti();
 
         // Setup Utenti
-        utenteLibero = new Utente("Marco", "Neri", "U001", "marco@mail.it");
-        utentePieno = new Utente("Sara", "Gialli", "U002", "sara@mail.it");
+        utenteLibero = new Utente("Marco", "Neri", "0000000001", "marco@mail.it");
+        utentePieno = new Utente("Sara", "Gialli", "0000000002", "sara@mail.it");
         
         // Setup Libri
-        libroDisponibile = new Libro("Libro OK", "Autore OK", "L111", 2000, 5); // 5 copie
-        libroNonDisponibile = new Libro("Libro NO", "Autore NO", "L222", 2000, 1); // 1 copia
+        libroDisponibile = new Libro("Libro OK", "Autore OK", "978-8800000001", 2000, 5); // 5 copie
+        libroNonDisponibile = new Libro("Libro NO", "Autore NO", "978-8800000002", 2000, 1); // 1 copia
         
         // 3 prestiti per riempire l'utentePieno 
         
@@ -264,7 +264,7 @@ public class ListaPrestitiTest {
         assertEquals(1, result2.size(), "La ricerca per libroNonDisponibile deve restituire 1 prestiti.");
         assertTrue(result2.contains(p3));
         
-        Libro fasullo= new Libro("Non", "Ho", "Neanche", 200, 3);
+        Libro fasullo= new Libro("Non", "Ho", "978-0000000000", 200, 3);
         
         ObservableList<Prestito> result3 = lista.ricerca(fasullo);
         assertTrue(result3.isEmpty(), "La ricerca per fasullo deve restituire 0 prestiti.");

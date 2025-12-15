@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 package softwareeng.biblioteca.model;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.io.Serializable;
 import java.lang.Comparable;
+import java.util.regex.Pattern;
 
 /**
  * @file Utente.java
@@ -50,6 +49,15 @@ public class Utente implements Comparable<Utente>, Serializable {
      * @post creazione di un nuovo oggetto Utente
      */
     public Utente(String nome, String cognome, String matricola, String mail) {
+        
+        if (nome == null || nome.trim().isEmpty()) 
+            throw new IllegalArgumentException("Il nome non può essere vuoto.");
+        if (cognome == null || cognome.trim().isEmpty()) 
+            throw new IllegalArgumentException("Il cognome non può essere vuoto.");
+        
+        validaMatricola(matricola);
+        validaEmail(mail);
+        
         this.nome = nome;
         this.cognome = cognome;
         this.matricola = matricola;
@@ -70,13 +78,20 @@ public class Utente implements Comparable<Utente>, Serializable {
         attributi.forEach((chiave, valore) -> {
             switch(chiave.toLowerCase()){
                 case "nome":
-                    this.nome=(String)valore;
+                    String nuovoNome= (String)valore;
+                    if (nuovoNome == null || nuovoNome.trim().isEmpty())
+                        throw new IllegalArgumentException("Il nome non può essere vuoto.");
+                    this.nome = nuovoNome;
                     break;
                 case "cognome":
-                    this.cognome=(String)valore;
+                    String nuovoCognome = (String)valore;
+                    if (nuovoCognome == null || nuovoCognome.trim().isEmpty()) throw new IllegalArgumentException("Il cognome non può essere vuoto.");
+                    this.cognome = nuovoCognome;
                     break;
                 case "mail":
-                    this.mail=(String)valore;     
+                    String nuovaMail = (String)valore;
+                    validaEmail(nuovaMail); 
+                    this.mail = nuovaMail;     
                     break;
            } 
         });
@@ -120,6 +135,21 @@ public class Utente implements Comparable<Utente>, Serializable {
         prestiti.add(p);
     }
 
+    // Metodi privati di validazione
+    private void validaMatricola(String matricola) {
+        // Regex: Esattamente 10 cifre numeriche
+        if (matricola == null || !matricola.matches("\\d{10}")) {
+            throw new IllegalArgumentException("La matricola deve essere composta da esattamente 10 numeri.");
+        }
+    }
+
+    private void validaEmail(String mail) {
+        // Regex semplice per email
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        if (mail == null || !Pattern.matches(emailRegex, mail)) {
+            throw new IllegalArgumentException("Il formato dell'email non è valido.");
+        }
+    }
     /**
      * @brief Rimuove un prestito dalla lista dell'utente.
      *

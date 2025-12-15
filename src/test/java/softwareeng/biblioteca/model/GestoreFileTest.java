@@ -53,8 +53,8 @@ public class GestoreFileTest {
         prestiti = new ListaPrestiti();
 
         // Popolamento dei dati di test (permette di controllare lo stato atteso)
-        l1 = new Libro("Test Libro", "Test Autore", "ISBN-TEST-001", 2024, 2);
-        u1 = new Utente("NomeTest", "CognomeTest", "MATRICOLA-001", "test@mail.it");
+        l1 = new Libro("Test Libro", "Test Autore", "978-1234567890", 2024, 2);
+        u1 = new Utente("NomeTest", "CognomeTest", "9999999999", "test@mail.it");
         
         // Aggiunta nei gestori
         catalogo.aggiungi(l1);

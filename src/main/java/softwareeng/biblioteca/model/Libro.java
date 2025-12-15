@@ -9,6 +9,7 @@ import java.util.Objects;
 import java.io.Serializable;
 import java.lang.Comparable;
 import softwareeng.biblioteca.model.exceptions.EliminazioneNonValidaException;
+import java.time.Year;
 
 
 /**
@@ -51,6 +52,16 @@ public class Libro implements Serializable, Comparable<Libro> {
      * @post copieDisponibili == copieTotali
      */
     public Libro(String titolo, String autore, String isbn, int year, int copieTotali){
+        if (titolo == null || titolo.trim().isEmpty()) 
+            throw new IllegalArgumentException("Il titolo è obbligatorio.");
+        if (autore == null || autore.trim().isEmpty()) 
+            throw new IllegalArgumentException("L'autore è obbligatorio.");
+        if (copieTotali < 0) 
+            throw new IllegalArgumentException("Le copie totali non possono essere negative.");
+        
+        validaISBN(isbn);
+        validaAnno(year);
+        
         this.titolo=titolo;
         this.autore=autore;
         this.isbn=isbn;
@@ -75,13 +86,19 @@ public class Libro implements Serializable, Comparable<Libro> {
         attributi.forEach((chiave, valore) -> {
             switch(chiave.toLowerCase()){
                 case "titolo":
-                    this.titolo=(String)valore;
+                    String nuovoTitolo = (String)valore;
+                    if (nuovoTitolo.trim().isEmpty()) throw new IllegalArgumentException("Il titolo non può essere vuoto");
+                    this.titolo=nuovoTitolo;
                     break;
                 case "autore":
-                    this.autore=(String)valore;
+                    String nuovoAutore = (String)valore;
+                    if (nuovoAutore.trim().isEmpty()) throw new IllegalArgumentException("L'autore non può essere vuoto");
+                    this.autore=nuovoAutore;
                     break;
                 case "year":
-                    this.year=(int)valore;
+                    int nuovoAnno = (int)valore;
+                    validaAnno(nuovoAnno); // Validazione
+                    this.year=nuovoAnno;
                     break;
                 case "copietotali":
                     int nuoveCopie =(int)valore;
@@ -97,6 +114,25 @@ public class Libro implements Serializable, Comparable<Libro> {
            } 
         });
         
+    }
+    
+    // Metodi privati di validazione
+    private void validaAnno(int year) {
+        int annoCorrente = Year.now().getValue();
+        if (year < 0) {
+            throw new IllegalArgumentException("L'anno di pubblicazione non può essere negativo.");
+        }
+        if (year > annoCorrente) {
+            throw new IllegalArgumentException("L'anno di pubblicazione non può essere nel futuro (" + year + ").");
+        }
+    }
+
+    private void validaISBN(String isbn) {
+        // Regex per ISBN-10 o ISBN-13 (semplificato: numeri e trattini, opzionale X finale)
+        // Rimuoviamo trattini per contare le cifre effettive se necessario, ma qui controlliamo il formato base
+        if (isbn == null || !isbn.matches("^(?=(?:[^0-9]*[0-9]){10}(?:(?:[^0-9]*[0-9]){3})?$)[\\d-]+[\\dX]$")) {
+             throw new IllegalArgumentException("Formato ISBN non valido (deve contenere 10 o 13 cifre).");
+        }
     }
 
     /**

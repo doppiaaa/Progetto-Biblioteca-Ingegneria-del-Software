@@ -230,13 +230,12 @@ public class LibriController extends TController<Libro> {
      */
     @Override
     public void clickNuovo(){
-        // 1. Istanzio un nuovo Libro vuoto
-        Libro tempLibro = new Libro("", "", "", 0, 0); 
+        
     
-        // 2. Apro il dialog di modifica passando il nuovo oggetto
-        boolean okClicked = showEditDialog(tempLibro);
+        // Apro il dialog di modifica
+        boolean okClicked = showEditDialog(null);
     
-        // 3. Se l'utente conferma (il salvataggio è gestito internamente al dialog)
+        // Se l'utente conferma (il salvataggio è gestito internamente al dialog)
         if (okClicked) {
              // Ricarica la vista se necessario, resettando i filtri
              gestisciRicercaLibro();
@@ -348,7 +347,7 @@ public class LibriController extends TController<Libro> {
      */
     @Override
     public boolean showEditDialog(){
-        return showEditDialog(new Libro("", "", "", 0, 0));
+        return showEditDialog(null);
     }
 
     /**
@@ -385,9 +384,13 @@ public class LibriController extends TController<Libro> {
         public LibroFormDialog(Libro libro) {
             this.setTitle("Dettagli Libro");
             
-            // Determiniamo la modalità controllando se l'ISBN è presente
-            // (Un libro vuoto creato per "Nuovo" ha ISBN stringa vuota)
-            this.isModifica = (libro.getISBN() != null && !libro.getISBN().isEmpty());
+            // Determiniamo la modalità controllando se è stato passato null
+            if (libro == null) {
+                this.isModifica = false;
+            } else {
+                this.isModifica = true;
+            }
+            
             
             this.setHeaderText(isModifica ? "Modifica Libro" : "Inserisci Nuovo Libro");
             
@@ -400,15 +403,15 @@ public class LibriController extends TController<Libro> {
             grid.setVgap(10);
             
             // Inizializzazione Campi
-            tfTitolo = new TextField(libro.getTitolo());
-            tfAutore = new TextField(libro.getAutore());
-            tfISBN = new TextField(libro.getISBN());
+            tfTitolo = new TextField(libro == null ? "" : libro.getTitolo());
+            tfAutore = new TextField(libro == null ? "" : libro.getAutore());
+            tfISBN = new TextField(libro == null ? "" : libro.getISBN());
             
             // Gestione Anno e Copie (gestione stringa vuota per nuovi inserimenti)
-            String annoStr = (libro.getYear() == 0) ? "" : String.valueOf(libro.getYear());
+            String annoStr = (libro==null) ? "" : String.valueOf(libro.getYear());
             tfAnno = new TextField(annoStr);
             
-            String copieStr = (libro.getCopieTotali() == 0 && !isModifica) ? "" : String.valueOf(libro.getCopieTotali());
+            String copieStr = (libro.getCopieTotali() == 0 && libro==null) ? "" : String.valueOf(libro.getCopieTotali());
             tfCopie = new TextField(copieStr);
 
             // Se è modifica, disabilitiamo l'ISBN (chiave primaria non modificabile)
@@ -444,8 +447,7 @@ public class LibriController extends TController<Libro> {
                         alert.setHeaderText("Impossibile salvare");
                         alert.setContentText(e.getMessage());
                         alert.showAndWait();
-                        // Nota: JavaFX Dialog standard si chiude comunque al return. 
-                        // Per evitarlo servirebbe un Listener sul bottone OK, ma per ora usiamo Alert.
+                        
                         return null; 
                     }
                 }

@@ -40,9 +40,9 @@ public class ListaUtentiTest {
         lista = new ListaUtenti();
         
         // Creazione di utenti di test
-        u1 = new Utente("Andrea", "Bianchi", "M001", "a.bianchi@mail.it");
-        u2 = new Utente("Giulia", "Rossi", "M002", "g.rossi@mail.it");
-        u3 = new Utente("Mario", "Verdi", "M003", "m.verdi@mail.it");
+        u1 = new Utente("Andrea", "Bianchi", "0000000001", "a.bianchi@mail.it");
+        u2 = new Utente("Giulia", "Rossi", "0000000002", "g.rossi@mail.it");
+        u3 = new Utente("Mario", "Verdi", "0000000003", "m.verdi@mail.it");
         
         // Aggiunge u1 e u2 alla lista per i test (2 elementi in lista)
         lista.aggiungi(u1);
@@ -100,7 +100,7 @@ public class ListaUtentiTest {
         
         
         //Rimuovi con Eccezione
-        Libro libroFittizio = new Libro("Test Prestito", "Fittizio", "999-9999999999", 2024, 1);
+        Libro libroFittizio = new Libro("Test Prestito", "Fittizio", "978-0000000001", 2024, 1);
         
         
         Prestito p = new Prestito(u1, libroFittizio, LocalDate.now().plusDays(10));
@@ -128,7 +128,7 @@ public class ListaUtentiTest {
         System.out.println("checkID");
         
         String idEsistente = u1.getMatricola();
-        String idNonEsistente = "M999"; 
+        String idNonEsistente = "0000000099"; 
         
         // Verifica che l'ID esistente sia rilevato (true)
         assertTrue(lista.checkID(idEsistente), "La matricola esistente deve essere trovata.");
@@ -167,8 +167,8 @@ public class ListaUtentiTest {
     public void testRicercaMatricola() {
         System.out.println("ricercaMatricola");
         //Ricerca per matricola completo (case-insensitive)
-        ObservableList<Utente> result1 = lista.ricercaMatricola("m002");
-        assertEquals(1, result1.size(), "La ricerca per 'm002' (completa) deve restituire 1 risultato.");
+        ObservableList<Utente> result1 = lista.ricercaMatricola("0000000002");
+        assertEquals(1, result1.size(), "La ricerca per '0000000002' (completa) deve restituire 1 risultato.");
         assertTrue(result1.contains(u2), "Il risultato deve essere u2.");
 
         //Ricerca per parte di matricola (case-insensitive)

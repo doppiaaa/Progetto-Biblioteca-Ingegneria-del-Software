@@ -200,11 +200,10 @@ public class UtentiController extends TController<Utente> {
      */
     @Override
     public void clickNuovo(){
-        // Crea un utente temporaneo vuoto
-        Utente tempUtente = new Utente("", "", "", "");
         
-        // Apre il dialog (la logica di aggiunta è delegata alla inner class)
-        boolean okClicked = showEditDialog(tempUtente);
+        
+        // Apre il dialog 
+        boolean okClicked = showEditDialog();
         
         if (okClicked) {
             // Refresh per assicurarsi che il nuovo elemento sia visibile (specie se c'erano filtri)
@@ -293,7 +292,7 @@ public class UtentiController extends TController<Utente> {
      */
     @Override    
     public boolean showEditDialog(){
-        return showEditDialog(new Utente("", "", "", ""));
+        return showEditDialog(null);
     }
     
     /**
@@ -325,8 +324,11 @@ public class UtentiController extends TController<Utente> {
         public UtenteFormDialog(Utente utente) {
             this.setTitle("Dettagli Utente");
             
-            // Se la matricola è piena, stiamo modificando (Matricola = ID)
-            this.isModifica = (utente.getMatricola() != null && !utente.getMatricola().isEmpty());
+            if (utente == null) {
+                this.isModifica = false;
+            } else {
+                this.isModifica = true;
+            }
             this.setHeaderText(isModifica ? "Modifica Utente" : "Nuovo Utente");
             
             this.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
@@ -335,10 +337,10 @@ public class UtentiController extends TController<Utente> {
             grid.setHgap(10);
             grid.setVgap(10);
             
-            tfNome = new TextField(utente.getNome());
-            tfCognome = new TextField(utente.getCognome());
-            tfMatricola = new TextField(utente.getMatricola());
-            tfMail = new TextField(utente.getMail());
+            tfNome = new TextField(utente == null ? "" : utente.getNome());
+            tfCognome = new TextField(utente == null ? "" : utente.getCognome());
+            tfMatricola = new TextField(utente == null ? "" : utente.getMatricola());
+            tfMail = new TextField(utente == null ? "" : utente.getMail());
             
             // Matricola non modificabile se l'utente esiste già
             if (isModifica) {
