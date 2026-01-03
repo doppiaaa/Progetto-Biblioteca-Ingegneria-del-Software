@@ -32,10 +32,10 @@ Progetto di Ingegneria del Software: applicazione di gestione di una biblioteca
 * **Aggiornamenti (se necessari)**
 
 ## 4. Implementazione e testing (Scadenza 15 Dicembre)
-* **Implementazione:** implementare le classi precedentemente progettate ⏳.
-* **Unit Testing:** realizzare **Unit test automatizzati** tramite **JUnit** per tutte le classi (a eccezzione di quelle relative all'interfaccia utente) ⏳.
-* **Controllo test**: assicurarsi che tutti i test siano superati con successo ⏳.
-* **Revisione Documenti**: revisionare tutta la documentazione ⏳.
+* **Implementazione:** implementare le classi precedentemente progettate ✅.
+* **Unit Testing:** realizzare **Unit test automatizzati** tramite **JUnit** per tutte le classi (a eccezzione di quelle relative all'interfaccia utente) ✅.
+* **Controllo test**: assicurarsi che tutti i test siano superati con successo ✅.
+* **Revisione Documenti**: revisionare tutta la documentazione ✅.
 
 ## 5. Discussione e presentazione del Progetto (16 - 19 Dicembre)
 **Durata 8 minuti, bisogna illustrare:**
